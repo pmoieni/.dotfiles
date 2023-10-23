@@ -3,6 +3,7 @@
 ln -s ~/.dotfiles/alacritty ~/.config/alacritty
 ln -s ~/.dotfiles/wezterm ~/.config/wezterm
 ln -s ~/.dotfiles/hypr ~/.config/hypr
+ln -s ~/.dotfiles/swaylock ~/.config/swaylock
 ln -s ~/.dotfiles/qt5ct ~/.config/qt5ct
 ln -s ~/.dotfiles/wal ~/.config/wal
 ln -s ~/.dotfiles/waybar ~/.config/waybar

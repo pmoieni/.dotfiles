@@ -30,7 +30,7 @@
 @define-color rosewater #f5e0dc;
 
 * {
-    font-family: Noto Sans, Font Awesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: JetBrains Mono, Font Awesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 1rem;
     font-weight: bold;
 	margin: 0;
