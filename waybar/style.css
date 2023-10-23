@@ -1,0 +1,165 @@
+@define-color base   #1e1e2e;
+@define-color mantle #181825;
+@define-color crust  #11111b;
+
+@define-color text     #cdd6f4;
+@define-color subtext0 #a6adc8;
+@define-color subtext1 #bac2de;
+
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color surface2 #585b70;
+
+@define-color overlay0 #6c7086;
+@define-color overlay1 #7f849c;
+@define-color overlay2 #9399b2;
+
+@define-color blue      #89b4fa;
+@define-color lavender  #b4befe;
+@define-color sapphire  #74c7ec;
+@define-color sky       #89dceb;
+@define-color teal      #94e2d5;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color peach     #fab387;
+@define-color maroon    #eba0ac;
+@define-color red       #f38ba8;
+@define-color mauve     #cba6f7;
+@define-color pink      #f5c2e7;
+@define-color flamingo  #f2cdcd;
+@define-color rosewater #f5e0dc;
+
+* {
+    font-family: Noto Sans, Font Awesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+	margin: 0;
+	padding: 0;
+	color: @text;
+}
+
+window#waybar {
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+button {
+	all: unset;
+	min-height: 2rem;
+	border-color: @blue;
+	margin: 0 0.2rem;
+}
+
+button.active {
+	background-color: @blue;
+}
+
+button,
+#window,
+#clock,
+#battery,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#idle_inhibitor {
+    background-color: @base;
+	padding: 0 1rem;
+	border-radius: 0.5rem;
+	border-width: 2px;
+	border-style: solid;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#window {
+	border-color: @lavender;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#clock {
+	border-color: @red;
+}
+
+#idle_inhibitor {
+	border-color: @maroon;
+}
+
+#idle_inhibitor.activated {
+    background-color: @maroon;
+    color: @base;
+}
+
+#battery {
+	border-color: @peach;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #8b0000;
+    color: #1d2021;
+}
+
+#network {
+ 	border-color: @yellow;
+}
+
+#network.disconnected {
+    background-color: #8b0000;
+}
+
+#backlight {
+	border-color: @green;
+}
+
+#temperature.critical {
+    background-color: #8b0000;
+}
+
+#resources {
+	background-color: @base;
+	border-radius: 0.5rem;
+	border-width: 2px;
+	border-style: solid;
+	border-color: @teal;
+}
+
+#cpu,
+#memory,
+#temperature {
+	padding: 0 0.5rem;
+}
+
+#pulseaudio {
+	border-color: @sky;
+}
+
+#tray {
+	border-color: @sapphire;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+tooltip {
+  background-color: @base;
+}
