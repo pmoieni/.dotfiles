@@ -4,9 +4,9 @@
 	"margin-top": 4,
 	"margin-left": 4,
 	"margin-right": 4,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "tray"],
     //"modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "pulseaudio", "group/resources", "backlight", "network", "battery", "idle_inhibitor", "clock"],
+    "modules-right": ["pulseaudio", "group/resources", "backlight", "network", "custom/swaync", "battery", "idle_inhibitor", "clock"],
 	"wlr/workspaces": {
 		"on-click": "activate",
     },
@@ -27,6 +27,12 @@
         "tooltip": true,
         "format-alt": "{:%B %d, %Y}",
 	    "format": "{:%I:%M %p}"
+    },
+	"custom/swaync": {
+		"format": "",
+		"on-click": "sleep 0.5 && swaync-client -t", // bug in hyprland, needs sleep to work properly
+    	"on-click-right": "swaync-client -C",
+		"tooltip": false,
     },
 	"group/resources": {
 		"orientation": "horizontal",
