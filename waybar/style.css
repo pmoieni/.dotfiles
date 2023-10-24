@@ -30,32 +30,34 @@
 @define-color rosewater #f5e0dc;
 
 * {
-  font-family: JetBrains Mono;
-  font-size: 1rem;
+  	font-family: JetBrains Mono;
+  	font-size: 1rem;
+  	transition: all 0.3s cubic-bezier(0.05, 0.9, 0.1, 1.05);
 }
 
 window#waybar {
-  background: transparent;
+  	background: transparent;
 }
 
 #workspaces {
-  border-radius: 0.5rem;
-  background-color: @base;
-  border: 2px solid @surface0;
+  	border-radius: 0.5rem;
+  	background-color: @base;
+  	border: 2px solid @surface0;
 }
 
 #workspaces button {
-  color: @blue;
-  border-radius: 0.5rem;
-  background-color: transparent;
+  	padding: 0.5rem 1rem;
+  	color: @blue;
+  	border-radius: 0;
+  	background-color: transparent;
 }
 
 #workspaces button.active {
-  color: @red;
+  	color: @red;
 }
 
 #workspaces button:hover {
-  background-color: @surface0;
+  	background-color: @surface0;
 }
 
 #tray,
@@ -98,7 +100,7 @@ window#waybar {
 }
 
 #backlight {
-  color: @peach;
+  	color: @peach;
 }
 
 #battery {
@@ -106,11 +108,11 @@ window#waybar {
 }
 
 #battery.charging {
-  color: @green;
+  	color: @green;
 }
 
 #battery.warning:not(.charging) {
-  color: @red;
+  	color: @red;
 }
 
 #network {
@@ -123,7 +125,7 @@ window#waybar {
 
 tooltip {
     background: @base;
-    border: 1px solid @pink;
+    border: 1px solid @blue;
 }
 
 tooltip label {
