@@ -6,7 +6,7 @@
 	"margin-right": 4,
     "modules-left": ["hyprland/workspaces", "tray"],
     //"modules-center": ["hyprland/window"],
-    "modules-right": ["custom/swaync", "idle_inhibitor", "group/system", "clock"],
+    "modules-right": ["custom/swaync", "idle_inhibitor", "group/system", "clock", "custom/exit"],
 	"group/system": {
 		"orientation": "horizontal",
 		"modules": [
@@ -38,6 +38,11 @@
         "tooltip": true,
         "format-alt": "{:%B %d, %Y}",
 	    "format": "{:%I:%M %p}"
+    },
+	"custom/exit": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
     },
 	"custom/swaync": {
 		"format": "",

@@ -63,6 +63,7 @@ window#waybar {
 #tray,
 #custom-swaync,
 #clock,
+#custom-exit,
 #idle_inhibitor {
 	background-color: @base;
 	padding: 0 1rem;
@@ -71,11 +72,11 @@ window#waybar {
 }
 
 #custom-swaync {
-	color: @sky;
+	color: @lavender;
 }
 
 #idle_inhibitor {
-	color: @green;
+	color: @sky;
 }
 
 #system {
@@ -92,7 +93,7 @@ window#waybar {
 }
 
 #pulseaudio {
-	color: @peach;
+	color: @green;
 }
 
 #pulseaudio.muted {
@@ -100,11 +101,11 @@ window#waybar {
 }
 
 #backlight {
-  	color: @peach;
+  	color: @green;
 }
 
 #battery {
-	color: @peach;
+	color: @green;
 }
 
 #battery.charging {
@@ -116,10 +117,14 @@ window#waybar {
 }
 
 #network {
-    color: @peach;
+    color: @green;
 }
 
 #clock {
+	color: @peach;
+}
+
+#custom-exit {
 	color: @red;
 }
 
