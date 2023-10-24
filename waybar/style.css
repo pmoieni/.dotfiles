@@ -120,6 +120,10 @@ window#waybar {
     color: @green;
 }
 
+#network.disconnected {
+	color: @red;
+}
+
 #clock {
 	color: @peach;
 }
