@@ -1,12 +1,22 @@
+// vim: ft=json
 {
-    "layer": "top",
+	"layer": "top",
 	"spacing": 4,
 	"margin-top": 4,
 	"margin-left": 4,
 	"margin-right": 4,
-    "modules-left": ["hyprland/workspaces", "tray"],
-    //"modules-center": ["hyprland/window"],
-    "modules-right": ["custom/swaync", "idle_inhibitor", "group/system", "clock", "custom/exit"],
+	"modules-left": [
+		"hyprland/workspaces",
+		"tray",
+		"group/media"
+	],
+	"modules-right": [
+		"custom/swaync",
+		"idle_inhibitor",
+		"group/system",
+		"clock",
+		"custom/exit"
+	],
 	"group/system": {
 		"orientation": "horizontal",
 		"modules": [
@@ -14,92 +24,134 @@
 			"backlight",
 			"battery",
 			"network"
-		],
+		]
 	},
 	"hyprland/workspaces": {
 		"on-click": "activate",
-        "format": "{icon}",
-        "format-icons": {"default": ""}
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "{:%H:%M}",
-        "tooltip": true,
-        "format-alt": "{:%B %d, %Y}",
-	    "format": "{:%I:%M %p}"
-    },
+		"format": "{icon}",
+		"format-icons": {
+			"default": ""
+		}
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"tray": {
+		"spacing": 10
+	},
+	"clock": {
+		"tooltip-format": "{:%H:%M}",
+		"tooltip": true,
+		"format-alt": "{:%B %d, %Y}",
+		"format": "{:%I:%M %p}"
+	},
 	"custom/exit": {
-        "format": "",
-        "on-click": "wlogout",
-        "tooltip": false
-    },
+		"format": "",
+		"on-click": "wlogout",
+		"tooltip": false
+	},
 	"custom/swaync": {
-		"format": "",
-		"on-click": "sleep 0.5 && swaync-client -t", // bug in hyprland, needs sleep to work properly
-    	"on-click-right": "swaync-client -C",
-		"tooltip": false,
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "tooltip-format": "Left click to save brightness.",
-	    "on-click": "~/.config/waybar/scripts/save_brightness.sh",
-	    "on-click-right": "~/.config/waybar/scripts/load_brightness.sh",
-    },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}%  ",
-        "format-plugged": "{capacity}%  ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "]
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-		"on-click": "wezterm -e nmtui",
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
+		"format": "",
+		"on-click": "sleep 0.5 && swaync-client -t",
+		"on-click-right": "swaync-client -C",
+		"tooltip": false
+	},
+	"backlight": {
+		"format": "{percent}% {icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip-format": "Left click to save brightness.",
+		"on-click": "~/.config/waybar/scripts/save_brightness.sh",
+		"on-click-right": "~/.config/waybar/scripts/load_brightness.sh"
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-charging": "{capacity}%  ",
+		"format-plugged": "{capacity}%  ",
+		"format-alt": "{time} {icon}",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		]
+	},
+	"network": {
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "{ipaddr}/{cidr} ",
+		"tooltip-format": "{ifname} via {gwaddr} ",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "Disconnected ⚠",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}",
+		"on-click": "wezterm -e nmtui"
+	},
+	"pulseaudio": {
+		"format": "{volume}% {icon} {format_source}",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pavucontrol"
+	},
+	"group/media": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/mprisprev",
+			"mpris",
+			"custom/mprisnext"
+		]
+	},
+	"mpris": {
+		"format": "{player_icon} {dynamic}",
+		"format-paused": "{status_icon} <i>{dynamic}</i>",
+		"player-icons": {
+			"default": "▶"
+		},
+		"status-icons": {
+			"paused": ""
+		},
+		"on-click": "playerctl play-pause"
+	},
+	"custom/mprisnext": {
+		"format": "",
+		"on-click": "playerctl next",
+		"tooltip": false
+	},
+	"custom/mprisprev": {
+		"format": "",
+		"on-click": "playerctl previous",
+		"tooltip": false
+	}
 }
-

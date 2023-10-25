@@ -46,10 +46,10 @@ window#waybar {
 }
 
 #workspaces button {
-  	padding: 0.5rem 1rem;
   	color: @blue;
   	border-radius: 0;
   	background-color: transparent;
+	border: none;
 }
 
 #workspaces button.active {
@@ -64,19 +64,33 @@ window#waybar {
 #custom-swaync,
 #clock,
 #custom-exit,
-#idle_inhibitor {
+#idle_inhibitor,
+#media {
 	background-color: @base;
 	padding: 0 1rem;
 	border-radius: 0.5rem;
 	border: 2px solid @surface0;
 }
 
-#custom-swaync {
+#media {
 	color: @lavender;
 }
 
-#idle_inhibitor {
+#mpris {
+	padding: 0 0.5rem;
+}
+
+#custom-mprisprev,
+#custom-mprisnext {
+	padding: 0 0.5rem;
+}
+
+#custom-swaync {
 	color: @sky;
+}
+
+#idle_inhibitor {
+	color: @green;
 }
 
 #system {
@@ -93,7 +107,7 @@ window#waybar {
 }
 
 #pulseaudio {
-	color: @green;
+	color: @peach;
 }
 
 #pulseaudio.muted {
@@ -101,11 +115,11 @@ window#waybar {
 }
 
 #backlight {
-  	color: @green;
+  	color: @peach;
 }
 
 #battery {
-	color: @green;
+	color: @peach;
 }
 
 #battery.charging {
@@ -117,7 +131,7 @@ window#waybar {
 }
 
 #network {
-    color: @green;
+    color: @peach;
 }
 
 #network.disconnected {
@@ -125,7 +139,7 @@ window#waybar {
 }
 
 #clock {
-	color: @peach;
+	color: @maroon;
 }
 
 #custom-exit {
