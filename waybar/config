@@ -8,7 +8,7 @@
 	"modules-left": [
 		"hyprland/workspaces",
 		"tray",
-		"group/media"
+		"mpris"
 	],
 	"modules-right": [
 		"custom/swaync",
@@ -125,14 +125,6 @@
 		},
 		"on-click": "pavucontrol"
 	},
-	"group/media": {
-		"orientation": "horizontal",
-		"modules": [
-			"custom/mprisprev",
-			"mpris",
-			"custom/mprisnext"
-		]
-	},
 	"mpris": {
 		"format": "{player_icon} {dynamic}",
 		"format-paused": "{status_icon} <i>{dynamic}</i>",
@@ -143,15 +135,5 @@
 			"paused": ""
 		},
 		"on-click": "playerctl play-pause"
-	},
-	"custom/mprisnext": {
-		"format": "",
-		"on-click": "playerctl next",
-		"tooltip": false
-	},
-	"custom/mprisprev": {
-		"format": "",
-		"on-click": "playerctl previous",
-		"tooltip": false
 	}
 }

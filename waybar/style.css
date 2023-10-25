@@ -65,24 +65,15 @@ window#waybar {
 #clock,
 #custom-exit,
 #idle_inhibitor,
-#media {
+#mpris {
 	background-color: @base;
 	padding: 0 1rem;
 	border-radius: 0.5rem;
 	border: 2px solid @surface0;
 }
 
-#media {
-	color: @lavender;
-}
-
 #mpris {
-	padding: 0 0.5rem;
-}
-
-#custom-mprisprev,
-#custom-mprisnext {
-	padding: 0 0.5rem;
+	color: @lavender;
 }
 
 #custom-swaync {
