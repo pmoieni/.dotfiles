@@ -24,8 +24,6 @@ config.window_padding = {
 
 config.enable_tab_bar = false
 
-config.disable_default_key_bindings = true
-
 config.set_environment_variables = {
 	TERM = 'xterm-256color'
 }

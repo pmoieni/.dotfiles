@@ -60,7 +60,7 @@ return {
 				keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
 				opts.desc = "Show LSP definitions"
-				keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+				keymap.set("n", "gd", vim.diagnostic.open_float, opts) -- show lsp definitions
 
 				opts.desc = "Show LSP implementations"
 				keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
@@ -99,6 +99,7 @@ return {
 					"rust_analyzer",
 					"gopls",
 					"lua_ls",
+					"pylsp",
 				},
 				handlers = {
 					lsp.default_setup,
