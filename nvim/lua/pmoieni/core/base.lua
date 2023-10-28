@@ -15,6 +15,7 @@ vim.opt.breakindent = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.mouse = "a"
+vim.opt.cmdheight = 0
 
 -- map leader to <space>
 vim.g.mapleader = " "
