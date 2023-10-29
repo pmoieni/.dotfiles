@@ -1,94 +1,60 @@
-/* Mocha Blue */
-@define-color accent #89b4fa;
-@define-color txt #cad3f5;
-@define-color bg #24273a;
-@define-color bg2 #494d64;
-
- * {
-    font-family: 'JetBrains Mono Nerd Font', monospace;
-    font-size: 14px;
- }
-
- /* Window */
- window {
+window {
     margin: 0px;
-    padding: 10px;
-    border: 3px solid @accent;
-    border-radius: 7px;
-    background-color: @bg;
-    animation: slideIn 0.5s ease-in-out both;
- }
+    background-color: #191724;
+    border-radius: 0.5rem;
+    border: 2px solid #eb6f92;
+    color: #e0def4;
+    font-family: JetBrains Mono;
+    font-size: 20px;
+}
 
- /* Slide In */
- @keyframes slideIn {
-    0% {
-       opacity: 0;
-    }
-
-    100% {
-       opacity: 1;
-    }
- }
-
- /* Inner Box */
- #inner-box {
+#input {
     margin: 5px;
-    padding: 10px;
     border: none;
-    background-color: @bg;
-    animation: fadeIn 0.5s ease-in-out both;
- }
+    border-radius: 0.5rem;
+    color: #eb6f92;
+    background-color: #26233a;
+    padding: 1rem;
+}
 
- /* Fade In */
- @keyframes fadeIn {
-    0% {
-       opacity: 0;
-    }
-
-    100% {
-       opacity: 1;
-    }
- }
-
- /* Outer Box */
- #outer-box {
+#inner-box {
     margin: 5px;
-    padding: 10px;
     border: none;
-    background-color: @bg;
- }
+    background-color: #26233a;
+    color: #191724;
+    border-radius: 0.5rem;
+}
 
- /* Scroll */
- #scroll {
+#outer-box {
+    margin: 15px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #191724;
+}
+
+#scroll {
     margin: 0px;
-    padding: 10px;
     border: none;
- }
+}
 
- /* Input */
- #input {
+#text {
     margin: 5px;
-    padding: 10px;
     border: none;
-    color: @accent;
-    background-color: @bg2;
-    animation: fadeIn 0.5s ease-in-out both;
- }
+    color: #e0def4;
+} 
 
- /* Text */
- #text {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    color: @txt;
-    animation: fadeIn 0.5s ease-in-out both;
- }
+#entry {
+    border-radius: 0.5rem;
+    outline: none;
+    margin: 0.5rem;
+}
 
- /* Selected Entry */
- #entry:selected {
-   background-color: @accent;
- }
+#entry:selected {
+    background-color: #eb6f92;
+    color: #191724;
+}
 
- #entry:selected #text {
-    color: @bg2;
- }
+#entry:selected * {
+    background-color: #eb6f92;
+    color: #191724;
+}
