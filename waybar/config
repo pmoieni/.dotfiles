@@ -8,7 +8,7 @@
 	"modules-left": [
 		"hyprland/workspaces",
 		"tray",
-		"mpris"
+		"custom/media"
 	],
 	"modules-right": [
 		"custom/swaync",
@@ -123,15 +123,17 @@
 		},
 		"on-click": "pavucontrol"
 	},
-	"mpris": {
-		"format": "{player_icon} {dynamic}",
-		"format-paused": "{status_icon} <i>{dynamic}</i>",
-		"player-icons": {
-			"default": "▶"
+	"custom/media": {
+		"format": "{icon}{}",
+		"return-type": "json",
+		"format-icons": {
+			"Playing": " ",
+			"Paused": " "
 		},
-		"status-icons": {
-			"paused": ""
-		},
-		"on-click": "playerctl play-pause"
+		"max-length": 80,
+		"exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+		"on-click": "playerctl play-pause",
+		"on-click-middle": "playerctl previous",
+		"on-click-right": "playerctl next"
 	}
 }
