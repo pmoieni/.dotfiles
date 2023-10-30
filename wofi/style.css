@@ -5,7 +5,7 @@ window {
     border: 2px solid #eb6f92;
     color: #e0def4;
     font-family: JetBrains Mono;
-    font-size: 20px;
+    font-size: 1rem;
 }
 
 #input {
@@ -47,6 +47,7 @@ window {
     border-radius: 0.5rem;
     outline: none;
     margin: 0.5rem;
+    padding: 1rem;
 }
 
 #entry:selected {

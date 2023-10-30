@@ -10,13 +10,13 @@
 }
 
 window#waybar {
-  	background: transparent;
+  	background: @base;
+    border-radius: 0.5rem;
 }
 
 #workspaces {
   	border-radius: 0.5rem;
   	background-color: @base;
-  	border: 2px solid @overlay;
 }
 
 #workspaces button {
@@ -43,7 +43,6 @@ window#waybar {
 	background-color: @base;
 	padding: 0 1rem;
 	border-radius: 0.5rem;
-	border: 2px solid @overlay;
 }
 
 #custom-media {
@@ -61,7 +60,6 @@ window#waybar {
 #system {
 	background-color: @base;
 	border-radius: 0.5rem;
-	border: 2px solid @overlay;
 }
 
 #pulseaudio,
