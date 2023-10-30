@@ -4,6 +4,7 @@
 @import "./rose-pine.css";
 
 * {
+    all: unset;
   	font-family: JetBrains Mono, Font Awesome;
   	font-size: 1rem;
   	transition: all 0.3s cubic-bezier(0.05, 0.9, 0.1, 1.05);
@@ -24,6 +25,7 @@ window#waybar {
   	border-radius: 0;
   	background-color: transparent;
 	border: none;
+    padding: 1rem;
 }
 
 #workspaces button.active {
@@ -41,7 +43,7 @@ window#waybar {
 #idle_inhibitor,
 #custom-media {
 	background-color: @base;
-	padding: 0 1rem;
+	padding: 1rem;
 	border-radius: 0.5rem;
 }
 
@@ -60,6 +62,7 @@ window#waybar {
 #system {
 	background-color: @base;
 	border-radius: 0.5rem;
+	padding: 1rem 0;
 }
 
 #pulseaudio,
