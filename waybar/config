@@ -52,7 +52,7 @@
         "format": "{:%I:%M %p}"
     },
     "custom/exit": {
-        "format": "",
+        "format": " ",
         "on-click": "wlogout",
         "tooltip": false
     },

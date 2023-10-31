@@ -24,7 +24,7 @@ window#waybar {
   	border-radius: 0;
   	background-color: transparent;
 	border: none;
-    padding: 0.7rem;
+    padding: 0.5rem;
 }
 
 #workspaces button.active {
@@ -42,7 +42,7 @@ window#waybar {
 #idle_inhibitor,
 #custom-media {
 	background-color: @base;
-	padding: 0.7rem;
+	padding: 0.5rem;
 	border-radius: 0.5rem;
 }
 
@@ -61,7 +61,7 @@ window#waybar {
 #system {
 	background-color: @base;
 	border-radius: 0.5rem;
-	padding: 0.7rem 0;
+	padding: 0.5rem 0;
 }
 
 #pulseaudio,
@@ -113,7 +113,8 @@ window#waybar {
 
 tooltip {
     background: @base;
-    border: 1px solid @overlay;
+    border: 2px solid @overlay;
+    border-radius: 0.5rem;
 }
 
 tooltip label {
