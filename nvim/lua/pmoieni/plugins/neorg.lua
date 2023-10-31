@@ -2,8 +2,10 @@ return {
 	"nvim-neorg/neorg",
 	build = ":Neorg sync-parsers",
 	dependencies = { "nvim-lua/plenary.nvim" },
+	lazy = true,
+	ft = { "norg" },
 	config = function()
-		require("neorg").setup {
+		require("neorg").setup({
 			load = {
 				["core.defaults"] = {},
 				["core.concealer"] = {},
@@ -16,6 +18,6 @@ return {
 					},
 				},
 			},
-		}
+		})
 	end,
 }
