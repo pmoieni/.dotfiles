@@ -53,5 +53,5 @@ return {
 
 		opts.desc = "Resume"
 		keymap.set("n", "<leader><leader>", "<cmd>Telescope resume<CR>", opts)
-	end
+	end,
 }
