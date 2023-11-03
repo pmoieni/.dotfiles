@@ -1,13 +1,20 @@
-P = function(v)
-    print(vim.inspect(v))
-    return v
+local reload_module = function(...)
+	return require("plenary.reload").reload_module(...)
 end
 
-RELOAD = function(...)
-    return require("plenary.reload").reload_module(...)
+local require_module = function()
+	local name = vim.fn.input("Module name: ")
+
+	if not name or name == "" then
+		vim.print("no name was provided")
+		return
+	end
+
+	reload_module(name)
+	return require(name)
 end
 
-R = function(name)
-    RELOAD(name)
-    return require(name)
-end
+return {
+	reload_module = reload_module,
+	require_module = require_module,
+}
