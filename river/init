@@ -132,6 +132,8 @@ kanshi &
 killall variety
 variety &
 
+swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f' &
+
 riverctl hide-cursor timeout 5000
 riverctl xcursor-theme "Catppuccin-Mocha-Dark-Cursors" 24 &
 
