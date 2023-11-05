@@ -134,6 +134,7 @@ variety &
 
 swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f' &
 
+riverctl keyboard-layout -options "grp:win_space_toggle" "us,ir"
 riverctl hide-cursor timeout 5000
 riverctl xcursor-theme "Catppuccin-Mocha-Dark-Cursors" 24 &
 
