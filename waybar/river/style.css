@@ -1,0 +1,123 @@
+@define-color green     #a6e3a1;
+@define-color red       #f38ba8;
+
+@import "./rose-pine.css";
+
+* {
+  font-family:
+    JetBrains Mono,
+    Font Awesome;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.05, 0.9, 0.1, 1.05);
+}
+
+window#waybar {
+  background: @base;
+  border-radius: 0.5rem;
+}
+
+#tags {
+  border-radius: 0.5rem;
+  background-color: @base;
+}
+
+#tags button {
+  color: @iris;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+}
+
+#tags button.focused {
+  color: @love;
+}
+
+#tags button:hover {
+  background-color: @overlay;
+}
+
+#tray,
+#custom-swaync,
+#clock,
+#custom-exit,
+#idle_inhibitor,
+#custom-media {
+  background-color: @base;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#custom-media {
+  color: @iris;
+}
+
+#custom-swaync {
+  color: @foam;
+}
+
+#idle_inhibitor {
+  color: @pine;
+}
+
+#system {
+  background-color: @base;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+#pulseaudio,
+#backlight,
+#battery,
+#network {
+  padding: 0 0.8rem;
+}
+
+#pulseaudio {
+  color: @rose;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#backlight {
+  color: @rose;
+}
+
+#battery {
+  color: @rose;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#network {
+  color: @rose;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+#clock {
+  color: @gold;
+}
+
+#custom-exit {
+  color: @love;
+}
+
+tooltip {
+  background: @base;
+  border: 2px solid @overlay;
+}
+
+tooltip label {
+  color: @text;
+}

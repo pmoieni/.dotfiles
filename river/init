@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+
+riverctl map normal Super Q spawn wezterm
+riverctl map normal Super X close
+riverctl map normal Super+Shift E exit
+
+# Super+J and Super+K to focus the next/previous view in the layout stack
+riverctl map normal Super J focus-view next
+riverctl map normal Super K focus-view previous
+
+# Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
+# view in the layout stack
+riverctl map normal Super+Shift J swap next
+riverctl map normal Super+Shift K swap previous
+
+# Super+Return to bump the focused view to the top of the layout stack
+riverctl map normal Super Return zoom
+
+# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
+riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+
+# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
+riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+
+# Super+Alt+{H,J,K,L} to move views
+riverctl map normal Super+Alt H move left 100
+riverctl map normal Super+Alt J move down 100
+riverctl map normal Super+Alt K move up 100
+riverctl map normal Super+Alt L move right 100
+
+# Super+Alt+Control+{H,J,K,L} to snap views to screen edges
+riverctl map normal Super+Alt+Control H snap left
+riverctl map normal Super+Alt+Control J snap down
+riverctl map normal Super+Alt+Control K snap up
+riverctl map normal Super+Alt+Control L snap right
+
+# Super+Alt+Shift+{H,J,K,L} to resize views
+riverctl map normal Super+Alt+Shift H resize horizontal -100
+riverctl map normal Super+Alt+Shift J resize vertical 100
+riverctl map normal Super+Alt+Shift K resize vertical -100
+riverctl map normal Super+Alt+Shift L resize horizontal 100
+
+# Super + Left Mouse Button to move views
+riverctl map-pointer normal Super BTN_LEFT move-view
+
+# Super + Shift + Right Mouse Button to resize views
+riverctl map-pointer normal Super+Shift BTN_LEFT resize-view
+
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Super+[1-9] to focus tag [0-8]
+    riverctl map normal Super $i set-focused-tags $tags
+
+    # Super+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal Super+Shift $i set-view-tags $tags
+
+    # Super+Control+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal Super+Control $i toggle-focused-tags $tags
+
+    # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+done
+
+# Super+0 to focus all tags
+# Super+Shift+0 to tag focused view with all tags
+all_tags=$(((1 << 32) - 1))
+riverctl map normal Super 0 set-focused-tags $all_tags
+riverctl map normal Super+Shift 0 set-view-tags $all_tags
+
+# Super+Space to toggle float
+riverctl map normal Super+Shift F toggle-float
+
+# Super+F to toggle fullscreen
+riverctl map normal Super F toggle-fullscreen
+
+# Super+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
+riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
+riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
+
+riverctl map normal Super Escape spawn "wlogout"
+riverctl map normal Super E spawn "dolphin"
+riverctl map normal Super R spawn "wofi --show run"
+riverctl map normal Super D spawn "wofi --show drun"
+riverctl map normal Super W spawn "killall -SIGUSR1 waybar"
+riverctl map normal Super+Shift W spawn "killall -SIGUSR2 waybar"
+riverctl map normal Super V spawn "cliphist list | wofi --dmenu | cliphist decode | wl-copy" 
+riverctl map normal Super P spawn "grim - | wl-copy"
+riverctl map normal Super+Shift P spawn "grim -g \$(slurp) - | wl-copy"
+
+# Set background and border color
+riverctl background-color 0x191724
+riverctl border-color-focused 0xebbcba
+riverctl border-color-unfocused 0x6e6a86
+
+# Set keyboard repeat rate
+riverctl set-repeat 50 300
+
+# Make all views with an app-id that starts with "float" and title "foo" start floating.
+# riverctl rule-add -app-id 'float*' -title 'foo' float
+
+# Make all views with app-id "bar" and any title use client-side decorations
+# riverctl rule-add -app-id "bar" csd
+
+for pad in $(riverctl list-inputs | grep -i touchpad )
+do
+  riverctl input $pad events enabled
+  riverctl input $pad natural-scroll enabled
+  riverctl input $pad tap enabled
+done
+
+killall polkit-kde-authentication-agent-1
+/usr/lib/polkit-kde-authentication-agent-1 &
+
+killall waybar
+waybar -c ~/.config/waybar/river/config -s ~/.config/waybar/river/style.css &
+
+killall swaync
+swaync -c ~/.config/swaync/config -s ~/.config/swaync/style.css &
+
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
+
+killall kanshi
+kanshi &
+
+killall variety
+variety &
+
+riverctl hide-cursor timeout 5000
+riverctl xcursor-theme "Catppuccin-Mocha-Dark-Cursors" 24 &
+
+riverctl default-layout rivertile &
+rivertile -view-padding 4 -outer-padding 2 &

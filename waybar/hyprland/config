@@ -76,8 +76,8 @@
             ""
         ],
         "tooltip-format": "Left click to save brightness.",
-        "on-click": "~/.config/waybar/scripts/save_brightness.sh",
-        "on-click-right": "~/.config/waybar/scripts/load_brightness.sh"
+        "on-click": "~/.config/waybar/hyprland/scripts/save_brightness.sh",
+        "on-click-right": "~/.config/waybar/hyprland/scripts/load_brightness.sh"
     },
     "battery": {
         "states": {

@@ -1,9 +1,12 @@
 #! /bin/bash
 
+ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
+ln -s ~/.dotfiles/kanshi ~/.config/kanshi
 ln -s ~/.dotfiles/alacritty ~/.config/alacritty
 ln -s ~/.dotfiles/wezterm ~/.config/wezterm
 ln -s ~/.dotfiles/hypr ~/.config/hypr
 ln -s ~/.dotfiles/awesome ~/.config/awesome
+ln -s ~/.dotfiles/river ~/.config/river
 ln -s ~/.dotfiles/wlogout ~/.config/wlogout
 ln -s ~/.dotfiles/wofi ~/.config/wofi
 ln -s ~/.dotfiles/swaylock ~/.config/swaylock
