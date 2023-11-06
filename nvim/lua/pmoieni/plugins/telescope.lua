@@ -3,32 +3,18 @@ return {
 	event = "VeryLazy",
 	dependencies = {
 		"nvim-telescope/telescope-fzy-native.nvim",
-		"nvim-telescope/telescope-file-browser.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
 
-		telescope.setup({
-			extensions = {
-				file_browser = {
-					hijack_netrw = true,
-					grouped = true,
-					hidden = true,
-					respect_gitignore = false,
-				},
-			},
-		})
+		telescope.setup({})
 
 		telescope.load_extension("fzy_native")
-		telescope.load_extension("file_browser")
 		-- telescope.load_extension("noice")
 
 		local opts = { noremap = true, silent = true }
 
 		local keymap = vim.keymap
-
-		opts.desc = "Browse files"
-		keymap.set("n", "<leader>e", "<cmd>Telescope file_browser<CR>", opts)
 
 		opts.desc = "Find files"
 		keymap.set("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
