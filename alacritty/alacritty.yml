@@ -8,11 +8,10 @@ window:
   opacity: 0.8
 
 shell:
-  program: /usr/bin/fish
+  program: /usr/bin/tmux
   args:
-    - -l
-    - -c
-    - "tmux new-session -A"
+    - new-session
+    - -A
 
 font:
   normal:

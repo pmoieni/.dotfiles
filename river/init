@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+
 riverctl map normal Super Q spawn wezterm
 riverctl map normal Super X close
 riverctl map normal Super+Shift E exit
@@ -139,4 +141,4 @@ riverctl hide-cursor timeout 5000 &
 riverctl xcursor-theme "Catppuccin-Mocha-Dark-Cursors" 24 &
 
 riverctl default-layout rivertile &
-rivertile -view-padding 4 -outer-padding 2 &
+rivertile -view-padding 3 -outer-padding 3 &

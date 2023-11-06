@@ -13,11 +13,9 @@
 
 window#waybar {
   background: @base;
-  border-radius: 0.5rem;
 }
 
 #tags {
-  border-radius: 0.5rem;
   background-color: @base;
 }
 
