@@ -1,61 +1,61 @@
 window {
-    margin: 0px;
-    background-color: #191724;
-    border-radius: 0.5rem;
-    border: 2px solid #eb6f92;
-    color: #e0def4;
-    font-family: JetBrains Mono;
-    font-size: 1rem;
+  margin: 0px;
+  background-color: #191724;
+  border-radius: 0.5rem;
+  border: 2px solid #eb6f92;
+  color: #e0def4;
+  font-family: FiraCode Nerd Font;
+  font-size: 1rem;
 }
 
 #input {
-    margin: 5px;
-    border: none;
-    border-radius: 0.5rem;
-    color: #eb6f92;
-    background-color: #26233a;
-    padding: 1rem;
+  margin: 5px;
+  border: none;
+  border-radius: 0.5rem;
+  color: #eb6f92;
+  background-color: #26233a;
+  padding: 1rem;
 }
 
 #inner-box {
-    margin: 5px;
-    border: none;
-    background-color: #26233a;
-    color: #191724;
-    border-radius: 0.5rem;
+  margin: 5px;
+  border: none;
+  background-color: #26233a;
+  color: #191724;
+  border-radius: 0.5rem;
 }
 
 #outer-box {
-    margin: 15px;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #191724;
+  margin: 15px;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #191724;
 }
 
 #scroll {
-    margin: 0px;
-    border: none;
+  margin: 0px;
+  border: none;
 }
 
 #text {
-    margin: 5px;
-    border: none;
-    color: #e0def4;
-} 
+  margin: 5px;
+  border: none;
+  color: #e0def4;
+}
 
 #entry {
-    border-radius: 0.5rem;
-    outline: none;
-    margin: 0.5rem;
-    padding: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  margin: 0.5rem;
+  padding: 1rem;
 }
 
 #entry:selected {
-    background-color: #eb6f92;
-    color: #191724;
+  background-color: #eb6f92;
+  color: #191724;
 }
 
 #entry:selected * {
-    background-color: #eb6f92;
-    color: #191724;
+  background-color: #eb6f92;
+  color: #191724;
 }

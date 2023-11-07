@@ -3,52 +3,52 @@
 @define-color text            #e0def4;
 
 * {
-    font-family: JetBrains Mono, Roboto, Helvetica, Arial, sans-serif;
-	background-image: none;
-  	transition: all 0.3s cubic-bezier(0.05, 0.9, 0.1, 1.05);
+  font-family: FiraCode Nerd Font;
+  background-image: none;
+  transition: all 0.3s cubic-bezier(0.05, 0.9, 0.1, 1.05);
 }
 
 window {
-	background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 button {
-	all: unset;
-	color: @text;
-    background-repeat: no-repeat;
-	background-position: center;
-	background-size: 25%;
-	border-radius: 0.5rem;
-	margin: 0.5rem;
-	background-color: @base;
+  all: unset;
+  color: @text;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  background-color: @base;
 }
 
 button:focus,
 button:active,
 button:hover {
-	background-color: @overlay;
+  background-color: @overlay;
 }
 
 #lock {
-	background-image: image(url("icons/lock.png"));
+  background-image: image(url("icons/lock.png"));
 }
 
 #logout {
-	background-image: image(url("icons/logout.png"));
+  background-image: image(url("icons/logout.png"));
 }
 
 #suspend {
-	background-image: image(url("icons/suspend.png"));
+  background-image: image(url("icons/suspend.png"));
 }
 
 #hibernate {
-	background-image: image(url("icons/hibernate.png"));
+  background-image: image(url("icons/hibernate.png"));
 }
 
 #shutdown {
-	background-image: image(url("icons/shutdown.png"));
+  background-image: image(url("icons/shutdown.png"));
 }
 
 #reboot {
-	background-image: image(url("icons/reboot.png"));
+  background-image: image(url("icons/reboot.png"));
 }

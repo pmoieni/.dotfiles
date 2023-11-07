@@ -6,7 +6,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font_with_fallback({ "FiraCode Nerd Font", "Noto Sans" })
 config.font_size = 11.0
 
 config.window_background_opacity = 0.8

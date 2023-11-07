@@ -5,7 +5,7 @@
 
 * {
   font-family:
-    JetBrains Mono,
+    FiraCode Nerd Font,
     Font Awesome;
   font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.05, 0.9, 0.1, 1.05);
@@ -24,7 +24,7 @@ window#waybar {
   border-radius: 0;
   background-color: transparent;
   border: none;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
 }
 
 #tags button.focused {
@@ -33,7 +33,7 @@ window#waybar {
 
 #tags button:hover {
   background-color: @overlay;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 }
 
 #tray,
@@ -42,8 +42,11 @@ window#waybar {
 #battery,
 #idle_inhibitor,
 #custom-media,
-#custom-user {
-  padding: 0.5rem;
+#custom-user,
+#pulseaudio,
+#backlight,
+#network {
+  padding: 0 0.8rem;
 }
 
 #custom-user {
@@ -55,7 +58,6 @@ window#waybar {
 #custom-reboot,
 #custom-shutdown {
   padding: 0 1rem;
-  font-size: 1.2rem;
   background-color: @love;
   color: @surface;
 }
@@ -72,14 +74,9 @@ window#waybar {
   color: @pine;
 }
 
-#pulseaudio,
-#backlight,
-#network {
-  padding: 0 0.8rem;
-}
-
 #pulseaudio {
-  color: @rose;
+  color: @surface;
+  background-color: @rose;
 }
 
 #pulseaudio.muted {
@@ -87,7 +84,8 @@ window#waybar {
 }
 
 #backlight {
-  color: @rose;
+  color: @surface;
+  background-color: @rose;
 }
 
 #battery {
