@@ -50,11 +50,17 @@
             "transition-duration": 300
         },
         "modules": [
-            "custom/quit",
-            "custom/lock",
+            "custom/user",
             "custom/shutdown",
-            "custom/reboot"
+            "custom/reboot",
+            "custom/quit",
+            "custom/lock"
         ]
+    },
+    "custom/user": {
+        "format": "{}",
+        "exec": "whoami",
+        "tooltip": false
     },
     "custom/quit": {
         "format": "󰗼",
@@ -158,4 +164,4 @@
         "on-click-middle": "playerctl previous",
         "on-click-right": "playerctl next"
     }
-}
+}z

@@ -24,7 +24,7 @@ window#waybar {
   border-radius: 0;
   background-color: transparent;
   border: none;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
 }
 
 #tags button.focused {
@@ -33,6 +33,7 @@ window#waybar {
 
 #tags button:hover {
   background-color: @overlay;
+  padding: 0 1.5rem;
 }
 
 #tray,
@@ -40,13 +41,13 @@ window#waybar {
 #clock,
 #battery,
 #idle_inhibitor,
-#custom-media {
+#custom-media,
+#custom-user {
   padding: 0.5rem;
 }
 
-#power {
-  background-color: @love;
-  color: @surface;
+#custom-user {
+  color: @love;
 }
 
 #custom-quit,
@@ -55,6 +56,8 @@ window#waybar {
 #custom-shutdown {
   padding: 0 1rem;
   font-size: 1.2rem;
+  background-color: @love;
+  color: @surface;
 }
 
 #custom-media {
