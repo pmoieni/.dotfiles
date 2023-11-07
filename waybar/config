@@ -13,16 +13,19 @@
         "custom/swaync",
         "idle_inhibitor",
         "group/system",
+        "battery",
         "clock",
-        "custom/exit"
+        "group/power"
     ],
     "group/system": {
         "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300
+        },
         "modules": [
+            "network",
             "pulseaudio",
-            "backlight",
-            "battery",
-            "network"
+            "backlight"
         ]
     },
     "idle_inhibitor": {
@@ -41,10 +44,37 @@
         "format-alt": "{:%B %d, %Y}",
         "format": "{:%I:%M %p}"
     },
-    "custom/exit": {
-        "format": " ",
-        "on-click": "wlogout",
-        "tooltip": false
+    "group/power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300
+        },
+        "modules": [
+            "custom/quit",
+            "custom/lock",
+            "custom/shutdown",
+            "custom/reboot"
+        ]
+    },
+    "custom/quit": {
+        "format": "󰗼",
+        "tooltip": false,
+        "on-click": "riverctl exit"
+    },
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip": false,
+        "on-click": "swaylock"
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip": false,
+        "on-click": "systemctl reboot"
+    },
+    "custom/shutdown": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "systemctl poweroff"
     },
     "custom/swaync": {
         "format": "",
@@ -66,8 +96,8 @@
             ""
         ],
         "tooltip-format": "Left click to save brightness.",
-        "on-click": "~/.config/waybar/river/scripts/save_brightness.sh",
-        "on-click-right": "~/.config/waybar/river/scripts/load_brightness.sh"
+        "on-click": "~/.config/waybar/scripts/save_brightness.sh",
+        "on-click-right": "~/.config/waybar/scripts/load_brightness.sh"
     },
     "battery": {
         "states": {
@@ -75,15 +105,15 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}%  ",
-        "format-plugged": "{capacity}%  ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-icons": [
-            " ",
-            " ",
-            " ",
-            " ",
-            " "
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "network": {

@@ -38,12 +38,23 @@ window#waybar {
 #tray,
 #custom-swaync,
 #clock,
-#custom-exit,
+#battery,
 #idle_inhibitor,
 #custom-media {
-  background-color: @base;
   padding: 0.5rem;
-  border-radius: 0.5rem;
+}
+
+#power {
+  background-color: @love;
+  color: @surface;
+}
+
+#custom-quit,
+#custom-lock,
+#custom-reboot,
+#custom-shutdown {
+  padding: 0 1rem;
+  font-size: 1.2rem;
 }
 
 #custom-media {
@@ -58,15 +69,8 @@ window#waybar {
   color: @pine;
 }
 
-#system {
-  background-color: @base;
-  border-radius: 0.5rem;
-  padding: 0.5rem 0;
-}
-
 #pulseaudio,
 #backlight,
-#battery,
 #network {
   padding: 0 0.8rem;
 }

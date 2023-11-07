@@ -120,7 +120,7 @@ killall polkit-kde-authentication-agent-1
 /usr/lib/polkit-kde-authentication-agent-1 &
 
 killall waybar
-waybar -c ~/.config/waybar/river/config -s ~/.config/waybar/river/style.css &
+waybar &
 
 killall swaync
 swaync -c ~/.config/swaync/config -s ~/.config/swaync/style.css &
