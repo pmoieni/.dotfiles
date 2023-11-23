@@ -5,6 +5,7 @@ ln -s ~/.dotfiles/kanshi ~/.config/kanshi
 ln -s ~/.dotfiles/alacritty ~/.config/alacritty
 ln -s ~/.dotfiles/wezterm ~/.config/wezterm
 ln -s ~/.dotfiles/river ~/.config/river
+ln -s ~/.dotfiles/hypr ~/.config/hypr
 ln -s ~/.dotfiles/wofi ~/.config/wofi
 ln -s ~/.dotfiles/swaylock ~/.config/swaylock
 ln -s ~/.dotfiles/swaync ~/.config/swaync

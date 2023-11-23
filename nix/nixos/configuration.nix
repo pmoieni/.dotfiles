@@ -34,6 +34,9 @@
     networking.networkmanager.enable = true;
 
     boot = {
+        kernelParams = [
+            "mem_sleep_default=deep"
+        ];
         loader = {
             efi = {
                 canTouchEfiVariables = true;
@@ -62,12 +65,24 @@
     i18n.defaultLocale = "en_US.UTF-8";
 
     services = {
+        thermald.enable = true;
+        power-profiles-daemon.enable = false; # conflicts with tlp
+        tlp = {
+            enable = true;
+            settings = {
+                START_CHARGE_THRESH_BAT0 = 0; # dummy value
+                STOP_CHARGE_THRESH_BAT0 = 80;
+                START_CHARGE_THRESH_BAT1 = 0; # dummy value
+                STOP_CHARGE_THRESH_BAT1 = 80;
+            };
+        };
         xserver = {
             enable = true;
             displayManager.gdm.enable = true;
             desktopManager.gnome.enable = true;
-            layout = "us";
+            layout = "us,ir";
             xkbVariant = "";
+            xkbOptions = "grp:win_space_toggle";
             libinput.enable = true;
             videoDrivers = ["nvidia"];
         };
@@ -99,6 +114,12 @@
             enable = true;
             driSupport = true;
             driSupport32Bit = true;
+            extraPackages = with pkgs; [
+                intel-media-driver # LIBVA_DRIVER_NAME=iHD
+                vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+                vaapiVdpau
+                libvdpau-va-gl
+            ];
         };
         nvidia = {
             # Modesetting is required.
@@ -137,7 +158,6 @@
                 value.source = value.flake;
             })
             config.nix.registry;
-
         systemPackages = with pkgs; [
             vim
             wget
@@ -152,8 +172,21 @@
 	        firefox-bin
             dconf
             gnome.adwaita-icon-theme
+            wayland
+            xdg-utils
+            wl-clipboard
+            grim
+            slurp
+            swaylock
+            swayidle
+            glib
+            river
+            waybar
+            wofi
+            swaylock
+            swaynotificationcenter
+            kanshi
         ];
-
         gnome.excludePackages = (with pkgs; [
             gnome-tour
         ]) ++ (with pkgs.gnome; [
@@ -165,7 +198,24 @@
             hitori # sudoku game
             atomix # puzzle game
         ]);
+        sessionVariables.NIXOS_OZONE_WL = "1";
     };
+
+    # change to fonts.packages for unstable
+    fonts.fonts = with pkgs; [
+        (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    ];
+
+    # programs = {
+    #     hyprland = {
+    #         enable = true;
+    #         nvidiaPatches = true;
+    #         xwayland = {
+    #             enable = true;
+    #             hidpi = true;
+    #         };
+    #     };   
+    # };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     system.stateVersion = "23.05";

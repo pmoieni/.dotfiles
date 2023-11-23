@@ -3,6 +3,7 @@
     lib,
     config,
     pkgs,
+    unstable,
     ...
 }: {
     imports = [];
@@ -24,8 +25,8 @@
         packages = with pkgs; [
             # shell / terminal
             neofetch
-            fish
-            tmux
+            unstable.fish
+            unstable.tmux
 
             # CLI tools
             fd
@@ -42,14 +43,14 @@
             meson
 
             # dev tools
-            gh
+            unstable.gh
             nodePackages.eslint
             nodePackages.eslint_d
             nodePackages.prettier
-            go
-	        rustup
-	        nodejs
-            yarn
+            unstable.go
+	        unstable.rustup
+	        unstable.nodejs
+            unstable.yarn
 
             # LSP
             lua-language-server
@@ -58,23 +59,13 @@
 			nodePackages.svelte-language-server
 			nodePackages.typescript-language-server
         
-            # desktop
-            river
-            waybar
-            wofi
-            swaylock
-            swaynotificationcenter
-            kanshi
-
             # apps
             gparted
             mpv
             obs-studio
-            wezterm
-            telegram-desktop
-
-            # extra
-            fira-code
+            unstable.wezterm
+            unstable.alacritty
+            unstable.telegram-desktop
         ];
     };
 
@@ -84,7 +75,7 @@
             enable = true;
             userName = "Parham Moieni";
             userEmail = "62774242+pmoieni@users.noreply.github.com";
-        };
+        }; 
     };
 
     dconf.settings = {
