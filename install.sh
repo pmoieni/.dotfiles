@@ -1,18 +1,13 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/kanshi ~/.config/kanshi
 ln -s ~/.dotfiles/alacritty ~/.config/alacritty
 ln -s ~/.dotfiles/wezterm ~/.config/wezterm
-ln -s ~/.dotfiles/hypr ~/.config/hypr
-ln -s ~/.dotfiles/awesome ~/.config/awesome
 ln -s ~/.dotfiles/river ~/.config/river
-ln -s ~/.dotfiles/wlogout ~/.config/wlogout
 ln -s ~/.dotfiles/wofi ~/.config/wofi
 ln -s ~/.dotfiles/swaylock ~/.config/swaylock
 ln -s ~/.dotfiles/swaync ~/.config/swaync
-ln -s ~/.dotfiles/qt5ct ~/.config/qt5ct
-ln -s ~/.dotfiles/wal ~/.config/wal
 ln -s ~/.dotfiles/waybar ~/.config/waybar
 ln -s ~/.dotfiles/fish ~/.config/fish
 ln -s ~/.dotfiles/tmux ~/.config/tmux

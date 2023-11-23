@@ -13,7 +13,7 @@ config.window_background_opacity = 0.8
 
 config.color_scheme = "rose-pine"
 
-config.default_prog = { "/usr/bin/tmux", "new-session", "-A" }
+config.default_prog = { "tmux", "new-session", "-A" }
 
 config.window_padding = {
 	left = 0,
