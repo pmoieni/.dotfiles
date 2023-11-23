@@ -71,6 +71,7 @@
             mpv
             obs-studio
             wezterm
+            telegram-desktop
 
             # extra
             fira-code
