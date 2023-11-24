@@ -78,8 +78,20 @@
     };
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
       desktopManager.gnome.enable = true;
+      # desktopManager.session =
+      #   [{
+      #     manage = "window";
+      #     name = "river";
+      #     start = ''
+      #       ${pkgs.river}/bin/river &
+      #       waitPID=$!
+      #     '';
+      #   }];
       layout = "us,ir";
       xkbVariant = "";
       xkbOptions = "grp:win_space_toggle";
@@ -174,20 +186,9 @@
       firefox-bin
       dconf
       gnome.adwaita-icon-theme
-      wayland
       xdg-utils
-      wl-clipboard
-      grim
-      slurp
-      swaylock
-      swayidle
       glib
-      river
-      waybar
-      wofi
-      swaylock
-      swaynotificationcenter
-      kanshi
+      wl-clipboard
     ];
     gnome.excludePackages = (with pkgs; [
       gnome-tour
@@ -202,6 +203,14 @@
     ]);
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
+
+  # programs = {
+  #   hyprland = {
+  #     enable = true;
+  #     xwayland.enable = true;
+  #     enableNvidiaPatches = true;
+  #   };
+  # };
 
   # change to fonts.packages for unstable
   fonts.fonts = with pkgs; [

@@ -60,6 +60,16 @@
       unstable.nodePackages.svelte-language-server
       unstable.nodePackages.typescript-language-server
 
+      # desktop
+      # unstable.grim
+      # unstable.slurp
+      # unstable.swaylock
+      # unstable.swayidle
+      # unstable.river
+      # unstable.waybar
+      # unstable.wofi
+      # unstable.swaynotificationcenter
+
       # apps
       gparted
       mpv

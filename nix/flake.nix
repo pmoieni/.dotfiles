@@ -13,6 +13,9 @@
     # neovim overlay
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    # Hyprland
+    # hyprland.url = "github:hyprwm/Hyprland";
+
     # hardware.url = "github:nixos/nixos-hardware";
     # nix-colors.url = "github:misterio77/nix-colors";
   };
@@ -21,6 +24,7 @@
     { self
     , nixpkgs
     , home-manager
+      # , hyprland
     , ...
     } @ inputs:
     let
@@ -35,7 +39,10 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs unstable; };
-          modules = [ ./nixos/configuration.nix ];
+          modules = [
+            ./nixos/configuration.nix
+            # hyprland.nixosModules.default
+          ];
         };
       };
 
@@ -43,7 +50,9 @@
         "pmoieni@nixos" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs unstable; };
-          modules = [ ./home-manager/home.nix ];
+          modules = [
+            ./home-manager/home.nix
+          ];
         };
       };
     };
