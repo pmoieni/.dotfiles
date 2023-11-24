@@ -66,6 +66,9 @@
             unstable.wezterm
             unstable.alacritty
             unstable.telegram-desktop
+            unstable.microsoft-edge
+            unstable.tor-browser
+            unstable.vscode
         ];
     };
 
