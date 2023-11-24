@@ -49,6 +49,7 @@
                 useOSProber = true;
             };
         };
+        supportedFilesystems = [ "ntfs" ];
     };
 
     users.users = {
@@ -108,6 +109,7 @@
                     Enable = "Source,Sink,Media,Socket";
                 };
             };
+            powerOnBoot = false;
         };
         cpu.intel.updateMicrocode = true;
         opengl = {
