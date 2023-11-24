@@ -5,8 +5,6 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"folke/neodev.nvim",
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
@@ -67,20 +65,35 @@ return {
 				end,
 			})
 
-			local default_setup = function(server)
-				lspconfig[server].setup({})
-			end
+            -- setup servers
+            lspconfig.lua_ls.setup({
+                on_init = function(client)
+                    local path = client.workspace_folders[1].name
+                    if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
+                        client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+                            Lua = {
+                                runtime = {
+                                    version = 'LuaJIT'
+                                },
+                                workspace = {
+                                    checkThirdParty = false,
+                                    library = {
+                                        vim.env.VIMRUNTIME
+                                    }
+                                }
+                            }
+                        })
 
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"tsserver",
-					"rust_analyzer",
-					"gopls",
-					"lua_ls",
-					"pylsp",
-				},
-				handlers = { default_setup },
-			})
+                        client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+                    end
+                    return true
+                end
+            })
+            lspconfig.gopls.setup({})
+            lspconfig.jdtls.setup({})
+            lspconfig.rnix.setup({})
+            lspconfig.tsserver.setup({})
+            lspconfig.svelte.setup({})
 		end,
 	},
 	{

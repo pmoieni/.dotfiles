@@ -34,7 +34,7 @@
             tokei
             yt-dlp
             ripgrep
-            neovim
+            unstable.neovim
 
             # build tools
             cmake
@@ -44,20 +44,22 @@
 
             # dev tools
             unstable.gh
-            nodePackages.eslint
-            nodePackages.eslint_d
-            nodePackages.prettier
+            unstable.nodePackages.eslint
+            unstable.nodePackages.eslint_d
+            unstable.nodePackages.prettier
             unstable.go
+            jdk17
 	        unstable.rustup
 	        unstable.nodejs
             unstable.yarn
 
             # LSP
-            lua-language-server
-            gopls
-            rnix-lsp
-			nodePackages.svelte-language-server
-			nodePackages.typescript-language-server
+            unstable.lua-language-server
+            unstable.gopls
+            unstable.jdt-language-server
+            unstable.rnix-lsp
+			unstable.nodePackages.svelte-language-server
+			unstable.nodePackages.typescript-language-server
         
             # apps
             gparted
