@@ -161,6 +161,7 @@
         config.nix.registry;
     systemPackages = with pkgs; [
       vim
+      htop
       wget
       curl
       zip
