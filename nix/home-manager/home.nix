@@ -73,6 +73,10 @@
       # apps
       gparted
       mpv
+      vlc
+      gimp
+      audacity
+      libreoffice
       obs-studio
       unstable.wezterm
       unstable.alacritty
