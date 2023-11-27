@@ -83,15 +83,24 @@
         wayland = true;
       };
       desktopManager.gnome.enable = true;
-      # desktopManager.session =
-      #   [{
-      #     manage = "window";
-      #     name = "river";
-      #     start = ''
-      #       ${pkgs.river}/bin/river &
-      #       waitPID=$!
-      #     '';
-      #   }];
+      # desktopManager.session = [{
+      #   manage = "window";
+      #   name = "river";
+      #   start = ''
+      #     ${pkgs.river}/bin/river &
+      #     waitPID=$!
+      #   '';
+      # }];
+      # displayManager.sessionPackages = [
+      #   (pkgs.river.overrideAttrs (prevAttrs: rec {
+      #     postInstall =
+      #       let
+      #         riverSession = '' [Desktop Entry] Name=River Comment=Dynamic Wayland compositor Exec=river Type=Application '';
+      #       in
+      #       '' mkdir -p $out/share/wayland-sessions echo "${riverSession}" > $out/share/wayland-sessions/river.desktop '';
+      #     passthru.providedSessions = [ "river" ];
+      #   }))
+      # ];
       layout = "us,ir";
       xkbVariant = "";
       xkbOptions = "grp:win_space_toggle";
@@ -138,10 +147,10 @@
       # Modesetting is required.
       modesetting.enable = true;
       # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-      powerManagement.enable = false;
+      powerManagement.enable = true;
       # Fine-grained power management. Turns off GPU when not in use.
       # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-      powerManagement.finegrained = false;
+      powerManagement.finegrained = true;
       # Use the NVidia open source kernel module (not to be confused with the
       # independent third-party "nouveau" open source driver).
       # Support is limited to the Turing and later architectures. Full list of 
@@ -180,15 +189,31 @@
       unzip
       gzip
       gnupg
+      killall
       coreutils
       pciutils
       nettools
       firefox-bin
       dconf
       gnome.adwaita-icon-theme
+      gnome.gnome-tweaks
+      gnomeExtensions.paperwm
       xdg-utils
       glib
       wl-clipboard
+      swaylock
+      swayidle
+      waybar
+      wofi
+      swaynotificationcenter
+      wlr-randr
+      # (river.overrideAttrs (prevAttrs: rec {
+      #   postInstall =
+      #     let riverSession = '' [Desktop Entry] Name=River Comment=Dynamic Wayland compositor Exec=river Type=Application '';
+      #     in
+      #     '' mkdir -p $out/share/wayland-sessions echo "${riverSession}" > $out/share/wayland-sessions/river.desktop '';
+      #   passthru.providedSessions = [ "river" ];
+      # }))
     ];
     gnome.excludePackages = (with pkgs; [
       gnome-tour
@@ -204,16 +229,13 @@
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
 
-  # programs = {
-  #   hyprland = {
-  #     enable = true;
-  #     xwayland.enable = true;
-  #     enableNvidiaPatches = true;
-  #   };
-  # };
+  programs.hyprland = {
+    enable = true;
+    enableNvidiaPatches = true;
+  };
 
-  # change to fonts.packages for unstable
-  fonts.fonts = with pkgs; [
+  # change to fonts.fonts for 23.05 or older, else font.packages
+  fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
 

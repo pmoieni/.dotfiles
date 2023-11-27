@@ -1,20 +1,14 @@
 {
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-
-    # Nixpkgs unstable
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # neovim overlay
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    # Hyprland
-    # hyprland.url = "github:hyprwm/Hyprland";
 
     # hardware.url = "github:nixos/nixos-hardware";
     # nix-colors.url = "github:misterio77/nix-colors";
@@ -24,24 +18,18 @@
     { self
     , nixpkgs
     , home-manager
-      # , hyprland
     , ...
     } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-      unstable = import inputs.nixpkgs-unstable {
-        system = system;
-        config.allowUnfree = true;
-      };
     in
     {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs unstable; };
+          specialArgs = { inherit inputs outputs; };
           modules = [
             ./nixos/configuration.nix
-            # hyprland.nixosModules.default
           ];
         };
       };
@@ -49,7 +37,7 @@
       homeConfigurations = {
         "pmoieni@nixos" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs unstable; };
+          extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/home.nix
           ];

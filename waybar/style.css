@@ -15,11 +15,11 @@ window#waybar {
   background: @base;
 }
 
-#tags {
+#workspaces {
   background-color: @base;
 }
 
-#tags button {
+#workspaces button {
   color: @iris;
   border-radius: 0;
   background-color: transparent;
@@ -27,11 +27,11 @@ window#waybar {
   padding: 0.5rem;
 }
 
-#tags button.focused {
+#workspaces button.focused {
   color: @love;
 }
 
-#tags button:hover {
+#workspaces button:hover {
   background-color: @overlay;
   padding: 0 1rem;
 }

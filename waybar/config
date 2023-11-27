@@ -7,7 +7,7 @@
         "custom/media"
     ],
     "modules-center": [
-        "river/tags"
+        "hyprland/workspaces"
     ],
     "modules-right": [
         "custom/swaync",
@@ -17,6 +17,16 @@
         "clock",
         "group/power"
     ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 5,
+        }
+    },
     "group/system": {
         "orientation": "horizontal",
         "drawer": {
@@ -65,7 +75,7 @@
     "custom/quit": {
         "format": "󰗼",
         "tooltip": false,
-        "on-click": "riverctl exit"
+        "on-click": "hyprctl dispatch exit"
     },
     "custom/lock": {
         "format": "󰍁",

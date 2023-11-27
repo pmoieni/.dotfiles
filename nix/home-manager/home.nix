@@ -2,7 +2,6 @@
 , lib
 , config
 , pkgs
-, unstable
 , ...
 }: {
   imports = [ ];
@@ -22,8 +21,8 @@
     packages = with pkgs; [
       # shell / terminal
       neofetch
-      unstable.fish
-      unstable.tmux
+      fish
+      tmux
 
       # CLI tools
       fd
@@ -31,7 +30,7 @@
       tokei
       yt-dlp
       ripgrep
-      unstable.neovim
+      neovim
 
       # build tools
       cmake
@@ -40,33 +39,28 @@
       meson
 
       # dev tools
-      unstable.gh
-      unstable.nodePackages.eslint
-      unstable.nodePackages.eslint_d
-      unstable.nodePackages.prettier
-      unstable.go
+      gh
+      nodePackages.eslint
+      nodePackages.eslint_d
+      nodePackages.prettier
+      go
       jdk17
-      unstable.rustup
-      unstable.nodejs
-      unstable.yarn
+      rustup
+      nodejs
+      yarn
 
       # LSP
-      unstable.lua-language-server
-      unstable.gopls
-      unstable.jdt-language-server
-      unstable.rnix-lsp
-      unstable.nodePackages.svelte-language-server
-      unstable.nodePackages.typescript-language-server
+      lua-language-server
+      gopls
+      jdt-language-server
+      rnix-lsp
+      nodePackages.svelte-language-server
+      nodePackages.typescript-language-server
 
       # desktop
-      # unstable.grim
-      # unstable.slurp
-      # unstable.swaylock
-      # unstable.swayidle
-      # unstable.river
-      # unstable.waybar
-      # unstable.wofi
-      # unstable.swaynotificationcenter
+      grim
+      slurp
+      rose-pine-gtk-theme
 
       # apps
       gparted
@@ -76,12 +70,12 @@
       audacity
       libreoffice
       obs-studio
-      unstable.wezterm
-      unstable.alacritty
-      unstable.telegram-desktop
-      unstable.microsoft-edge
-      unstable.tor-browser
-      unstable.vscode
+      wezterm
+      alacritty
+      telegram-desktop
+      microsoft-edge
+      tor-browser
+      vscode
     ];
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;

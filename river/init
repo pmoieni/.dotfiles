@@ -116,8 +116,8 @@ do
   riverctl input $pad tap enabled
 done
 
-killall polkit-kde-authentication-agent-1
-/usr/lib/polkit-kde-authentication-agent-1 &
+# killall polkit-kde-authentication-agent-1
+# /usr/lib/polkit-kde-authentication-agent-1 &
 
 killall waybar
 waybar &
@@ -128,8 +128,9 @@ swaync -c ~/.config/swaync/config -s ~/.config/swaync/style.css &
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 
-killall kanshi
-kanshi &
+# killall kanshi
+# kanshi &
+wlr-randr --output eDP-1 --scale 1.25 --mode 1920x1080@60Hz &
 
 killall variety
 variety &
@@ -138,7 +139,6 @@ swayidle -w timeout 300 'swaylock -f' before-sleep 'swaylock -f' &
 
 riverctl keyboard-layout -options "grp:win_space_toggle" "us,ir" &
 riverctl hide-cursor timeout 5000 &
-riverctl xcursor-theme "Catppuccin-Mocha-Dark-Cursors" 24 &
 
 riverctl default-layout rivertile &
 rivertile -view-padding 3 -outer-padding 3 &
