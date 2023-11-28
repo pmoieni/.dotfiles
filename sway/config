@@ -60,8 +60,6 @@ bindsym $mod+e exec nautilus
 bindsym $mod+r exec wofi --show run
 bindsym $mod+d exec wofi --show drun
 
-bindsym $mod+w exec killall -SIGUSR2 waybar
-
 bindsym $mod+x exec cliphist list | wofi --dmenu | cliphist decode | wl-copy
 
 bindsym Print exec grim - | wl-copy
@@ -110,7 +108,7 @@ bindsym $mod+v splitv
 
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+Escape layout toggle split
+bindsym $mod+w layout toggle split
 
 bindsym $mod+f fullscreen
 
