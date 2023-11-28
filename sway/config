@@ -7,10 +7,12 @@ set $right l
 
 set $term wezterm
 
+exec systemctl --user start polkit-gnome-authentication-agent-1.service
+
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock -f' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock -f'
 
 # startup
 exec kanshi
@@ -21,11 +23,16 @@ exec waybar
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 
-input "1267:12423:ELAN1300:00_04F3:3087_Touchpad" {
+input type:touchpad {
     dwt enabled
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
+}
+
+input type:keyboard {
+    xkb_layout us,ir
+    xkb_options grp:win_space_toggle
 }
 
 xwayland enable
@@ -48,21 +55,23 @@ bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+q kill
 
+bindsym $mod+e exec nautilus
+
 bindsym $mod+r exec wofi --show run
 bindsym $mod+d exec wofi --show drun
 
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-# Despite the name, also works for non-floating windows.
-# Change normal to inverse to use left mouse button for resizing and right
-# mouse button for dragging.
+bindsym $mod+w exec killall -SIGUSR2 waybar
+
+bindsym $mod+x exec cliphist list | wofi --dmenu | cliphist decode | wl-copy
+
+bindsym Print exec grim - | wl-copy
+bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy 
+
 floating_modifier $mod normal
 
-# Reload the configuration file
 bindsym $mod+Shift+c reload
 
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Touch grass?' -B 'Yes' 'swaymsg exit'
 
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -101,7 +110,7 @@ bindsym $mod+v splitv
 
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Escape layout toggle split
 
 bindsym $mod+f fullscreen
 
@@ -115,22 +124,11 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -138,3 +136,7 @@ mode "resize" {
 bindsym $mod+Shift+r mode "resize"
 
 include @sysconfdir@/sway/config.d/*
+
+# setup env with nix
+exec dbus-sway-environment
+exec configure-gtk
