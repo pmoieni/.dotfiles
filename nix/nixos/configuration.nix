@@ -3,7 +3,49 @@
 , config
 , pkgs
 , ...
-}: {
+}:
+let
+  # bash script to let dbus know about important env variables and
+  # propagate them to relevent services run at the end of sway config
+  # see
+  # https://github.com/emersion/xdg-desktop-portal-wlr/wiki/"It-doesn't-work"-Troubleshooting-Checklist
+  # note: this is pretty much the same as  /etc/sway/config.d/nixos.conf but also restarts  
+  # some user services to make sure they have the correct environment variables
+  dbus-sway-environment = pkgs.writeTextFile {
+    name = "dbus-sway-environment";
+    destination = "/bin/dbus-sway-environment";
+    executable = true;
+
+    text = ''
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+      systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+      systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+    '';
+  };
+
+  # currently, there is some friction between sway and gtk:
+  # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
+  # the suggested way to set gtk settings is with gsettings
+  # for gsettings to work, we need to tell it where the schemas are
+  # using the XDG_DATA_DIR environment variable
+  # run at the end of sway config
+  configure-gtk = pkgs.writeTextFile {
+    name = "configure-gtk";
+    destination = "/bin/configure-gtk";
+    executable = true;
+    text =
+      let
+        schema = pkgs.gsettings-desktop-schemas;
+        datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+      in
+      ''
+        export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+        gnome_schema=org.gnome.desktop.interface
+        gsettings set $gnome_schema gtk-theme 'rose-pine'
+      '';
+  };
+in
+{
   imports = [
     ./hardware-configuration.nix
   ];
@@ -83,24 +125,6 @@
         wayland = true;
       };
       desktopManager.gnome.enable = true;
-      # desktopManager.session = [{
-      #   manage = "window";
-      #   name = "river";
-      #   start = ''
-      #     ${pkgs.river}/bin/river &
-      #     waitPID=$!
-      #   '';
-      # }];
-      # displayManager.sessionPackages = [
-      #   (pkgs.river.overrideAttrs (prevAttrs: rec {
-      #     postInstall =
-      #       let
-      #         riverSession = '' [Desktop Entry] Name=River Comment=Dynamic Wayland compositor Exec=river Type=Application '';
-      #       in
-      #       '' mkdir -p $out/share/wayland-sessions echo "${riverSession}" > $out/share/wayland-sessions/river.desktop '';
-      #     passthru.providedSessions = [ "river" ];
-      #   }))
-      # ];
       layout = "us,ir";
       xkbVariant = "";
       xkbOptions = "grp:win_space_toggle";
@@ -117,7 +141,15 @@
       pulse.enable = true;
       jack.enable = true;
     };
+    dbus.enable = true;
     flatpak.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   hardware = {
@@ -172,6 +204,14 @@
     };
   };
 
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+    pam.loginLimits = [
+      { domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
+    ];
+  };
+
   environment = {
     etc =
       lib.mapAttrs'
@@ -189,31 +229,25 @@
       unzip
       gzip
       gnupg
+      git
       killall
       coreutils
       pciutils
       nettools
       firefox-bin
       dconf
+      polkit_gnome
       gnome.adwaita-icon-theme
       gnome.gnome-tweaks
       gnomeExtensions.paperwm
       xdg-utils
       glib
       wl-clipboard
-      swaylock
-      swayidle
-      waybar
-      wofi
-      swaynotificationcenter
-      wlr-randr
-      # (river.overrideAttrs (prevAttrs: rec {
-      #   postInstall =
-      #     let riverSession = '' [Desktop Entry] Name=River Comment=Dynamic Wayland compositor Exec=river Type=Application '';
-      #     in
-      #     '' mkdir -p $out/share/wayland-sessions echo "${riverSession}" > $out/share/wayland-sessions/river.desktop '';
-      #   passthru.providedSessions = [ "river" ];
-      # }))
+      cliphist
+      pavucontrol
+      playerctl
+      brightnessctl
+      libnotify
     ];
     gnome.excludePackages = (with pkgs; [
       gnome-tour
@@ -229,9 +263,10 @@
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
 
-  programs.hyprland = {
+  programs.sway = {
     enable = true;
-    enableNvidiaPatches = true;
+    wrapperFeatures.gtk = true;
+    extraOptions = [ "--unsupported-gpu" ];
   };
 
   # change to fonts.fonts for 23.05 or older, else font.packages

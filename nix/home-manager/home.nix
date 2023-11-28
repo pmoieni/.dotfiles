@@ -58,8 +58,14 @@
       nodePackages.typescript-language-server
 
       # desktop
+      swaylock
+      swayidle
+      swaynotificationcenter
+      waybar
+      wofi
       grim
       slurp
+      kanshi
       rose-pine-gtk-theme
 
       # apps
@@ -70,8 +76,10 @@
       audacity
       libreoffice
       obs-studio
+      variety
       wezterm
       alacritty
+      contour
       telegram-desktop
       microsoft-edge
       tor-browser

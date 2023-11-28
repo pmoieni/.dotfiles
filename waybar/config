@@ -7,7 +7,7 @@
         "custom/media"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "sway/workspaces"
     ],
     "modules-right": [
         "custom/swaync",
@@ -17,14 +17,14 @@
         "clock",
         "group/power"
     ],
-    "hyprland/workspaces": {
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "active": "",
-            "default": ""
-        },
-        "persistent-workspaces": {
-            "*": 5,
+            "urgent": " ",
+            "focused": " ",
+            "default": " "
         }
     },
     "group/system": {
@@ -75,7 +75,7 @@
     "custom/quit": {
         "format": "󰗼",
         "tooltip": false,
-        "on-click": "hyprctl dispatch exit"
+        "on-click": "swaymsg exit"
     },
     "custom/lock": {
         "format": "󰍁",

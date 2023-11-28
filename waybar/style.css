@@ -33,7 +33,7 @@ window#waybar {
 
 #workspaces button:hover {
   background-color: @overlay;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
 }
 
 #tray,
