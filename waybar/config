@@ -22,9 +22,9 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "urgent": " ",
-            "focused": " ",
-            "default": " "
+            "urgent": "",
+            "focused": "",
+            "default": ""
         }
     },
     "group/system": {
