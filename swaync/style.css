@@ -22,6 +22,7 @@
   all: unset;
   font-family: FiraCode Nerd Font;
   transition: 0.3s;
+  font-size: 1.2rem;
 }
 
 .floating-notifications.background .notification-row .notification-background {
@@ -36,7 +37,6 @@
   .notification-row
   .notification-background
   .notification {
-  font-size: 1.2rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
@@ -56,6 +56,7 @@
   .summary {
   margin: 0.5rem;
   color: #e0def4;
+  font-weight: bold;
 }
 
 .floating-notifications.background
@@ -64,7 +65,8 @@
   .notification
   .notification-content
   .body {
-  color: #e0def4;
+  margin: 0.5rem;
+  color: #908caa;
 }
 
 .floating-notifications.background
@@ -144,7 +146,7 @@
 
 .control-center .widget-title {
   color: #ebbcba;
-  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .control-center .widget-title button {
@@ -172,7 +174,6 @@
 }
 
 .control-center .notification-row .notification-background .notification {
-  font-size: 1.2rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
@@ -200,6 +201,7 @@
   .summary {
   margin: 0.5rem;
   color: #cdd6f4;
+  font-weight: bold;
 }
 
 .control-center
@@ -208,7 +210,8 @@
   .notification
   .notification-content
   .body {
-  color: #e0def4;
+  margin: 0.5rem;
+  color: #908caa;
 }
 
 .control-center
@@ -306,7 +309,7 @@ trough {
 }
 
 .widget-dnd {
-  font-size: 1.3rem;
+  color: #908caa;
 }
 
 .widget-dnd > switch {
