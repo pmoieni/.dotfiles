@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/kanshi ~/.config/kanshi
 ln -s ~/.dotfiles/contour ~/.config/contour
 ln -s ~/.dotfiles/awesome ~/.config/awesome
