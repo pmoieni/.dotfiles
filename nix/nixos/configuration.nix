@@ -42,6 +42,7 @@ let
         export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
         gnome_schema=org.gnome.desktop.interface
         gsettings set $gnome_schema gtk-theme 'rose-pine'
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
       '';
   };
 in
