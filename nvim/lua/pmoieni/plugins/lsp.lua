@@ -72,11 +72,13 @@ return {
                                 runtime = {
                                     version = 'LuaJIT'
                                 },
+                                diagnostics = {
+                                    globals = { "vim" },
+                                },
                                 workspace = {
                                     checkThirdParty = false,
                                     library = {
                                         vim.env.VIMRUNTIME,
-                                        vim.fn.stdpath("config") .. "/lua"
                                     }
                                 },
                                 telemetry = {
@@ -95,6 +97,21 @@ return {
             lspconfig.rnix.setup({})
             lspconfig.tsserver.setup({})
             lspconfig.svelte.setup({})
+
+            vim.diagnostic.config({
+                underline = true,
+                virtual_text = false,
+                update_in_insert = true,
+                severity_sort = true,
+
+                float = {
+                    severity_sort = true,
+                    header = "Diagnostics",
+                    source = "if_many",
+                    prefix = "• ",
+                    -- border = "single",
+                },
+            })
         end,
     },
     {
