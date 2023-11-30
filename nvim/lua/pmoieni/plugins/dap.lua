@@ -2,11 +2,13 @@ return {
     "mfussenegger/nvim-dap",
     ft = {
         "go",
+        --[[
         "typescript",
         "javascript",
         "javascriptreact",
         "typescriptreact",
         "svelte",
+        --]]
     },
     dependencies = {
         "rcarriga/nvim-dap-ui",
