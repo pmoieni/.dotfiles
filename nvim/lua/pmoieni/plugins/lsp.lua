@@ -97,9 +97,9 @@ return {
                 cmd = {
                     "jdt-language-server",
                     "-configuration",
-                    "/home/user/.cache/jdtls/config",
+                    "/home/pmoieni/.cache/jdtls/config",
                     "-data",
-                    "/home/user/.cache/jdtls/workspace"
+                    "/home/pmoieni/.cache/jdtls/workspace"
                 }
             })
             lspconfig.rnix.setup({})
