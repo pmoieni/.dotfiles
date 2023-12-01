@@ -15,11 +15,14 @@ let
     name = "dbus-sway-environment";
     destination = "/bin/dbus-sway-environment";
     executable = true;
-
     text = ''
+      val=$(udevadm info -a -n /dev/dri/card1 | grep boot_vga | rev | cut -c 2)
+      export WLR_DRM_DEVICES="/dev/dri/card$val"
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-      systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-      systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+      systemctl --user stop pipewire xdg-desktop-portal xdg-desktop-portal-wlr
+      systemctl --user start pipewire xdg-desktop-portal xdg-desktop-portal-wlr
     '';
   };
 

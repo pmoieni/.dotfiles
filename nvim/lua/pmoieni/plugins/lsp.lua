@@ -93,7 +93,15 @@ return {
                 end
             })
             lspconfig.gopls.setup({})
-            lspconfig.jdtls.setup({})
+            lspconfig.jdtls.setup({
+                cmd = {
+                    "jdt-language-server",
+                    "-configuration",
+                    "/home/user/.cache/jdtls/config",
+                    "-data",
+                    "/home/user/.cache/jdtls/workspace"
+                }
+            })
             lspconfig.rnix.setup({})
             lspconfig.tsserver.setup({})
             lspconfig.svelte.setup({})
