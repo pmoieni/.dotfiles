@@ -93,6 +93,7 @@ return {
                 end
             })
             lspconfig.gopls.setup({})
+            lspconfig.clangd.setup({})
             lspconfig.jdtls.setup({
                 cmd = {
                     "jdt-language-server",

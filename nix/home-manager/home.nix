@@ -30,11 +30,12 @@
       tokei
       yt-dlp
       ripgrep
+      hyperfine
       neovim
 
       # build tools
       cmake
-      gcc
+      # gcc
       gnumake
       meson
 
@@ -44,10 +45,18 @@
       nodePackages.eslint_d
       nodePackages.prettier
       go
-      jdk17
+      jdk21
+      # libllvm
+      # lldb
+      # libcxx
+      # libcxxStdenv
+      # libclang
+      clang
+      clang-tools
       rustup
       nodejs
       yarn
+      bun
 
       # LSP
       lua-language-server
@@ -60,6 +69,7 @@
       # desktop
       swaylock
       swayidle
+      swaybg
       swaynotificationcenter
       waybar
       eww-wayland
@@ -67,6 +77,7 @@
       grim
       slurp
       kanshi
+      peek
       rose-pine-gtk-theme
 
       # apps
@@ -85,6 +96,10 @@
       microsoft-edge
       tor-browser
       vscode
+      jetbrains.idea-community
+      slack
+      discord
+      spotify
     ];
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;

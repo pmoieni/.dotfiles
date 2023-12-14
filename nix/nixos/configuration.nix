@@ -283,14 +283,16 @@ in
     };
   };
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    extraOptions = [ "--unsupported-gpu" ];
-    extraPackages = [
-      dbus-sway-environment
-      configure-gtk
-    ];
+  programs = {
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+      extraOptions = [ "--unsupported-gpu" ];
+      extraPackages = [
+        dbus-sway-environment
+        configure-gtk
+      ];
+    };
   };
 
   # change to fonts.fonts for 23.05 or older, else font.packages
