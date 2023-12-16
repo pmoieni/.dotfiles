@@ -252,6 +252,11 @@ in
       playerctl
       brightnessctl
       libnotify
+      gcc
+      gnumake
+      meson
+      cmake
+      ninja
     ];
     gnome.excludePackages = (with pkgs; [
       gnome-tour

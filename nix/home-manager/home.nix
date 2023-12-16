@@ -20,9 +20,9 @@
     homeDirectory = "/home/pmoieni";
     packages = with pkgs; [
       # shell / terminal
-      neofetch
       fish
       tmux
+      zellij
 
       # CLI tools
       fd
@@ -33,30 +33,20 @@
       hyperfine
       neovim
 
-      # build tools
-      cmake
-      # gcc
-      gnumake
-      meson
-
       # dev tools
       gh
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.prettier
       go
+      golangci-lint
       jdk21
-      # libllvm
-      # lldb
-      # libcxx
-      # libcxxStdenv
-      # libclang
-      clang
-      clang-tools
       rustup
       nodejs
       yarn
       bun
+      clang_17
+      clang-tools_17
 
       # LSP
       lua-language-server
@@ -72,7 +62,6 @@
       swaybg
       swaynotificationcenter
       waybar
-      eww-wayland
       wofi
       grim
       slurp
@@ -85,21 +74,15 @@
       mpv
       vlc
       gimp
-      audacity
-      libreoffice
       obs-studio
       variety
       wezterm
       alacritty
-      contour
       telegram-desktop
       microsoft-edge
       tor-browser
       vscode
-      jetbrains.idea-community
       slack
-      discord
-      spotify
     ];
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;
