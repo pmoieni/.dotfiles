@@ -32,6 +32,7 @@
       ripgrep
       hyperfine
       neovim
+      ncdu
 
       # dev tools
       gh
@@ -67,6 +68,7 @@
       slurp
       kanshi
       peek
+      libsForQt5.qt5ct
       rose-pine-gtk-theme
 
       # apps
@@ -100,11 +102,13 @@
     };
   };
 
-  dconf.settings = {
+  /*
+    dconf.settings = {
     "org/gnome/mutter" = {
-      experimental-features = [ "scale-monitor-framebuffer" ];
+    experimental-features = [ "scale-monitor-framebuffer" ];
     };
-  };
+    };
+  */
 
   systemd.user.startServices = "sd-switch";
 

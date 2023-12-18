@@ -32,9 +32,9 @@ let
   # for gsettings to work, we need to tell it where the schemas are
   # using the XDG_DATA_DIR environment variable
   # run at the end of sway config
-  configure-gtk = pkgs.writeTextFile {
-    name = "configure-gtk";
-    destination = "/bin/configure-gtk";
+  configure-theme = pkgs.writeTextFile {
+    name = "configure-theme";
+    destination = "/bin/configure-theme";
     executable = true;
     text =
       let
@@ -124,11 +124,15 @@ in
     };
     xserver = {
       enable = true;
-      displayManager.gdm = {
+      /*
+        displayManager.gdm = {
         enable = true;
         wayland = true;
-      };
-      desktopManager.gnome.enable = true;
+        };
+      */
+      displayManager.sddm.enable = true;
+      displayManager.defaultSession = "plasmawayland";
+      desktopManager.plasma5.enable = true;
       layout = "us,ir";
       xkbVariant = "";
       xkbOptions = "grp:win_space_toggle";
@@ -153,7 +157,7 @@ in
     enable = true;
     wlr.enable = true;
     # gtk portal needed to make gtk apps happy
-    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   hardware = {
@@ -240,10 +244,6 @@ in
       nettools
       firefox-bin
       dconf
-      polkit_gnome
-      gnome.adwaita-icon-theme
-      gnome.gnome-tweaks
-      gnomeExtensions.paperwm
       xdg-utils
       glib
       wl-clipboard
@@ -258,34 +258,7 @@ in
       cmake
       ninja
     ];
-    gnome.excludePackages = (with pkgs; [
-      gnome-tour
-    ]) ++ (with pkgs.gnome; [
-      epiphany # web browser
-      geary # email reader
-      totem # video player
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-    ]);
     sessionVariables.NIXOS_OZONE_WL = "1";
-  };
-
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
   };
 
   programs = {
@@ -295,7 +268,7 @@ in
       extraOptions = [ "--unsupported-gpu" ];
       extraPackages = [
         dbus-sway-environment
-        configure-gtk
+        configure-theme
       ];
     };
   };

@@ -7,7 +7,8 @@ set $right l
 
 set $term wezterm
 
-exec systemctl --user start polkit-gnome-authentication-agent-1.service
+# exec systemctl --user start polkit-gnome-authentication-agent-1.service
+exec /nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 
 
 exec swayidle -w \
          timeout 300 'swaylock -f' \
@@ -55,7 +56,7 @@ bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec dolphin
 
 bindsym $mod+r exec wofi --show run
 bindsym $mod+d exec wofi --show drun
@@ -137,4 +138,4 @@ include @sysconfdir@/sway/config.d/*
 
 # setup env with nix
 exec dbus-sway-environment
-exec configure-gtk
+exec configure-theme
