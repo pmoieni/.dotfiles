@@ -19,6 +19,9 @@ vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 vim.opt.mouse = "a"
 vim.opt.cmdheight = 0
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
 
 -- map leader to <space>
 vim.g.mapleader = " "
+

@@ -85,6 +85,9 @@
       tor-browser
       vscode
       slack
+
+      # other
+      hplip
     ];
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;
