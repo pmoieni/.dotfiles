@@ -14,6 +14,7 @@
         "idle_inhibitor",
         "group/system",
         "battery",
+        "sway/language",
         "clock",
         "group/power"
     ],
@@ -145,6 +146,9 @@
             " ",
             " "
         ]
+    },
+    "sway/language": {
+	    "format": "{}",
     },
     "network": {
         "format-wifi": "  {essid} ({signalStrength}%)",

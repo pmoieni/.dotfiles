@@ -40,6 +40,7 @@ window#waybar {
 #custom-swaync,
 #clock,
 #battery,
+#language,
 #idle_inhibitor,
 #custom-media,
 #custom-user,
@@ -98,6 +99,10 @@ window#waybar {
 
 #battery.warning:not(.charging) {
   color: @red;
+}
+
+#language {
+  color: @rose;
 }
 
 #network {
