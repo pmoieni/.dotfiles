@@ -28,4 +28,87 @@ config.set_environment_variables = {
     TERM = "xterm-256color",
 }
 
+config.leader = { key = 'a', mods = 'ALT', timeout_milliseconds = 1000 }
+
+config.keys = {
+    {
+        key = '\\',
+        mods = 'LEADER',
+        action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    },
+    {
+        key = '-',
+        mods = 'LEADER',
+        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+    },
+    {
+        key = 't',
+        mods = 'LEADER',
+        action = wezterm.action.SpawnTab 'CurrentPaneDomain',
+    },
+    {
+        key = ',',
+        mods = 'LEADER',
+        action = wezterm.action.ActivateTabRelative(-1),
+    },
+    {
+        key = '.',
+        mods = 'LEADER',
+        action = wezterm.action.ActivateTabRelative(1),
+    },
+    {
+        key = 'r',
+        mods = 'LEADER',
+        action = wezterm.action.ActivateKeyTable {
+            name = 'resize_pane',
+            one_shot = false,
+        },
+    },
+    {
+        key = 'h',
+        mods = 'LEADER',
+        action = wezterm.action.ActivatePaneDirection 'Left'
+    },
+    {
+        key = 'j',
+        mods = 'LEADER',
+        action = wezterm.action.ActivatePaneDirection 'Down'
+    },
+    {
+        key = 'k',
+        mods = 'LEADER',
+        action = wezterm.action.ActivatePaneDirection 'Up'
+    },
+    {
+        key = 'l',
+        mods = 'LEADER',
+        action = wezterm.action.ActivatePaneDirection 'Right'
+    },
+}
+
+config.key_tables = {
+    resize_pane = {
+        {
+            key = 'h',
+            action = wezterm.action.AdjustPaneSize { 'Left', 1 }
+        },
+        {
+            key = 'j',
+            action = wezterm.action.AdjustPaneSize { 'Down', 1 }
+        },
+        {
+            key = 'k',
+            action = wezterm.action.AdjustPaneSize { 'Up', 1 }
+        },
+        {
+            key = 'l',
+            action = wezterm.action.AdjustPaneSize { 'Right', 1 }
+        },
+        {
+            key = 'Escape',
+            action = 'PopKeyTable'
+        },
+    },
+}
+
 return config
