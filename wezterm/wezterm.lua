@@ -32,8 +32,8 @@ config.leader = { key = 'a', mods = 'ALT', timeout_milliseconds = 1000 }
 
 config.keys = {
     {
-        key = '\\',
-        mods = 'LEADER',
+        key = '|',
+        mods = 'LEADER|SHIFT',
         action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
     },
     {
@@ -47,12 +47,12 @@ config.keys = {
         action = wezterm.action.SpawnTab 'CurrentPaneDomain',
     },
     {
-        key = ',',
+        key = '[',
         mods = 'LEADER',
         action = wezterm.action.ActivateTabRelative(-1),
     },
     {
-        key = '.',
+        key = ']',
         mods = 'LEADER',
         action = wezterm.action.ActivateTabRelative(1),
     },
