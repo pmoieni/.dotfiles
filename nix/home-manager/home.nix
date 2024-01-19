@@ -72,6 +72,7 @@
       rose-pine-gtk-theme
 
       # apps
+      xfce.thunar
       gparted
       mpv
       vlc
@@ -85,9 +86,10 @@
       tor-browser
       vscode
       slack
+      element-desktop
 
       # other
-      hplip
+      hplipWithPlugin
     ];
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;

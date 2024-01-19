@@ -3,8 +3,15 @@ return {
     name = 'rose-pine',
     config = function()
         require("rose-pine").setup({
-            variant = "dark",
-            disable_background = true,
+            variant = "auto",      -- auto, main, moon, or dawn
+            dark_variant = "main", -- main, moon, or dawn
+            dim_inactive_windows = true,
+            extend_background_behind_borders = true,
+            styles = {
+                bold = true,
+                italic = true,
+                transparency = true,
+            },
         })
 
         vim.cmd('colorscheme rose-pine')

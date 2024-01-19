@@ -271,6 +271,7 @@ in
         configure-theme
       ];
     };
+    hyprland.enable = true;
   };
 
   # change to fonts.fonts for 23.05 or older, else font.packages

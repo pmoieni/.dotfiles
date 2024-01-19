@@ -1,31 +1,15 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
-local status, lazy = pcall(require, "lazy")
-if not status then
-    return
-end
-
-lazy.setup({
+return {
     "nvim-lua/plenary.nvim",
     -- local development
     {
+        dir = "~/projects/pmoieni/streamline.nvim",
         "pmoieni/streamline.nvim",
-        dev = true
+        config = function()
+            local streamline = require("streamline")
+
+            streamline.setup({
+                debug = true,
+            })
+        end,
     }
-}, {
-    dev = {
-        path = "~/projects/pmoieni",
-        fallback = false, -- Fallback to git when local plugin doesn't exist
-    }
-})
+}
