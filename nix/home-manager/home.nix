@@ -63,6 +63,7 @@
       swaybg
       swaynotificationcenter
       waybar
+      eww-wayland
       wofi
       grim
       slurp

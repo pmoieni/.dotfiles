@@ -183,8 +183,8 @@
         "format": "{icon} {}",
         "return-type": "json",
         "format-icons": {
-            "Playing": "",
-            "Paused": ""
+            "Playing": "",
+            "Paused": ""
         },
         "max-length": 80,
         "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
@@ -192,4 +192,4 @@
         "on-click-middle": "playerctl previous",
         "on-click-right": "playerctl next"
     }
-}z
+}
