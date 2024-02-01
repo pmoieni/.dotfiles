@@ -7,8 +7,8 @@
               :tooltip "find"
               :vexpand false
               :button-class "bar-search-button"
-              :L "pushd ~;wofi -drun;popd"))
-    (eventbox :onscroll '[ {} = up ] || bspc desktop -f next; [ {} = down ] || bspc desktop -f prev'
+              :L "pushd ~;wofi --show drun;popd"))
+    (eventbox :onscroll '[ {} = up ] || swaymsg workspace next; [ {} = down ] || swaymsg workspace prev'
               :vexpand true
       (scroll :height 370
           (literal :content workspaces)))
