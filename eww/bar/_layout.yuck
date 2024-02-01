@@ -21,7 +21,7 @@
         (_time :time time
                :tooltip "time ${time.hour}:${time.min}"
                :button-class "bar-time-button"
-               :L "eww open --toggle bolt")
+               :L "eww open --toggle ccenter")
         (_revealex :revealon bar_revealex)
         (label :text ""
                :class "bar-separator"))) 
