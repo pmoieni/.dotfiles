@@ -270,7 +270,8 @@ in
       gnupg
       git
       killall
-      coreutils
+      coreutils-full
+      procps
       pciutils
       nettools
       firefox-bin

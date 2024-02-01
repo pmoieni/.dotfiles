@@ -1,12 +1,12 @@
 (defwidget ccenter_layout []
   (box :space-evenly false
        :class "ccenter-layout-box"
-       :spacing 20
+       :spacing 10
        :orientation "vertical"
     (box :hexpand true 
          :space-evenly false 
          :class "ccenter-date-bat-pctl" 
-         :spacing 25
+         :spacing 10
       (box :orientation "vertical" 
            :space-evenly false 
            :class "ccenter-date-bat" 
@@ -33,7 +33,7 @@
     (box :hexpand true 
          :space-evenly false 
          :class "ccenter-uptime-wifi" 
-         :spacing 20
+         :spacing 10
       (_ccenteruptime :label "Uptime" 
                    :uptime uptime)
       (_ccenterwifi :label "WiFi" 

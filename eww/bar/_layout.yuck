@@ -30,7 +30,7 @@
                   :path profile
                   :image-class "bar-profile-image"
                   :button-class "bar-profile-button"
-                  :size "50"
+                  :size "40"
                   :tooltip "profile")))
 
 ;; vim:ft=yuck

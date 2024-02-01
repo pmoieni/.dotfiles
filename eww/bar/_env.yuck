@@ -2,7 +2,7 @@
 (defvar bar_revealex false)
 (defvar bar_revealnd false)
 
-(defvar profile "./assets/profile.jpg")
+(defvar profile "./assets/profile.png")
 (defpoll volume_status :interval "1s" "[ $(pamixer --get-volume-human) = muted ] && echo 󰖁 || echo 󰕾")
 (defpoll volume_level :interval "1s" "pamixer --get-volume")
 

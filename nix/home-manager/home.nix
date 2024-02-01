@@ -36,6 +36,7 @@
       jq
       alsa-utils
       pamixer
+      imagemagick
 
       # dev tools
       gh
