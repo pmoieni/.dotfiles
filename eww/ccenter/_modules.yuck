@@ -4,7 +4,6 @@
        :orientation "vertical" 
        :space-evenly false 
        :class "ccenter-date-box" 
-       :width 200
     (label :halign "start"
            :text short_pretty 
            :class "ccenter-date-pretty")
@@ -14,7 +13,7 @@
 
 (defwidget _fluidbat [label icon_full icon_crit icon_norm class]
   (overlay :class "ccenter-bat-overlay"
-    (progress :width 180 
+    (progress 
               :class "ccenter-bat-prog ${class}" 
               :value {EWW_BATTERY.BAT0.capacity > 95 ? 100 : EWW_BATTERY.BAT0.capacity})
     (box :valign "center" 
@@ -45,13 +44,12 @@
           :onclick L 
           :onrightclick R 
     (box :hexpand true 
+        :width 200
         :halign "start" 
         :orientation "vertical" 
         :space-evenly false 
         :class "ccenter-pctl-box" 
         :style "background-image: url(\"${playerctl.artUrl}\")"
-        :width 200
-        :height 200
             (box :space-evenly false 
                 :orientation "vertical" 
                 :class "ccenter-pctl-label-title-artist"

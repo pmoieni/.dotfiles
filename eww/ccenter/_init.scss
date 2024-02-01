@@ -14,7 +14,7 @@
 
 .ccenter-date-pretty {
     font-size: 1rem;
-    color: $muted;
+    color: $subtle;
 }
 
 .ccenter-date-day {
@@ -46,7 +46,7 @@
 }
 
 .ccenter-bat-status-label {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     padding-left: 2rem;
 }
@@ -90,7 +90,7 @@
 
 .ccenter-pctl-box {
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: right;
     padding: 2rem;
     border-radius: 3rem;
@@ -110,7 +110,7 @@
 
 .ccenter-pctl-artist {
     font-size: 1rem;
-    color: $muted;
+    color: $subtle;
 }
 
 .ccenter-pctl-volume-icon {
@@ -137,7 +137,7 @@
 }
 
 .ccenter-uptime-label {
-    color: $muted;
+    color: $subtle;
     font-size: 1rem;
 }
 
@@ -154,7 +154,7 @@
 
 .ccenter-wifi-label {
     font-size: 1rem;
-    color: $muted;
+    color: $subtle;
 }
 
 .ccenter-wifi-ssid {
