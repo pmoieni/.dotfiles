@@ -8,22 +8,22 @@
                 :hexpand true
                 :halign "fill"
                 :button-class "powermenu-poweroff-button"
-                :L "systemctl poweroff")
+                :L "eww close powermenu; systemctl poweroff")
             (_button :text "󰜉"
                 :tooltip "reboot"
                 :hexpand true
                 :halign "fill"
                 :button-class "powermenu-reboot-button"
-                :L "systemctl reboot")
+                :L "eww close powermenu; systemctl reboot")
             (_button :text "󰒲"
                 :tooltip "sleep"
                 :hexpand true
                 :halign "fill"
                 :button-class "powermenu-suspend-button"
-                :L "systemctl suspend")
+                :L "eww close powermenu; systemctl suspend")
             (_button :text "󰗼"
                 :tooltip "exit"
                 :hexpand true
                 :halign "fill"
                 :button-class "powermenu-exit-button"
-                :L "swaymsg exit"))))
+                :L "eww close powermenu; swaymsg exit"))))
