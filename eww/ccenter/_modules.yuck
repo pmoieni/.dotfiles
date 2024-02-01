@@ -85,7 +85,7 @@
 
 (defwidget _ccenteruptime [label uptime]
  (button
-        :onclick "wezterm -e htop"
+        :onclick "pushd ~; wezterm -e htop; popd"
         (box :space-evenly false 
             :class "ccenter-uptime-box" 
             :spacing 8 
@@ -111,7 +111,7 @@
        :class "ccenter-wifi-box"
         (button
           :hexpand true
-          :onclick "wezterm -e nmtui"
+          :onclick "pushd ~; wezterm -e nmtui; popd"
             (box :valign "center" 
                 :hexpand true 
                 :orientation "vertical" 
