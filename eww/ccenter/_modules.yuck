@@ -1,3 +1,31 @@
+(defwidget _ccenterairplane [onclick]
+    (button
+        :hexpand true
+        :onclick onclick
+        (box :class "ccenter-airplane-box"
+            (label :halign "center"
+                :text "󰀝"
+                :class "ccenter-airplane-icon"))))
+
+(defwidget _ccenterbluetooth [onclick]
+    (button
+        :hexpand true
+        :onclick onclick
+        (box :class "ccenter-bluetooth-box"
+            (label :halign "center"
+                :text "󰂯"
+                :class "ccenter-bluetooth-icon"))))
+
+(defwidget _ccenterconnections []
+    (box :class "ccenter-connections-box"
+        :width 180
+        :height 95
+        :orientation "h"
+        :spacing "10"
+        :space-evenly false
+        (_ccenterairplane)
+        (_ccenterbluetooth)))
+
 (defwidget _ccenterdate [day short_pretty]
   (box :hexpand true 
        :halign "start" 
@@ -15,7 +43,7 @@
   (overlay :class "ccenter-bat-overlay"
     (progress 
               :class "ccenter-bat-prog ${class}" 
-              :value {EWW_BATTERY.BAT0.capacity > 95 ? 100 : EWW_BATTERY.BAT0.capacity})
+              :value {EWW_BATTERY.BAT0.capacity > 94 ? 100 : EWW_BATTERY.BAT0.capacity})
     (box :valign "center" 
          :spacing 5 
          :space-evenly false 
@@ -43,45 +71,44 @@
           :onmiddleclick M 
           :onclick L 
           :onrightclick R 
-    (box :hexpand true 
-        :width 200
-        :halign "start" 
-        :orientation "vertical" 
-        :space-evenly false 
-        :class "ccenter-pctl-box" 
-        :style "background-image: url(\"${playerctl.artUrl}\")"
-            (box :space-evenly false 
-                :orientation "vertical" 
-                :class "ccenter-pctl-label-title-artist"
-            (label :halign "start" 
-                    :text label 
-                    :class "ccenter-pctl-label")
-            (label :halign "start" 
-                    :limit-width 20 
-                    :wrap true 
-                    :xalign 0.0 
-                    :text title 
-                    :class "ccenter-pctl-title")
-            (label :halign "start" 
-                    :limit-width 20 
-                    :text artist 
-                    :class "ccenter-pctl-artist"))
+        (box :hexpand true 
+            :width 200
+            :orientation "vertical" 
+            :space-evenly false 
+            :class "ccenter-pctl-box" 
+            :style "background-image: url(\"${playerctl.artUrl}\")"
+                (box :space-evenly false 
+                    :orientation "vertical" 
+                    :class "ccenter-pctl-label-title-artist"
+                (label :halign "start" 
+                        :text label 
+                        :class "ccenter-pctl-label")
+                (label :halign "start" 
+                        :limit-width 15 
+                        :wrap true 
+                        :xalign 0.0 
+                        :text title 
+                        :class "ccenter-pctl-title")
+                (label :halign "start" 
+                        :limit-width 15
+                        :text artist
+                        :class "ccenter-pctl-artist"))
         (box :vexpand true 
             :valign "end" 
             :hexpand true 
             :space-evenly false 
             :class "ccenter-pctl-status-volume-box"
-        (box :space-evenly false 
-            :spacing 5 
-            :class "ccenter-pctl-volume"
-            (label :text volume_icon 
-                :class "ccenter-pctl-volume-icon")
-            (label :text volume 
-                :class "ccenter-pctl-volume-label"))
-        (label :text status_icon
-                :class "ccenter-pctl-status"
-                :hexpand true
-                :halign "end")))))
+            (box :space-evenly false 
+                :spacing 5 
+                :class "ccenter-pctl-volume"
+                (label :text volume_icon 
+                    :class "ccenter-pctl-volume-icon")
+                (label :text volume 
+                    :class "ccenter-pctl-volume-label"))
+            (label :text status_icon
+                    :class "ccenter-pctl-status"
+                    :hexpand true
+                    :halign "end")))))
 
 (defwidget _ccenteruptime [label uptime]
  (button
@@ -104,8 +131,6 @@
 
 (defwidget _ccenterwifi [label icon ssid]
   (box :valign "center"
-       :height 100 
-       :valign "center" 
        :hexpand true 
        :space-evenly false 
        :class "ccenter-wifi-box"

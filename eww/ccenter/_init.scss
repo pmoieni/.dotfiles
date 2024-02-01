@@ -6,15 +6,25 @@
     border-radius: 3rem;
 }
 
-.ccenter-date-box {
+.ccenter-connections-box {
     padding: 2rem;
     background-color: $overlay;
     border-radius: 3rem;
 }
 
-.ccenter-date-pretty {
-    font-size: 1rem;
+.ccenter-airplane-box {
+    font-size: 2rem; 
     color: $subtle;
+}
+
+.ccenter-bluetooth-box {
+    font-size: 2rem; 
+    color: $subtle;
+}
+
+.ccenter-airplane-box:hover {
+    background-color: $foam;
+    color: $overlay;
 }
 
 .ccenter-date-day {

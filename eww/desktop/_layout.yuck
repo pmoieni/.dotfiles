@@ -11,8 +11,7 @@
                :halign "end"
                :text "${time.dom} ${time.month} ${time.year}"))
       (_search :engine "firefox https://google.com &"
-               :command "firefox https://google.com/?q={} &"
-               :placeholder "Search..."
+               :command "firefox https://google.com/search?q={} &"
                :timeout "5s"
                :icon ""))))
 
