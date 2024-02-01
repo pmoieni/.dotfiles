@@ -15,9 +15,11 @@
     (eventbox :onhover "eww update bar_revealex=true"
               :onhoverlost "eww update bar_revealex=false"
       (box :space-evenly false :orientation "vertical"
-        (_barbat :critical ""
-                     :full ""
-                     :battery {EWW_BATTERY.BAT0.capacity})
+        (_barbat :critical "󰂃"
+                    :charge "󰂄"
+                     :full "󱟢"
+                     :battery {EWW_BATTERY.BAT0.capacity}
+                     :status {EWW_BATTERY.BAT0.status})
         (_time :time time
                :tooltip "time ${time.hour}:${time.min}"
                :button-class "bar-time-button"

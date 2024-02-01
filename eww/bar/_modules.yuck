@@ -12,8 +12,8 @@
       (label :text {time.min}
              :class "bar-time-format-second"))))
 
-(defwidget _barbat [critical full battery]
-  (_label :text {battery < 16 ? critical : battery > 94 ? full : battery}
+(defwidget _barbat [charge critical full battery status]
+  (_label :text {status == "Charging" ? charge : battery < 21 ? critical : battery > 94 ? full : battery}
           :tooltip "capacity: ${battery}"
           :vexpand true
           :valign "end"
