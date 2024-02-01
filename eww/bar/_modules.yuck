@@ -19,12 +19,10 @@
           :valign "end"
           :button-class "bar-battery-button"))
 
-(defwidget _profile [path size ?tooltip ?button-class ?image-class ?M ?L ?R]
-  (button :onmiddleclick M 
-          :onclick L 
-          :onrightclick R 
-          :tooltip tooltip
-          :class "bar-button ${button-class}"
+(defwidget _profile [path size ?button-class ?image-class ?onhover ?onhoverlost]
+  (eventbox
+        :onhover onhover
+        :onhoverlost onhoverlost
     (image :path path 
            :image-width size 
            :class "bar-image ${image-class}")))

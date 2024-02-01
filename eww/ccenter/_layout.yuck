@@ -1,4 +1,6 @@
 (defwidget ccenter_layout []
+    (eventbox
+        :onhoverlost "eww close ccenter"
   (box :space-evenly false
        :class "ccenter-layout-box"
        :spacing 10
@@ -38,6 +40,6 @@
                    :uptime uptime)
       (_ccenterwifi :label "WiFi" 
                  :icon  {net == "" ? "󰤭" : net < 26 ? "󰤟" : net < 51 ? "󰤢" : net < 76 ? "󰤥" : "󰤨"} 
-                 :ssid ssid))))
+                 :ssid ssid)))))
 
 ;; vim:ft=yuck

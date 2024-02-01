@@ -26,11 +26,10 @@
         (label :text ""
                :class "bar-separator"))) 
     (_profile :M "eww update bar_revealex=${!bar_revealex}"
-                  :L "eww open --toggle ccenter"
+                  :onhover "eww open ccenter"
                   :path profile
                   :image-class "bar-profile-image"
                   :button-class "bar-profile-button"
-                  :size "40"
-                  :tooltip "profile")))
+                  :size "40")))
 
 ;; vim:ft=yuck
