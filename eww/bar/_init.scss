@@ -20,12 +20,12 @@
 
 .bar-time-format-first { font-weight: bold; color: $iris; }
 .bar-time-format-second { color: $foam; }
-.bar-time-format-third { color: $gold; }
+.bar-time-format-third { color: $foam; }
 .bar-reveal-box button { padding: 1rem; font-size: 1.5rem; }
 
-.bar-volume-on { background-color: $surface; color: $gold; }
+.bar-volume-on { background-color: $surface; color: $foam; }
 .bar-volume-off { background-color: $surface; color: $love; }
-.bar-volume-on:hover { background-color: $gold; color: $surface; }
+.bar-volume-on:hover { background-color: $foam; color: $surface; }
 .bar-volume-off:hover { background-color: $love; color: $surface; }
 
 .bar-notify-on { background-color: $surface; color: $iris; }
@@ -38,6 +38,17 @@
 
 .bar-notify-button {
     font-size: 1.5rem;
+}
+
+.bar-power-button {
+    font-size: 1.5rem;
+    color: $love;
+    background-color: $surface;
+}
+
+.bar-power-button:hover {
+    background-color: $love;
+    color: $surface;
 }
 
 // .bar-profile-button { }

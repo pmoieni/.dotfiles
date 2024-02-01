@@ -1,0 +1,11 @@
+(defwidget _button [hexpand text ?tooltip ?halign ?button-class ?label-class ?M ?L ?R]
+  (button :onmiddleclick M
+          :onclick L
+          :onrightclick R
+          :hexpand hexpand
+          :halign "${halign == "" ? "start" : halign}"
+          :class "powermenu-button ${button-class}" 
+          :tooltip tooltip
+    (label :text text 
+           :limit-width 2 
+           :class "powermenu-label ${label-class}")))

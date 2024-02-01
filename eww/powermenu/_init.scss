@@ -1,0 +1,48 @@
+.powermenu-box {
+    background-color: $base;
+    padding: 1rem;
+    border-radius: 3rem;
+}
+
+.powermenu-box button {
+    background-color: $overlay;
+    padding: 2rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+}
+
+.powermenu-poweoff-button {
+    color: $love;
+}
+
+.powermenu-poweroff-button:hover {
+    color: $overlay;
+    background-color: $love;
+}
+
+.powermenu-reboot-button {
+    color: $iris;
+}
+
+.powermenu-reboot-button:hover {
+    color: $overlay;
+    background-color: $iris;
+}
+
+.powermenu-suspend-button {
+    color: $foam;
+}
+
+.powermenu-suspend-button:hover {
+    color: $overlay;
+    background-color: $foam;
+}
+
+.powermenu-exit-button {
+    color: $gold;
+}
+
+.powermenu-exit-button:hover {
+    color: $overlay;
+    background-color: $gold;
+}

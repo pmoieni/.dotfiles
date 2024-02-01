@@ -1,0 +1,10 @@
+(include "./powermenu/_modules.yuck")
+(include "./powermenu/_layout.yuck")
+
+(defwindow powermenu
+  :monitor 0
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry :x "30%" :y "45%" :width "30%" :height "10%")
+  (powermenu_layout))

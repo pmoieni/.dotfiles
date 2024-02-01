@@ -1,0 +1,29 @@
+(defwidget powermenu_layout []
+    (eventbox
+        :onhoverlost "eww close powermenu"
+        (box :class "powermenu-box"
+            :spacing "10"
+            (_button :text ""
+                :tooltip "poweroff"
+                :hexpand true
+                :halign "fill"
+                :button-class "powermenu-poweroff-button"
+                :L "systemctl poweroff")
+            (_button :text "󰜉"
+                :tooltip "reboot"
+                :hexpand true
+                :halign "fill"
+                :button-class "powermenu-reboot-button"
+                :L "systemctl reboot")
+            (_button :text "󰒲"
+                :tooltip "sleep"
+                :hexpand true
+                :halign "fill"
+                :button-class "powermenu-suspend-button"
+                :L "systemctl suspend")
+            (_button :text "󰗼"
+                :tooltip "exit"
+                :hexpand true
+                :halign "fill"
+                :button-class "powermenu-exit-button"
+                :L "swaymsg exit"))))

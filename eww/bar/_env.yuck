@@ -6,8 +6,6 @@
 (defpoll volume_status :interval "1s" "[ $(pamixer --get-volume-human) = muted ] && echo 󰖁 || echo 󰕾")
 (defpoll volume_level :interval "1s" "pamixer --get-volume")
 
-(defvar bar_volume_toggle "pushd ~; pavucontrol; popd")
-
 (defpoll swaync :interval "1s" "[ $(swaync-client -D) = true ] && echo  ||echo ")
 
 (defpoll workspaces :interval "1s" "./bar/scripts/workspaces.sh")
