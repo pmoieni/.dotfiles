@@ -1,6 +1,9 @@
 .desktop-layout-box {
   font-family: FiraCode Nerd Font;
   color: rgba($text, 0.75);
+    background-color: rgba($base, 0.5);
+    padding: 2rem;
+    border-radius: 3rem;
 }
 
 .desktop-apps-box {
