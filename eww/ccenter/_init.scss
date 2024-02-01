@@ -1,0 +1,178 @@
+.ccenter-layout-box {
+    font-family: FiraCode Nerd Font;
+    background-color: $base;
+    color: $text;
+    padding: 1rem;
+    border-radius: 3rem;
+}
+
+.ccenter-date-box {
+    padding: 2rem;
+    background-color: $overlay;
+    border-radius: 3rem;
+}
+
+.ccenter-date-pretty {
+    font-size: 1rem;
+    color: $muted;
+}
+
+.ccenter-date-day {
+    font-size: 1.5rem;
+}
+
+.ccenter-bat-overlay {
+    color: $base;
+}
+
+.ccenter-bat-prog {
+    border-radius: 3rem;
+    trough {
+        padding: 3rem 0;
+        background-color: $overlay;
+        border-radius: 3rem;
+
+        progress {
+            padding: 3rem 0;
+            background-color: $foam;
+            border-radius: 3rem;
+        }
+    }
+}
+
+.ccenter-bat-label {
+    font-size: 1rem;
+    padding-left: 2rem;
+}
+
+.ccenter-bat-status-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 2rem;
+}
+
+.ccenter-bat-icon {
+    padding-right: 2rem;
+    font-size: 2rem;
+}
+
+.ccenter-bat-full {
+    trough {
+        progress {
+            background-color: $foam;
+        }
+    }
+}
+
+.ccenter-bat-norm {
+    trough {
+        progress {
+            background-color: $iris;
+        }
+    }
+}
+
+.ccenter-bat-warn {
+    trough {
+        progress {
+            background-color: $gold;
+        }
+    }
+}
+
+.ccenter-bat-crit {
+    trough {
+        progress {
+            background-color: $love;
+        }
+    }
+}
+
+.ccenter-pctl-box {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    padding: 2rem;
+    border-radius: 3rem;
+}
+
+.ccenter-pctl-label {
+    font-size: 1rem;
+    color: $text;
+}
+
+.ccenter-pctl-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    color: $text;
+}
+
+.ccenter-pctl-artist {
+    font-size: 1rem;
+    color: $muted;
+}
+
+.ccenter-pctl-volume-icon {
+    font-size: 2rem;
+}
+
+.ccenter-pctl-volume-label {
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.ccenter-pctl-status {
+    font-size: 2rem;
+}
+
+.ccenter-pctl-status:hover {
+    color: $iris;
+}
+
+.ccenter-uptime-box {
+    background-color: $overlay;
+    padding: 2rem;
+    border-radius: 3rem;
+}
+
+.ccenter-uptime-label {
+    color: $muted;
+    font-size: 1rem;
+}
+
+.ccenter-uptime-value {
+    font-size: 1.5rem;
+    color: $text;
+}
+
+.ccenter-uptime-hl {
+    background-color: $foam;
+    font-size: 0.1rem;
+    padding: 2em;
+    border-radius: 0.1rem;
+}
+
+.ccenter-wifi-box {
+    background-color: $overlay;
+    padding: 2rem;
+    border-radius: 3rem;
+}
+
+.ccenter-wifi-label {
+    font-size: 1rem;
+    color: $muted;
+}
+
+.ccenter-wifi-ssid {
+    font-size: 1.5rem;
+    color: $text;
+}
+
+.ccenter-wifi-icon {
+    font-size: 2rem;
+    padding: 1rem;
+    color: $rose;
+}
+
+// vim:ft=scss

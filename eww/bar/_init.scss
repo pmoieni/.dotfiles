@@ -1,0 +1,72 @@
+.bar-layout-box {
+    background-color: $base;
+    font-family: FiraCode Nerd Font;
+    padding: 0.8rem;
+}
+
+.bar-battery-button {
+    background-color: $love;
+    border-radius: 50% 0 0 0;
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: $base;
+}
+
+.bar-time-button {
+    font-size: 1.5rem;
+    background-color: $overlay;
+    padding: 1rem;
+}
+
+.bar-time-format-first { font-weight: bold; color: $iris; }
+.bar-time-format-second { color: $foam; }
+.bar-time-format-third { color: $gold; }
+.bar-reveal-box button { padding: 1rem; font-size: 1.5rem; }
+
+.bar-volume-on { background-color: $surface; color: $gold; }
+.bar-volume-off { background-color: $surface; color: $love; }
+.bar-volume-on:hover { background-color: $gold; color: $surface; }
+.bar-volume-off:hover { background-color: $love; color: $surface; }
+
+.bar-notify-on { background-color: $surface; color: $iris; }
+.bar-notify-off { background-color: $surface; color: $love; }
+.bar-notify-on:hover { background-color: $iris; color: $surface; }
+.bar-notify-off:hover { background-color: $love; color: $surface; }
+
+.bar-workspace-plus-button { color: $love; background-color: $surface; }
+.bar-workspace-plus-button:hover { background-color: $love; color: $surface; }
+
+.bar-notify-button {
+    font-size: 1.5rem;
+}
+
+// .bar-profile-button { }
+
+.bar-separator { 
+    background-color: $overlay; 
+    margin: 1rem 0;
+    font-size: 0.1rem;
+}
+
+.bar-search-button {
+    background-color: $foam;
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: $base;
+}
+
+.bar-search-button:hover { background-color: rgba($foam, 0.8); }
+.bar-workspace {
+    background-color: $overlay;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: $muted;
+}
+.bar-workspace:last-child { border-radius: 0 0 50% 0; }
+
+.bar-workspace:hover { background-color: $surface; }
+.bar-workspace-urgent { background-color: $love; color: $surface; }
+.bar-workspace-focused {
+    color: $foam;
+    border-right: 0.2rem solid $foam;
+}

@@ -1,0 +1,36 @@
+(defwidget _revealex [revealon]
+  (revealer :reveal revealon
+            :transition "slidedown"
+            :class "bar-revealer"
+
+    (box :orientation "vertical"
+         :class "bar-reveal-box"
+         :space-evenly false
+      (_label :text volume_status
+              :L bar_volume_toggle
+              :tooltip "volume: ${volume_level}"
+              :vexpand false
+              :button-class "bar-volume-button ${volume_status == "󰕾" ? "bar-volume-on" : "bar-volume-off"}")
+      (_label :text swaync
+              :tooltip "notify"
+              :vexpand false
+              :button-class "bar-notify-button ${swaync == "" ? "bar-notify-on" : "bar-notify-off"}"
+              :L "swaync-client -t -sw"
+              :R "swaync-client -d -sw"))))
+
+(defwidget _revealnd [revealon config]
+  (revealer :reveal revealon
+            :transition "slidedown"
+            :class "bar-revealer"
+    (scroll :height 110 :vexpand true
+      (box :vexpand true :orientation "vertical"
+           :class "bar-reveal-box"
+           :space-evenly false
+            (for layout in {config.layouts}
+              (_label :text {layout.icon}
+                      :tooltip {layout.label}
+                      :vexpand false
+                      :button-class "bar-${layout.label}"
+                      :L {layout.command}))))))
+
+;; vim:ft=yuck

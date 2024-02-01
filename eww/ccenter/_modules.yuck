@@ -1,0 +1,131 @@
+(defwidget _ccenterdate [day short_pretty]
+  (box :hexpand true 
+       :halign "start" 
+       :orientation "vertical" 
+       :space-evenly false 
+       :class "ccenter-date-box" 
+       :width 200
+    (label :halign "start"
+           :text short_pretty 
+           :class "ccenter-date-pretty")
+    (label :halign "start" 
+           :text day 
+           :class "ccenter-date-day")))
+
+(defwidget _fluidbat [label icon_full icon_crit icon_norm class]
+  (overlay :class "ccenter-bat-overlay"
+    (progress :width 180 
+              :class "ccenter-bat-prog ${class}" 
+              :value {EWW_BATTERY.BAT0.capacity > 95 ? 100 : EWW_BATTERY.BAT0.capacity})
+    (box :valign "center" 
+         :spacing 5 
+         :space-evenly false 
+         :class "ccenter-bat-prog-box"
+      (box :halign "start" 
+           :hexpand true 
+           :orientation "vertical" 
+           :space-evenly false 
+           :class "ccenter-bat-label-box"
+        (label :halign "start" 
+               :text label 
+               :class "ccenter-bat-label")
+        (label :halign "start" 
+               :text "${EWW_BATTERY.BAT0.capacity > 95 ? 100 : EWW_BATTERY.BAT0.capacity}%" 
+               :class "ccenter-bat-status-label"))
+      (label :halign "end" 
+             :text {EWW_BATTERY.BAT0.capacity > 95 ? icon_full :
+                        EWW_BATTERY.BAT0.capacity < 21 ? icon_crit : icon_norm} 
+             :class "ccenter-bat-icon"))))
+
+(defwidget _ccenterpctl [L M R cover label title artist volume volume_icon status_icon]
+  (box :hexpand true 
+       :halign "start" 
+       :orientation "vertical" 
+       :space-evenly false 
+       :class "ccenter-pctl-box" 
+       :style "background-image: url(\"${playerctl.artUrl}\")"
+       :width 200
+       :height 200
+    (button
+          :vexpand true
+          :hexpand true
+          :onmiddleclick M 
+          :onclick L 
+          :onrightclick R 
+        (box :space-evenly false 
+            :orientation "vertical" 
+            :class "ccenter-pctl-label-title-artist"
+        (label :halign "start" 
+                :text label 
+                :class "ccenter-pctl-label")
+        (label :halign "start" 
+                :limit-width 20 
+                :wrap true 
+                :xalign 0.0 
+                :text title 
+                :class "ccenter-pctl-title")
+        (label :halign "start" 
+                :limit-width 20 
+                :text artist 
+                :class "ccenter-pctl-artist")))
+    (box :vexpand true 
+         :valign "end" 
+         :hexpand true 
+         :space-evenly false 
+         :class "ccenter-pctl-status-volume-box"
+      (box :space-evenly false 
+           :spacing 5 
+           :class "ccenter-pctl-volume"
+        (label :text volume_icon 
+               :class "ccenter-pctl-volume-icon")
+        (label :text volume 
+               :class "ccenter-pctl-volume-label"))
+      (label :text status_icon
+             :class "ccenter-pctl-status"
+             :hexpand true
+             :halign "end"))))
+
+(defwidget _ccenteruptime [label uptime]
+  (box :space-evenly false 
+       :class "ccenter-uptime-box" 
+       :spacing 8 
+       :halign "start"
+    (label :text "" 
+           :class "ccenter-uptime-hl")
+    (box :valign "center" 
+         :orientation "vertical" 
+         :class "ccenter-uptime-label-value" 
+         :space-evenly false
+      (label :halign "start" 
+             :class "ccenter-uptime-label" 
+             :text label)
+      (label :limit-width 15 
+             :halign "start" 
+             :class "ccenter-uptime-value" 
+             :text uptime))))
+
+(defwidget _ccenterwifi [label icon ssid]
+  (box :valign "center"
+       :height 100 
+       :valign "center" 
+       :hexpand true 
+       :space-evenly false 
+       :class "ccenter-wifi-box"
+    (box :valign "center" 
+         :hexpand true 
+         :orientation "vertical" 
+         :space-evenly false 
+         :class "ccenter-wifi-label-ssid"
+      (label :halign "start" 
+             :class "ccenter-wifi-label" 
+             :text label)
+      (label :halign "start" 
+             :class "ccenter-wifi-ssid" 
+             :text ssid))
+    (label :vexpand false 
+           :valign "center" 
+           :halign "end" 
+           :class "ccenter-wifi-icon" 
+           :text icon)))
+
+; vim:ft=yuck

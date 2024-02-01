@@ -19,7 +19,10 @@ exec swayidle -w \
 exec kanshi
 exec variety
 exec swaync
-exec waybar
+# exec waybar
+exec eww daemon
+exec eww open bar
+exec eww open desktop
 
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store

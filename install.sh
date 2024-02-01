@@ -2,6 +2,7 @@
 
 ln -s ~/.dotfiles/kanshi ~/.config/kanshi
 ln -s ~/.dotfiles/awesome ~/.config/awesome
+ln -s ~/.dotfiles/eww ~/.config/eww
 ln -s ~/.dotfiles/sway ~/.config/sway
 ln -s ~/.dotfiles/alacritty ~/.config/alacritty
 ln -s ~/.dotfiles/wezterm ~/.config/wezterm

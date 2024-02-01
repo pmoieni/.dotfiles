@@ -1,0 +1,16 @@
+(include "./bar/_env.yuck")
+(include "./bar/_label.yuck")
+(include "./bar/_reveal.yuck")
+(include "./bar/_modules.yuck")
+(include "./bar/_layout.yuck")
+
+(defwindow bar
+    :monitor 0
+    :exclusive true
+    :stacking "bt"
+    :windowtype "dock"
+    :geometry (geometry :width "4%" :height "100%" :anchor "left center")
+    :reserve (struts :distance "4%" :side "left") 
+    (bar_layout))
+
+;; vim:ft=yuck

@@ -33,6 +33,9 @@
       hyperfine
       neovim
       ncdu
+      jq
+      alsa-utils
+      pamixer
 
       # dev tools
       gh
@@ -90,7 +93,7 @@
       element-desktop
 
       # other
-      hplipWithPlugin
+      # hplipWithPlugin
     ];
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;
@@ -108,13 +111,12 @@
     };
   };
 
-  /*
-    dconf.settings = {
+  dconf.settings = {
     "org/gnome/mutter" = {
-    experimental-features = [ "scale-monitor-framebuffer" ];
+      experimental-features = [ "scale-monitor-framebuffer" ];
     };
-    };
-  */
+    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  };
 
   systemd.user.startServices = "sd-switch";
 

@@ -1,0 +1,56 @@
+.desktop-layout-box {
+  font-family: FiraCode Nerd Font;
+  color: rgba($text, 0.75);
+}
+
+.desktop-apps-box {
+  font-size: 3rem;
+}
+
+.desktop-app-btn {
+  color: rgba($iris, 0.7);
+    transition: 0.2s ease;
+}
+
+.desktop-app-btn:hover {
+    color: $iris;
+}
+
+.desktop-day-label {
+  font-size: 8rem;
+  font-weight: bold;
+}
+
+.desktop-date-label {
+  font-size: 2rem;
+}
+
+.desktop-sundial-label {
+    background-color: rgba($subtle, 0.7);
+    color: $surface;
+    font-weight: bold;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.2rem
+}
+
+.desktop-search {
+  background-color: rgba($subtle, 0.7);
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 3rem 0 0 3rem;
+}
+
+.desktop-search-button {
+  background-color: rgba($love, 0.7);
+  border-radius: 0 3rem 3rem 0;
+  padding: 1rem 1.8rem 1rem 1rem;
+  font-size: 1.5rem;
+    transition: 0.2s ease;
+}
+
+.desktop-search-button:hover {
+  background-color: $love;
+}
+
+// vim:ft=scss

@@ -55,8 +55,22 @@ in
   ];
 
   nixpkgs = {
-    overlays = [ ];
+    overlays = [
+      (final: prev: {
+        gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
+          mutter = gnomePrev.mutter.overrideAttrs (old: {
+            src = pkgs.fetchgit {
+              url = "https://gitlab.gnome.org/vanvugt/mutter.git";
+              # GNOME 45: triple-buffering-v4-45
+              rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
+              sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
+            };
+          });
+        });
+      })
+    ];
     config = {
+      allowAliases = false;
       allowUnfree = true;
     };
   };
@@ -124,15 +138,14 @@ in
     };
     xserver = {
       enable = true;
-      /*
-        displayManager.gdm = {
+      displayManager.gdm = {
         enable = true;
         wayland = true;
-        };
-      */
-      displayManager.sddm.enable = true;
-      displayManager.defaultSession = "plasmawayland";
-      desktopManager.plasma5.enable = true;
+      };
+      # displayManager.sddm.enable = true;
+      # displayManager.defaultSession = "plasmawayland";
+      # desktopManager.plasma5.enable = true;
+      desktopManager.gnome.enable = true;
       layout = "us,ir";
       xkbVariant = "";
       xkbOptions = "grp:win_space_toggle";
@@ -157,7 +170,7 @@ in
     enable = true;
     wlr.enable = true;
     # gtk portal needed to make gtk apps happy
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # not required when using Gnome
   };
 
   hardware = {
@@ -178,7 +191,7 @@ in
       driSupport32Bit = true;
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        # vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium) # not working anymore
         vaapiVdpau
         libvdpau-va-gl
       ];
@@ -228,6 +241,24 @@ in
           value.source = value.flake;
         })
         config.nix.registry;
+    gnome.excludePackages = (with pkgs; [
+      # gnome-photos
+      gnome-tour
+    ]) ++ (with pkgs.gnome; [
+      # cheese # webcam tool
+      # gnome-music
+      # gnome-terminal
+      # gedit # text editor
+      # epiphany # web browser
+      # geary # email reader
+      # evince # document viewer
+      # gnome-characters
+      # totem # video player
+      tali # poker game
+      iagno # go game
+      hitori # sudoku game
+      atomix # puzzle game
+    ]);
     systemPackages = with pkgs; [
       vim
       htop
@@ -244,6 +275,8 @@ in
       nettools
       firefox-bin
       dconf
+      gnome.gnome-tweaks
+      gnome.adwaita-icon-theme
       xdg-utils
       glib
       wl-clipboard

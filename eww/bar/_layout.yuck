@@ -1,0 +1,36 @@
+(defwidget bar_layout []
+  (box :orientation "vertical"
+       :space-evenly false
+       :class "bar-layout-box"
+    (box :space-evenly false :orientation "vertical" :spacing 10
+      (_label :text ""
+              :tooltip "find"
+              :vexpand false
+              :button-class "bar-search-button"
+              :L "pushd ~;wofi -drun;popd"))
+    (eventbox :onscroll '[ {} = up ] || bspc desktop -f next; [ {} = down ] || bspc desktop -f prev'
+              :vexpand true
+      (scroll :height 370
+          (literal :content workspaces)))
+    (eventbox :onhover "eww update bar_revealex=true"
+              :onhoverlost "eww update bar_revealex=false"
+      (box :space-evenly false :orientation "vertical"
+        (_barbat :critical ""
+                     :full ""
+                     :battery {EWW_BATTERY.BAT0.capacity})
+        (_time :time time
+               :tooltip "time ${time.hour}:${time.min}"
+               :button-class "bar-time-button"
+               :L "eww open --toggle bolt")
+        (_revealex :revealon bar_revealex)
+        (label :text ""
+               :class "bar-separator"))) 
+    (_profile :M "eww update bar_revealex=${!bar_revealex}"
+                  :L "eww open --toggle ccenter"
+                  :path profile
+                  :image-class "bar-profile-image"
+                  :button-class "bar-profile-button"
+                  :size "50"
+                  :tooltip "profile")))
+
+;; vim:ft=yuck

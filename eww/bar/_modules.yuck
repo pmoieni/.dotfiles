@@ -1,0 +1,32 @@
+(defwidget _time [time ?tooltip ?M ?L ?R ?button-class]
+  (button :onmiddleclick M 
+          :onclick L 
+          :onrightclick R
+          :class "bar-button ${button-class}" 
+          :tooltip tooltip
+
+    (box :orientation "vertical"
+         :space-evenly false
+      (label :text {time.hour}
+             :class "bar-time-format-first") 
+      (label :text {time.min}
+             :class "bar-time-format-second"))))
+
+(defwidget _barbat [critical full battery]
+  (_label :text {battery < 16 ? critical : battery > 94 ? full : battery}
+          :tooltip "capacity: ${battery}"
+          :vexpand true
+          :valign "end"
+          :button-class "bar-battery-button"))
+
+(defwidget _profile [path size ?tooltip ?button-class ?image-class ?M ?L ?R]
+  (button :onmiddleclick M 
+          :onclick L 
+          :onrightclick R 
+          :tooltip tooltip
+          :class "bar-button ${button-class}"
+    (image :path path 
+           :image-width size 
+           :class "bar-image ${image-class}")))
+
+;; vim:ft=yuck

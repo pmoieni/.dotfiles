@@ -1,0 +1,12 @@
+(include "./ccenter/_env.yuck")
+(include "./ccenter/_modules.yuck")
+(include "./ccenter/_layout.yuck")
+
+(defwindow ccenter :stacking "fg"
+  :monitor 0
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry :x 10 :y 10 :width "20%" :height "30%" :anchor "left bottom") 
+  (ccenter_layout))
+
+;; vim:ft=yuck

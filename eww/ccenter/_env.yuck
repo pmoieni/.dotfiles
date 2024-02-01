@@ -1,0 +1,4 @@
+(defpoll playerctl :interval "1s" "./ccenter/scripts/playerctl.sh")
+(defpoll uptime :interval "48h" "uptime | ./ccenter/scripts/uptime.awk")
+(defpoll ssid :interval "100s" `nmcli -terse -fields SSID,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)
+(defpoll net :interval "100s" `nmcli -terse -fields SIGNAL,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)
