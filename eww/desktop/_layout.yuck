@@ -1,17 +1,24 @@
 (defwidget desktop_layout []
-  (box :space-evenly false :class "desktop-layout-box" :spacing 30
-    (_desktopapps
-      :one "firefox https://github.com &" :icon_one ""
-      :two "firefox https://discord.com/app &" :icon_two "󰙯")
-    (box :orientation "vertical" :space-evenly false :spacing 15
-      (_sundialinfo :class "desktop" :halign "start")
-      (label :class "desktop-day-label" :text {time.day} :halign "start")
-      (box :space-evenly false
-        (label :class "desktop-date-label"
-               :halign "end"
-               :text "${time.dom} ${time.month} ${time.year}"))
-      (_search :command "firefox --search '{}'"
-               :timeout "5s"
-               :icon ""))))
-
-;; vim:ft=yuck
+    (box :space-evenly false
+        :class "desktop-layout-box"
+        :spacing 30
+        (_desktopapps
+            :one "firefox https://github.com &"
+            :icon_one ""
+            :two "firefox https://discord.com/app &"
+            :icon_two "󰙯")
+        (box :orientation "vertical"
+            :space-evenly false
+            :spacing 15
+            (_sundialinfo :class "desktop"
+                :halign "start")
+            (label :class "desktop-day-label"
+                :text {time.day}
+                :halign "start")
+        (box :space-evenly false
+            (label :class "desktop-date-label"
+                :halign "end"
+                :text "${time.dom} ${time.month} ${time.year}"))
+        (_search :command "firefox --search '{}'"
+            :timeout "5s"
+            :icon ""))))

@@ -1,6 +1,5 @@
 (defvar bar_open false)
 (defvar bar_revealex false)
-(defvar bar_revealnd false)
 
 (defvar profile "./assets/profile.png")
 (defpoll volume_status :interval "1s" "[ $(pamixer --get-volume-human) = muted ] && echo 󰖁 || echo 󰕾")
@@ -9,5 +8,3 @@
 (defpoll swaync :interval "1s" "[ $(swaync-client -D) = true ] && echo  ||echo ")
 
 (deflisten workspaces "./bar/scripts/get_workspaces.sh")
-
-;; vim:ft=yuck

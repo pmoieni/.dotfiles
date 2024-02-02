@@ -2,11 +2,15 @@
 (include "./desktop/_layout.yuck")
 
 (defwindow desktop
-  :monitor 0
-  :stacking "bt"
-  :windowtype "normal" :wm-ignore true
-  :geometry (geometry :x 100 :y 50 :width "30%" :height "25%" :anchor "top left")
-  :focusable true
-  (desktop_layout))
+    :monitor 0
+    :stacking "bt"
+    :windowtype "normal" :wm-ignore true
+    :geometry (geometry :x 100
+        :y 50
+        :width "30%"
+        :height "25%"
+        :anchor "top left")
+    :focusable true
+    (desktop_layout))
 
 ;; vim:ft=yuck

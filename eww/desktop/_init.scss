@@ -1,16 +1,16 @@
 .desktop-layout-box {
-  font-family: FiraCode Nerd Font;
-  color: rgba($text, 0.8);
+    font-family: FiraCode Nerd Font;
+    color: rgba($text, 0.8);
     padding: 2rem;
     border-radius: 3rem;
 }
 
 .desktop-apps-box {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 .desktop-app-btn {
-  color: rgba($iris, 0.8);
+    color: rgba($iris, 0.8);
     transition: 0.2s ease;
 }
 
@@ -19,12 +19,12 @@
 }
 
 .desktop-day-label {
-  font-size: 8rem;
-  font-weight: bold;
+    font-size: 8rem;
+    font-weight: bold;
 }
 
 .desktop-date-label {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .desktop-sundial-label {
@@ -36,23 +36,21 @@
 }
 
 .desktop-search {
-  background-color: rgba($muted, 0.8);
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 0.5rem 1.5rem;
-  border-radius: 3rem 0 0 3rem;
+    background-color: rgba($muted, 0.8);
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 3rem 0 0 3rem;
 }
 
 .desktop-search-button {
-  background-color: rgba($love, 0.8);
-  border-radius: 0 3rem 3rem 0;
-  padding: 1rem 1.8rem 1rem 1rem;
-  font-size: 1.5rem;
+    background-color: rgba($love, 0.8);
+    border-radius: 0 3rem 3rem 0;
+    padding: 1rem 1.8rem 1rem 1rem;
+    font-size: 1.5rem;
     transition: 0.2s ease;
 }
 
 .desktop-search-button:hover {
-  background-color: $love;
+    background-color: $love;
 }
-
-// vim:ft=scss
