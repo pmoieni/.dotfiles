@@ -11,7 +11,15 @@
     (eventbox :onscroll '[ {} = up ] || swaymsg workspace next; [ {} = down ] || swaymsg workspace prev'
               :vexpand true
       (scroll :height 370
-          (literal :content workspaces)))
+          (box :orientation 'vertical'
+             :class 'bar-box bar-desktop'
+             :space-evenly false
+             :tooltip 'workspaces'
+          (for workspace in workspaces
+            (button :class  "bar-workspace ${workspace.focused ? "bar-workspace-focused" : workspace.urgent ? "bar-workspace-urgent" : ""}"
+                    :tooltip {workspace.tooltip}
+                    :onclick {workspace.onclick}
+                        (label :text {workspace.focused ? "󰺕" : workspace.urgent ? "󰀨" : ""}))))))
     (eventbox :onhover "eww update bar_revealex=true"
               :onhoverlost "eww update bar_revealex=false"
       (box :space-evenly false :orientation "vertical"

@@ -8,6 +8,6 @@
 
 (defpoll swaync :interval "1s" "[ $(swaync-client -D) = true ] && echo  ||echo ")
 
-(defpoll workspaces :interval "1s" "./bar/scripts/workspaces.sh")
+(deflisten workspaces "./bar/scripts/get_workspaces.sh")
 
 ;; vim:ft=yuck
