@@ -13,7 +13,8 @@
             :space-evenly false 
             :class "ccenter-date-bat" 
             :spacing 10
-            (_ccenterconnections)
+             (_ccenteruptime :label "Uptime" 
+                    :uptime uptime)
             (_fluidbat :class {EWW_BATTERY.BAT0.capacity > 95 ? "ccenter-bat-full" :
                             EWW_BATTERY.BAT0.capacity > 50 ? "ccenter-bat-norm" :
                             EWW_BATTERY.BAT0.capacity > 20 ? "ccenter-bat-warn" : "ccenter-bat-crit"} 
@@ -34,9 +35,8 @@
         (box :hexpand true 
             :space-evenly false 
             :class "ccenter-uptime-wifi" 
-            :spacing 10
-        (_ccenteruptime :label "Uptime" 
-                    :uptime uptime)
+            :spacing 10 
+        (_ccenterconnections)
         (_ccenterwifi :label "WiFi" 
                     :icon  {net == "" ? "󰤭" : net < 26 ? "󰤟" : net < 51 ? "󰤢" : net < 76 ? "󰤥" : "󰤨"} 
                     :ssid ssid)))))

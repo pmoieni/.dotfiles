@@ -7,23 +7,35 @@
 }
 
 .ccenter-connections-box {
-    padding: 2rem;
     background-color: $overlay;
     border-radius: 3rem;
+    padding: 0.5rem;
 }
 
-.ccenter-airplane-box {
+.ccenter-airplane-button,
+.ccenter-bluetooth-button {
     font-size: 2rem; 
     color: $subtle;
+    transition: 0.2s ease;
 }
 
-.ccenter-bluetooth-box {
-    font-size: 2rem; 
-    color: $subtle;
+.ccenter-airplane-button {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
 }
 
-.ccenter-airplane-box:hover {
-    background-color: $foam;
+.ccenter-bluetooth-button {
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.ccenter-airplane-button:hover,
+.ccenter-bluetooth-button:hover {
+    background-color: $iris;
     color: $overlay;
 }
 

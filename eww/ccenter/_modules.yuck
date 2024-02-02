@@ -2,29 +2,31 @@
     (button
         :hexpand true
         :onclick onclick
-        (box :class "ccenter-airplane-box"
-            (label :halign "center"
-                :text "󰀝"
-                :class "ccenter-airplane-icon"))))
+        :class "ccenter-airplane-button"
+        (label :halign "center"
+            :text "󰀝"
+            :class "ccenter-airplane-icon")))
 
 (defwidget _ccenterbluetooth [onclick]
     (button
         :hexpand true
         :onclick onclick
-        (box :class "ccenter-bluetooth-box"
-            (label :halign "center"
-                :text "󰂯"
-                :class "ccenter-bluetooth-icon"))))
+        :class "ccenter-bluetooth-button"
+        (label :halign "center"
+            :text "󰂯"
+            :class "ccenter-bluetooth-icon")))
 
 (defwidget _ccenterconnections []
     (box :class "ccenter-connections-box"
         :width 180
         :height 95
         :orientation "h"
-        :spacing "10"
+        :spacing "5"
         :space-evenly false
-        (_ccenterairplane)
-        (_ccenterbluetooth)))
+        (_ccenterairplane
+            :onclick "")
+        (_ccenterbluetooth
+            :onclick "")))
 
 (defwidget _ccenterdate [day short_pretty]
   (box :hexpand true 
