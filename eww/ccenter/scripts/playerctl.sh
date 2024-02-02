@@ -13,7 +13,7 @@ artist=$(playerctl metadata --format '{{artist}}')
 
 # Hash the song title
 hash=$(echo -n "$title" | md5sum | awk '{ print $1 }')
-imgpath=$HOME/.cache/eww/$hash
+imgpath=$HOME/.cache/eww/$hash.png
 
 # Only write the image file if the hash doesn't already exist
 if [ ! -f "$imgpath" ]; then
@@ -23,9 +23,6 @@ if [ ! -f "$imgpath" ]; then
 
     # Write the base64 image data to the specified path
     echo $base64Data | base64 --decode > $imgpath
-
-    # Make the image darker
-    convert $imgpath -brightness-contrast -30 $imgpath
   else
     # Create a 100x100 black image
     convert -size 100x100 xc:black $imgpath
