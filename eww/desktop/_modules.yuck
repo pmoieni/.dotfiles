@@ -8,14 +8,14 @@
     (button :onclick two
             :class "desktop-app-btn desktop-app-btn" icon_two)))
 
-(defwidget _search [engine command timeout icon]
+(defwidget _search [command timeout icon]
   (box :space-evenly false 
        :class "desktop-search-box"
     (input :onaccept command
            :class "desktop-search"
            :hexpand true
            :timeout timeout)
-    (button :onclick engine
+    (button :onclick command
             :class "desktop-search-button"
             :timeout timeout icon)))
 

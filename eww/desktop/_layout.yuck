@@ -10,8 +10,7 @@
         (label :class "desktop-date-label"
                :halign "end"
                :text "${time.dom} ${time.month} ${time.year}"))
-      (_search :engine "firefox https://google.com &"
-               :command "firefox https://google.com/search?q={} &"
+      (_search :command "firefox --search '{}'"
                :timeout "5s"
                :icon ""))))
 
