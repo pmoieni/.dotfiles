@@ -19,7 +19,6 @@
 (defwidget _ccenterconnections []
     (box :class "ccenter-connections-box"
         :width 180
-        :height 95
         :orientation "h"
         :spacing "5"
         :space-evenly false
@@ -132,28 +131,28 @@
                     :text uptime)))))
 
 (defwidget _ccenterwifi [label icon ssid]
-  (box :valign "center"
-       :hexpand true 
-       :space-evenly false 
-       :class "ccenter-wifi-box"
-        (button
-          :hexpand true
-          :onclick "pushd ~; wezterm -e nmtui; popd"
-            (box :valign "center" 
-                :hexpand true 
-                :orientation "vertical" 
-                :space-evenly false 
-                :class "ccenter-wifi-label-ssid"
-                (label :halign "start" 
-                    :class "ccenter-wifi-label" 
-                    :text label)
-                (label :halign "start" 
-                    :class "ccenter-wifi-ssid" 
-                    :text ssid)))
-    (label :vexpand false 
-          :valign "center" 
-          :halign "end" 
-          :class "ccenter-wifi-icon" 
-          :text icon)))
+    (button
+        :hexpand true
+        :onclick "pushd ~; wezterm -e nmtui; popd"
+        (box :valign "center"
+            :hexpand true 
+            :space-evenly false 
+            :class "ccenter-wifi-box"
+                (box :valign "center" 
+                    :hexpand true 
+                    :orientation "vertical" 
+                    :space-evenly false 
+                    :class "ccenter-wifi-label-ssid"
+                    (label :halign "start" 
+                        :class "ccenter-wifi-label" 
+                        :text label)
+                    (label :halign "start" 
+                        :class "ccenter-wifi-ssid" 
+                        :text ssid))
+        (label :vexpand false 
+            :valign "center" 
+            :halign "end" 
+            :class "ccenter-wifi-icon" 
+            :text icon))))
 
 ;; vim:ft=yuck

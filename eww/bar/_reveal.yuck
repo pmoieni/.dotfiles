@@ -10,7 +10,7 @@
               :R "pamixer --toggle-mute"
               :tooltip "volume: ${volume_level}"
               :vexpand false
-              :button-class "bar-volume-button ${volume_status == "󰕾" ? "bar-volume-on" : "bar-volume-off"}")
+              :button-class "bar-volume-button ${volume_status == "󰖁" ? "bar-volume-off"}")
       (_label :text swaync
               :tooltip "notify"
               :vexpand false

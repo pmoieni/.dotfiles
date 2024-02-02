@@ -23,9 +23,15 @@
 .bar-time-format-third { color: $foam; }
 .bar-reveal-box button { padding: 1rem; font-size: 1.5rem; }
 
-.bar-volume-on { background-color: $surface; color: $foam; }
+.bar-volume-button {
+    transition: 0.2s ease;
+    background-color: $surface;
+    color: $foam;
+}
+
+.bar-volume-button:hover { background-color: $foam; color: $surface; }
+
 .bar-volume-off { background-color: $surface; color: $love; }
-.bar-volume-on:hover { background-color: $foam; color: $surface; }
 .bar-volume-off:hover { background-color: $love; color: $surface; }
 
 .bar-notify-on { background-color: $surface; color: $iris; }
@@ -33,17 +39,16 @@
 .bar-notify-on:hover { background-color: $iris; color: $surface; }
 .bar-notify-off:hover { background-color: $love; color: $surface; }
 
-.bar-workspace-plus-button { color: $love; background-color: $surface; }
-.bar-workspace-plus-button:hover { background-color: $love; color: $surface; }
-
 .bar-notify-button {
     font-size: 1.5rem;
+    transition: 0.2s ease;
 }
 
 .bar-power-button {
     font-size: 1.5rem;
     color: $love;
     background-color: $surface;
+    transition: 0.2s ease;
 }
 
 .bar-power-button:hover {
@@ -64,6 +69,7 @@
     font-size: 1.5rem;
     padding: 1rem;
     color: $base;
+    transition: 0.2s ease;
 }
 
 .bar-search-button:hover { background-color: rgba($foam, 0.8); }
@@ -72,11 +78,15 @@
     padding: 1rem;
     font-size: 1.5rem;
     color: $muted;
+    transition: 0.2s ease;
 }
 .bar-workspace:last-child { border-radius: 0 0 50% 0; }
 
 .bar-workspace:hover { background-color: $surface; }
-.bar-workspace-urgent { background-color: $love; color: $surface; }
+.bar-workspace-urgent {
+    color: $love;
+    border-right: 0.2rem solid $love;
+}
 .bar-workspace-focused {
     color: $foam;
     border-right: 0.2rem solid $foam;
