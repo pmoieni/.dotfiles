@@ -42,18 +42,25 @@
 
 (defwidget _fluidbat [label icon_full icon_crit icon_norm class]
   (overlay :class "ccenter-bat-overlay"
+        :hexpand true
+        :vexpand true
     (progress 
-              :class "ccenter-bat-prog ${class}" 
-              :value {EWW_BATTERY.BAT0.capacity > 94 ? 100 : EWW_BATTERY.BAT0.capacity})
+        :hexpand true
+        :vexpand true
+        :class "ccenter-bat-prog ${class}" 
+        :value {EWW_BATTERY.BAT0.capacity > 94 ? 100 : EWW_BATTERY.BAT0.capacity})
     (box :valign "center" 
-         :spacing 5 
-         :space-evenly false 
-         :class "ccenter-bat-prog-box"
+        :hexpand true
+        :vexpand true 
+        :spacing 5 
+        :space-evenly false 
+        :class "ccenter-bat-prog-box"
       (box :halign "start" 
-           :hexpand true 
-           :orientation "vertical" 
-           :space-evenly false 
-           :class "ccenter-bat-label-box"
+            :hexpand true 
+            :vexpand true
+            :orientation "vertical" 
+            :space-evenly false 
+            :class "ccenter-bat-label-box"
         (label :halign "start" 
                :text label 
                :class "ccenter-bat-label")
@@ -65,52 +72,66 @@
                         EWW_BATTERY.BAT0.capacity < 21 ? icon_crit : icon_norm} 
              :class "ccenter-bat-icon"))))
 
-(defwidget _ccenterpctl [L M R cover label title artist volume volume_icon status_icon]
-    (button
-          :vexpand true
-          :hexpand true
-          :onmiddleclick M 
-          :onclick L 
-          :onrightclick R 
-        (box :hexpand true 
-            :width 200
-            :orientation "vertical" 
-            :space-evenly false 
-            :class "ccenter-pctl-box" 
-            :style "background-image: url(\"${playerctl.artUrl}\")"
-            (box :space-evenly false 
-                :orientation "vertical" 
-                :class "ccenter-pctl-label-title-artist"
-                (label :halign "start" 
+(defwidget _ccenterpctl [L M R cover label title artist volume volume_icon status_icon length position]
+    (box
+        :hexpand true
+        :orientation "vertical" 
+        :space-evenly false 
+        :class "ccenter-pctl-box" 
+        :style "background-image: url(\"${playerctl.artUrl}\")"
+        (button :vexpand true
+            :hexpand true
+            :onmiddleclick M 
+            :onclick L 
+            :onrightclick R 
+            (box :hexpand true
+                :orientation "v"
+                :space-evenly false
+                (box :space-evenly false 
+                    :orientation "vertical" 
+                    :class "ccenter-pctl-label-title-artist"
+                    (label :halign "start" 
                         :text label 
                         :class "ccenter-pctl-label")
-                (label :halign "start" 
+                    (label :halign "start" 
                         :limit-width 15 
                         :wrap true 
                         :xalign 0.0 
                         :text title 
                         :class "ccenter-pctl-title")
-                (label :halign "start" 
+                    (label :halign "start" 
                         :limit-width 15
                         :text artist
                         :class "ccenter-pctl-artist"))
-            (box :vexpand true 
-                :valign "end" 
-                :hexpand true 
-                :space-evenly false 
-                :class "ccenter-pctl-status-volume-box"
-                (box :space-evenly false 
-                    :spacing 5 
-                    :hexpand true
-                    :class "ccenter-pctl-volume"
-                    (label :text volume_icon 
-                        :class "ccenter-pctl-volume-icon")
-                    (label :text volume 
-                        :class "ccenter-pctl-volume-label"))
-                (label :text status_icon
-                        :class "ccenter-pctl-status"
+                (box :vexpand true 
+                    :valign "end" 
+                    :hexpand true 
+                    :space-evenly false 
+                    :class "ccenter-pctl-status-volume-box"
+                    (box :space-evenly false 
+                        :spacing 5 
                         :hexpand true
-                        :halign "end")))))
+                        :class "ccenter-pctl-volume"
+                        (label :text volume_icon 
+                            :class "ccenter-pctl-volume-icon")
+                        (label :text volume 
+                            :class "ccenter-pctl-volume-label"))
+                    (label :text status_icon
+                            :class "ccenter-pctl-status"
+                            :hexpand true
+                            :halign "end"))))
+        (box :vexpand true
+            :hexpand true
+            :valign "end"
+            :class "ccenter-pctl-prog-box"
+            (scale :value position
+                :active true
+                :min 0
+                :max length
+                :round-digits true
+                :onchange "playerctl position {}"
+                :class "ccenter-pctl-scale"
+                :orientation "h"))))
 
 (defwidget _ccenteruptime [label uptime]
  (button

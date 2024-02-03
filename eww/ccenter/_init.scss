@@ -149,6 +149,27 @@
     font-size: 2rem;
 }
 
+.ccenter-pctl-scale {
+    padding: 1rem 0 0 0;
+
+    trough {
+        background-color: $overlay;
+        min-height: 0.3em;
+        border-radius: 1rem;
+
+        highlight {
+            background-color: $foam;
+            border-radius: 1rem;
+        }
+
+        slider {
+            background: $foam;
+            border-radius: 100%;
+            margin: -8px;
+        }
+    }
+}
+
 .ccenter-uptime-box {
     background-color: $overlay;
     padding: 2rem;

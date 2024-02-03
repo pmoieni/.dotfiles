@@ -6,9 +6,25 @@
             :spacing 10
             :orientation "vertical" 
             (box :hexpand true 
+                :vexpand true
                 :space-evenly false 
                 :spacing 10
-                (box :orientation "vertical" 
+                :orientation "v"
+                (_ccenterpctl :cover {playerctl.artUrl}
+                    :label {playerctl.status}
+                    :title {playerctl.title}
+                    :artist {playerctl.artist} 
+                    :volume volume_level
+                    :volume_icon ""
+                    :position {playerctl.position}
+                    :length {playerctl.length}
+                    :L "playerctl play-pause"
+                    :M "playerctl previous"
+                    :R "playerctl next"
+                    :status_icon {playerctl.status == "Playing" ? "" : ""})
+                (box :orientation "h" 
+                    :hexpand true
+                    :vexpand true
                     :space-evenly false 
                     :class "ccenter-date-bat" 
                     :spacing 10
@@ -20,17 +36,7 @@
                         :label "Battery" 
                         :icon_full "󰁹" 
                         :icon_norm "󰁾" 
-                        :icon_crit "󰂃"))
-            (_ccenterpctl :cover {playerctl.artUrl}
-                :label {playerctl.status}
-                :title {playerctl.title}
-                :artist {playerctl.artist} 
-                :volume volume_level
-                :volume_icon ""
-                :L "playerctl play-pause"
-                :M "playerctl previous"
-                :R "playerctl next"
-                :status_icon {playerctl.status == "Playing" ? "" : ""}))
+                        :icon_crit "󰂃")))
             (box :hexpand true 
                 :space-evenly false 
                 :class "ccenter-uptime-wifi" 

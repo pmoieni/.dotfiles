@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 # Create the $HOME/.cache/eww directory if it doesn't exist
@@ -10,6 +9,10 @@ artUrl=$(playerctl metadata | grep artUrl | awk '{ print $3 }')
 status=$(playerctl status)
 title=$(playerctl metadata --format '{{title}}')
 artist=$(playerctl metadata --format '{{artist}}')
+length=$(playerctl metadata --format '{{mpris:length}}')
+position=$(playerctl position --format '{{position}}')
+length=$((length/1000000))
+position=$((position/1000000))
 
 # Hash the song title
 hash=$(echo -n "$title" | md5sum | awk '{ print $1 }')
@@ -31,6 +34,6 @@ fi
 
 artUrl="$imgpath"
 
-json="{\"artUrl\":\"$artUrl\", \"status\":\"$status\", \"title\":\"$title\", \"artist\":\"$artist\"}"
+json="{\"length\":\"$length\", \"position\":\"$position\", \"artUrl\":\"$artUrl\", \"status\":\"$status\", \"title\":\"$title\", \"artist\":\"$artist\"}"
 
 echo $json
