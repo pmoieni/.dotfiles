@@ -1,16 +1,18 @@
-(defwidget _ccenterairplane [onclick]
+(defwidget _ccenterairplane []
     (button
         :hexpand true
-        :onclick onclick
+        :vexpand true
+        :onclick ""
         :class "ccenter-airplane-button"
         (label :halign "center"
             :text "󰀝"
             :class "ccenter-airplane-icon")))
 
-(defwidget _ccenterbluetooth [onclick]
+(defwidget _ccenterbluetooth []
     (button
         :hexpand true
-        :onclick onclick
+        :vexpand true
+        :onclick ""
         :class "ccenter-bluetooth-button"
         (label :halign "center"
             :text "󰂯"
@@ -22,10 +24,8 @@
         :orientation "h"
         :spacing "5"
         :space-evenly false
-        (_ccenterairplane
-            :onclick "")
-        (_ccenterbluetooth
-            :onclick "")))
+        (_ccenterairplane)
+        (_ccenterbluetooth)))
 
 (defwidget _ccenterdate [day short_pretty]
   (box :hexpand true 
@@ -78,9 +78,9 @@
             :space-evenly false 
             :class "ccenter-pctl-box" 
             :style "background-image: url(\"${playerctl.artUrl}\")"
-                (box :space-evenly false 
-                    :orientation "vertical" 
-                    :class "ccenter-pctl-label-title-artist"
+            (box :space-evenly false 
+                :orientation "vertical" 
+                :class "ccenter-pctl-label-title-artist"
                 (label :halign "start" 
                         :text label 
                         :class "ccenter-pctl-label")
@@ -94,22 +94,23 @@
                         :limit-width 15
                         :text artist
                         :class "ccenter-pctl-artist"))
-        (box :vexpand true 
-            :valign "end" 
-            :hexpand true 
-            :space-evenly false 
-            :class "ccenter-pctl-status-volume-box"
-            (box :space-evenly false 
-                :spacing 5 
-                :class "ccenter-pctl-volume"
-                (label :text volume_icon 
-                    :class "ccenter-pctl-volume-icon")
-                (label :text volume 
-                    :class "ccenter-pctl-volume-label"))
-            (label :text status_icon
-                    :class "ccenter-pctl-status"
+            (box :vexpand true 
+                :valign "end" 
+                :hexpand true 
+                :space-evenly false 
+                :class "ccenter-pctl-status-volume-box"
+                (box :space-evenly false 
+                    :spacing 5 
                     :hexpand true
-                    :halign "end")))))
+                    :class "ccenter-pctl-volume"
+                    (label :text volume_icon 
+                        :class "ccenter-pctl-volume-icon")
+                    (label :text volume 
+                        :class "ccenter-pctl-volume-label"))
+                (label :text status_icon
+                        :class "ccenter-pctl-status"
+                        :hexpand true
+                        :halign "end")))))
 
 (defwidget _ccenteruptime [label uptime]
  (button

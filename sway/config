@@ -5,10 +5,10 @@ set $down j
 set $up k
 set $right l
 
-set $term wezterm
+set $term alacritty
 
-# exec systemctl --user start polkit-gnome-authentication-agent-1.service
-exec /nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 
+exec systemctl --user start polkit-gnome-authentication-agent-1.service
+# exec /nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 
 
 exec swayidle -w \
          timeout 300 'swaylock -f' \
@@ -19,10 +19,7 @@ exec swayidle -w \
 exec kanshi
 exec variety
 exec swaync
-# exec waybar
-exec eww daemon
-exec eww open bar
-exec eww open desktop
+exec eww open-many bar desktop
 
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
@@ -59,7 +56,7 @@ bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+e exec dolphin
+bindsym $mod+e exec nautilus
 
 bindsym $mod+r exec wofi --show run
 bindsym $mod+d exec wofi --show drun

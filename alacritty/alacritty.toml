@@ -4,7 +4,7 @@ import = ["/home/pmoieni/.config/alacritty/rose-pine.toml"]
 TERM = "xterm-256color"
 
 [font]
-size = 11.0
+size = 12.0
 
 [font.bold]
 family = "FiraCode Nerd Font"
