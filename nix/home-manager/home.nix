@@ -60,6 +60,8 @@
       rnix-lsp
       nodePackages.svelte-language-server
       nodePackages.typescript-language-server
+      nodePackages.bash-language-server
+      vscode-langservers-extracted
 
       # desktop
       swaylock

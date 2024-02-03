@@ -82,6 +82,11 @@ return {
             lspconfig.rnix.setup({})
             lspconfig.tsserver.setup({})
             lspconfig.svelte.setup({})
+            lspconfig.bashls.setup({})
+            lspconfig.cssls.setup({})
+            lspconfig.eslint.setup({})
+            lspconfig.jsonls.setup({})
+            lspconfig.html.setup({})
 
             vim.diagnostic.config({
                 underline = true,
