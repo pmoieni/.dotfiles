@@ -14,7 +14,7 @@
 
 .ccenter-airplane-button,
 .ccenter-bluetooth-button {
-    font-size: 2rem; 
+    font-size: 2rem;
     color: $subtle;
     transition: 0.2s ease;
 }
@@ -49,6 +49,7 @@
 
 .ccenter-bat-prog {
     border-radius: 3rem;
+
     trough {
         padding: 3rem 0;
         background-color: $overlay;
