@@ -2,8 +2,8 @@
     (button
         :hexpand true
         :vexpand true
-        :onclick ""
-        :class "ccenter-airplane-button"
+        :onclick "rfkill toggle all"
+        :class "ccenter-airplane-button ${is_airplane_on ? "ccenter-airplane-button-on" : ""}"
         (label :halign "center"
             :text "󰀝"
             :class "ccenter-airplane-icon")))
@@ -128,7 +128,6 @@
                 :active true
                 :min 0
                 :max length
-                :round-digits true
                 :onchange "playerctl position {}"
                 :class "ccenter-pctl-scale"
                 :orientation "h"))))
