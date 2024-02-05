@@ -3,7 +3,7 @@
         :onhoverlost "eww close ccenter"
         (box :space-evenly false
             :class "ccenter-layout-box"
-            :spacing 10
+            :spacing 5
             :orientation "vertical" 
             (box :hexpand true 
                 :vexpand true
@@ -30,13 +30,12 @@
                     :spacing 10
                     (_ccenteruptime :label "Uptime" 
                         :uptime uptime)
-                    (_fluidbat :class {EWW_BATTERY.BAT0.capacity > 95 ? "ccenter-bat-full" :
-                            EWW_BATTERY.BAT0.capacity > 50 ? "ccenter-bat-norm" :
-                            EWW_BATTERY.BAT0.capacity > 20 ? "ccenter-bat-warn" : "ccenter-bat-crit"} 
-                        :label "Battery" 
-                        :icon_full "󰁹" 
-                        :icon_norm "󰁾" 
-                        :icon_crit "󰂃")))
+                    (button :class "ccenter-places-button"
+                        :onclick "eww update ccenter_reveal_places=${!ccenter_reveal_places}"
+                        :vexpand true
+                        :hexpand true
+                        (label :text "󰉋"))))
+            (_ccenterplaces)
             (box :hexpand true 
                 :space-evenly false 
                 :class "ccenter-uptime-wifi" 

@@ -45,6 +45,7 @@
       nodePackages.prettier
       go
       golangci-lint
+      elixir
       jdk21
       rustup
       nodejs
@@ -56,6 +57,7 @@
       # LSP
       lua-language-server
       gopls
+      elixir-ls
       jdt-language-server
       rnix-lsp
       nodePackages.svelte-language-server

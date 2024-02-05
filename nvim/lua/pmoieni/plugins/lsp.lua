@@ -87,6 +87,7 @@ return {
             lspconfig.eslint.setup({})
             lspconfig.jsonls.setup({})
             lspconfig.html.setup({})
+            lspconfig.elixirls.setup({})
 
             vim.diagnostic.config({
                 underline = true,

@@ -176,4 +176,33 @@
             :class "ccenter-wifi-icon" 
             :text icon))))
 
+(defwidget _ccenterplaces []
+    (revealer :transition "slideup"
+        :reveal ccenter_reveal_places
+        (box :class "ccenter-places-box"
+            :vexpand true
+            :hexpand true
+            :spacing 5
+            :orientation "h"
+            (button :vexpand true
+                :hexpand true
+                :onclick "pushd ~; xdg-open ~/projects; popd"
+                (label :text ""))
+            (button :vexpand true
+                :hexpand true
+                :onclick "pushd ~; xdg-open ~/Downloads; popd"
+                (label :text ""))
+            (button :vexpand true
+                :hexpand true
+                :onclick "pushd ~; xdg-open ~/Videos; popd"
+                (label :text ""))
+            (button :vexpand true
+                :hexpand true
+                :onclick "pushd ~; xdg-open ~/Pictures; popd"
+                (label :text ""))
+            (button :vexpand true
+                :hexpand true
+                :onclick "pushd ~; xdg-open ~/Music; popd"
+                (label :text "")))))
+
 ;; vim:ft=yuck

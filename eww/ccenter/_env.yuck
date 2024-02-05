@@ -1,5 +1,6 @@
 (defpoll playerctl :interval "1s" "./ccenter/scripts/playerctl.sh")
 (defpoll uptime :interval "1m" "./ccenter/scripts/uptime.sh")
-(defpoll ssid :interval "100s" `nmcli -terse -fields SSID,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)
-(defpoll net :interval "100s" `nmcli -terse -fields SIGNAL,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)
+(defpoll ssid :interval "5s" `nmcli -terse -fields SSID,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)
+(defpoll net :interval "5s" `nmcli -terse -fields SIGNAL,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)
 (defpoll is_airplane_on :interval "1s" "./ccenter/scripts/airplane.sh")
+(defvar ccenter_reveal_places false)

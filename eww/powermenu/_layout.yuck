@@ -16,7 +16,7 @@
                 :button-class "powermenu-reboot-button"
                 :L "eww close powermenu; systemctl reboot")
             (_button :text "󰒲"
-                :tooltip "sleep"
+                :tooltip "suspend"
                 :hexpand true
                 :halign "fill"
                 :button-class "powermenu-suspend-button"

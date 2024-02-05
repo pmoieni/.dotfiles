@@ -1,6 +1,6 @@
 (defwidget _revealex [revealon]
   (revealer :reveal revealon
-            :transition "slidedown"
+            :transition "slideup"
             :class "bar-revealer"
     (box :orientation "vertical"
          :class "bar-reveal-box"

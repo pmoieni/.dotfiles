@@ -48,74 +48,6 @@
     font-size: 1.5rem;
 }
 
-.ccenter-bat-overlay {
-    color: $base;
-}
-
-.ccenter-bat-prog {
-    border-radius: 3rem;
-
-    trough {
-        padding: 3rem 0;
-        background-color: $overlay;
-        border-radius: 3rem;
-
-        progress {
-            padding: 3rem 0;
-            background-color: $foam;
-            border-radius: 3rem;
-        }
-    }
-}
-
-.ccenter-bat-label {
-    font-size: 1rem;
-    padding-left: 2rem;
-}
-
-.ccenter-bat-status-label {
-    font-size: 2rem;
-    font-weight: bold;
-    padding-left: 2rem;
-}
-
-.ccenter-bat-icon {
-    padding-right: 2rem;
-    font-size: 2rem;
-}
-
-.ccenter-bat-full {
-    trough {
-        progress {
-            background-color: $foam;
-        }
-    }
-}
-
-.ccenter-bat-norm {
-    trough {
-        progress {
-            background-color: $iris;
-        }
-    }
-}
-
-.ccenter-bat-warn {
-    trough {
-        progress {
-            background-color: $gold;
-        }
-    }
-}
-
-.ccenter-bat-crit {
-    trough {
-        progress {
-            background-color: $love;
-        }
-    }
-}
-
 .ccenter-pctl-box {
     background-repeat: no-repeat;
     background-size: cover;
@@ -189,6 +121,32 @@
 .ccenter-uptime-value {
     font-size: 1.5rem;
     color: $text;
+}
+
+.ccenter-places-button {
+    font-size: 2rem;
+    color: $subtle;
+    border-radius: 3rem;
+    background-color: $overlay;
+}
+
+.ccenter-places-box {
+    padding: 0.5rem;
+    background-color: $overlay;
+    color: $subtle;
+    border-radius: 3rem;
+    font-size: 1.5rem;
+}
+
+.ccenter-places-box button {
+    transition: 0.2s ease;
+    padding: 1rem;
+    border-radius: 3rem;
+}
+
+.ccenter-places-box button:hover {
+    background-color: $iris;
+    color: $overlay;
 }
 
 .ccenter-wifi-box {
