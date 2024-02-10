@@ -18,6 +18,46 @@
             :text "󰂯"
             :class "ccenter-bluetooth-icon")))
 
+(defwidget _ccentercontrols [output brightness]
+    (box :hexpand true
+        :vexpand true
+        :orientation "v"
+        :spacing 15
+        :space-evenly false
+        :class "ccenter-controls"
+        (box :hexpand true
+            :vexpand true
+            :orientation "h"
+            :spacing 15
+            :space-evenly false
+            (label :text ""
+                :valign "end")
+            (scale :value output
+                :active true
+                :hexpand true
+                :min 0
+                :max 100
+                :round-digits true
+                :onchange "pamixer --set-volume {}"
+                :class "ccenter-controls-scale"
+                :orientation "h"))
+        (box :hexpand true
+            :vexpand true
+            :orientation "h"
+            :spacing 15
+            :space-evenly false
+            (label :text ""
+                :valign "end")
+            (scale :value brightness
+                :active true
+                :hexpand true
+                :min 0
+                :max 100
+                :round-digits true
+                :onchange "brightnessctl set {}%"
+                :class "ccenter-controls-scale"
+                :orientation "h"))))
+
 (defwidget _ccenterconnections []
     (box :class "ccenter-connections-box"
         :width 180
@@ -128,6 +168,8 @@
                 :active true
                 :min 0
                 :max length
+                :round-digits true
+                :timeout "1s"
                 :onchange "playerctl position {}"
                 :class "ccenter-pctl-scale"
                 :orientation "h"))))

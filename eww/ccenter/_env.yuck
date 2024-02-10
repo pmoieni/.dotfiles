@@ -4,3 +4,5 @@
 (defpoll net :interval "5s" `nmcli -terse -fields SIGNAL,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)
 (defpoll is_airplane_on :interval "1s" "./ccenter/scripts/airplane.sh")
 (defvar ccenter_reveal_places false)
+(defpoll ccenter_output_volume :interval "100s" "pamixer --get-volume")
+(defpoll ccenter_brightness :interval "100s" "brightnessctl -m| cut -d, -f4 | tr -d %")

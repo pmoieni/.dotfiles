@@ -136,6 +136,7 @@
     color: $subtle;
     border-radius: 3rem;
     font-size: 1.5rem;
+    margin: 0.5rem 0;
 }
 
 .ccenter-places-box button {
@@ -169,6 +170,32 @@
     font-size: 2rem;
     padding: 1rem;
     color: $rose;
+}
+
+.ccenter-controls {
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.ccenter-controls-scale {
+    padding: 1rem 0 0 0;
+
+    trough {
+        background-color: $overlay;
+        min-height: 1.5rem;
+        border-radius: 1rem;
+
+        highlight {
+            background-color: $foam;
+            border-radius: 1rem;
+        }
+
+        slider {
+            background: transparent;
+            border-radius: 100%;
+            margin: -0.5rem;
+        }
+    }
 }
 
 // vim:ft=scss

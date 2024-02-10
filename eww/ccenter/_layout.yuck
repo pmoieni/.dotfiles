@@ -5,11 +5,6 @@
             :class "ccenter-layout-box"
             :spacing 5
             :orientation "vertical" 
-            (box :hexpand true 
-                :vexpand true
-                :space-evenly false 
-                :spacing 10
-                :orientation "v"
                 (_ccenterpctl :cover {playerctl.artUrl}
                     :label {playerctl.status}
                     :title {playerctl.title}
@@ -22,7 +17,10 @@
                     :M "playerctl previous"
                     :R "playerctl next"
                     :status_icon {playerctl.status == "Playing" ? "" : ""})
-                (box :orientation "h" 
+            (_ccentercontrols
+                    :output ccenter_output_volume
+                    :brightness ccenter_brightness)
+            (box :orientation "h" 
                     :hexpand true
                     :vexpand true
                     :space-evenly false 
@@ -34,15 +32,15 @@
                         :onclick "eww update ccenter_reveal_places=${!ccenter_reveal_places}"
                         :vexpand true
                         :hexpand true
-                        (label :text "󰉋"))))
+                        (label :text "󰉋")))
             (_ccenterplaces)
             (box :hexpand true 
                 :space-evenly false 
                 :class "ccenter-uptime-wifi" 
                 :spacing 10 
-            (_ccenterconnections)
-            (_ccenterwifi :label "WiFi" 
-                :icon  {net == "" ? "󰤭" : net < 26 ? "󰤟" : net < 51 ? "󰤢" : net < 76 ? "󰤥" : "󰤨"} 
-                :ssid ssid)))))
+                (_ccenterconnections)
+                (_ccenterwifi :label "WiFi" 
+                    :icon  {net == "" ? "󰤭" : net < 26 ? "󰤟" : net < 51 ? "󰤢" : net < 76 ? "󰤥" : "󰤨"} 
+                    :ssid ssid)))))
 
 ;; vim:ft=yuck
