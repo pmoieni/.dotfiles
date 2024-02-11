@@ -30,8 +30,13 @@
             :orientation "h"
             :spacing 15
             :space-evenly false
-            (label :text ""
-                :valign "end")
+            (box :vexpand true
+                :orientation "h"
+                :spacing 15
+                :space-evenly false
+                :valign "end"
+                (label :class "ccenter-controls-icon" :text "")
+                (label :class "ccenter-controls-state" :text output))
             (scale :value output
                 :active true
                 :hexpand true
@@ -46,8 +51,13 @@
             :orientation "h"
             :spacing 15
             :space-evenly false
-            (label :text ""
-                :valign "end")
+            (box :vexpand true
+                :orientation "h"
+                :spacing 15
+                :space-evenly false
+                :valign "end"
+                (label :class "ccenter-controls-icon" :text "")
+                (label :class "ccenter-controls-state" :text brightness))
             (scale :value brightness
                 :active true
                 :hexpand true
