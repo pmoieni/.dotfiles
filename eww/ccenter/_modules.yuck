@@ -43,7 +43,7 @@
                 :min 0
                 :max 100
                 :round-digits true
-                :onchange "pamixer --set-volume {}"
+                :onchange "pamixer --set-volume {}; eww update ccenter_output_volume={}"
                 :class "ccenter-controls-scale"
                 :orientation "h"))
         (box :hexpand true
@@ -61,10 +61,10 @@
             (scale :value brightness
                 :active true
                 :hexpand true
-                :min 0
+                :min 30
                 :max 100
                 :round-digits true
-                :onchange "brightnessctl set {}%"
+                :onchange "brightnessctl set {}%; eww update ccenter_brightness={}"
                 :class "ccenter-controls-scale"
                 :orientation "h"))))
 
