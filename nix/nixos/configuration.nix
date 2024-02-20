@@ -125,6 +125,10 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
+    asusd = {
+      enable = true;
+      enableUserService = true;
+    };
     thermald.enable = true;
     power-profiles-daemon.enable = false; # conflicts with tlp
     tlp = {
@@ -146,9 +150,9 @@ in
       # displayManager.defaultSession = "plasmawayland";
       # desktopManager.plasma5.enable = true;
       desktopManager.gnome.enable = true;
-      layout = "us,ir";
-      xkbVariant = "";
-      xkbOptions = "grp:win_space_toggle";
+      xkb.layout = "us,ir";
+      xkb.variant = "";
+      xkb.options = "grp:win_space_toggle";
       libinput.enable = true;
       videoDrivers = [ "nvidia" ];
     };
@@ -293,6 +297,30 @@ in
       meson
       cmake
       ninja
+      fd
+      fzf
+      tokei
+      yt-dlp
+      ripgrep
+      hyperfine
+      neovim
+      ncdu
+      jq
+      alsa-utils
+      pamixer
+      imagemagick
+      swaylock
+      swayidle
+      swaybg
+      swaynotificationcenter
+      waybar
+      eww-wayland
+      wofi
+      grim
+      slurp
+      kanshi
+      libsForQt5.qt5ct
+      rose-pine-gtk-theme
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
   };

@@ -19,6 +19,7 @@ exec swayidle -w \
 exec kanshi
 exec variety
 exec swaync
+# exec waybar
 exec eww open-many bar desktop
 
 exec wl-paste --type text --watch cliphist store

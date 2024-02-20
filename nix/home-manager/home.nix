@@ -4,7 +4,9 @@
 , pkgs
 , ...
 }: {
-  imports = [ ];
+  imports = [
+    inputs.ags.homeManagerModules.default
+  ];
 
   nixpkgs = {
     overlays = [ ];
@@ -23,24 +25,11 @@
       fish
       tmux
       zellij
-
-      # CLI tools
-      fd
-      fzf
-      tokei
-      yt-dlp
-      ripgrep
-      hyperfine
-      neovim
-      ncdu
-      jq
-      alsa-utils
-      pamixer
-      imagemagick
+      dart-sass
+      sassc
 
       # dev tools
       gh
-      nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.prettier
       go
@@ -64,24 +53,9 @@
       nodePackages.typescript-language-server
       nodePackages.bash-language-server
       vscode-langservers-extracted
-
-      # desktop
-      swaylock
-      swayidle
-      swaybg
-      swaynotificationcenter
-      waybar
-      eww-wayland
-      wofi
-      grim
-      slurp
-      kanshi
-      peek
-      libsForQt5.qt5ct
-      rose-pine-gtk-theme
+      tailwindcss-language-server
 
       # apps
-      xfce.thunar
       gparted
       mpv
       vlc
@@ -96,6 +70,7 @@
       vscode
       slack
       element-desktop
+      spotify
 
       # other
       # hplipWithPlugin
@@ -113,6 +88,14 @@
       enable = true;
       userName = "Parham Moieni";
       userEmail = "62774242+pmoieni@users.noreply.github.com";
+    };
+    ags = {
+      enable = true;
+      extraPackages = with pkgs; [
+        gtksourceview
+        webkitgtk
+        accountsservice
+      ];
     };
   };
 

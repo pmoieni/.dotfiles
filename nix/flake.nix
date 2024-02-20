@@ -7,6 +7,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    ags.url = "github:Aylur/ags";
+
     # neovim overlay
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 

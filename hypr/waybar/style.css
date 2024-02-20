@@ -1,0 +1,131 @@
+@define-color green     #a6e3a1;
+@define-color red       #f38ba8;
+
+@import "./rose-pine.css";
+
+* {
+  font-family:
+    FiraCode Nerd Font,
+    Font Awesome;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.05, 0.9, 0.1, 1.05);
+}
+
+window#waybar {
+  background: @base;
+}
+
+#workspaces {
+  background-color: @base;
+}
+
+#workspaces button {
+  color: @iris;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+}
+
+#workspaces button.focused {
+  color: @love;
+}
+
+#workspaces button:hover {
+  background-color: @overlay;
+  padding: 0.5rem 1rem;
+}
+
+#tray,
+#custom-swaync,
+#clock,
+#battery,
+#language,
+#idle_inhibitor,
+#custom-media,
+#custom-user,
+#pulseaudio,
+#backlight,
+#network {
+  padding: 0 0.8rem;
+}
+
+#custom-user {
+  color: @love;
+}
+
+#custom-quit,
+#custom-lock,
+#custom-reboot,
+#custom-shutdown {
+  padding: 0 1rem;
+  background-color: @love;
+  color: @surface;
+}
+
+#custom-media {
+  color: @iris;
+}
+
+#custom-swaync {
+  color: @foam;
+}
+
+#idle_inhibitor {
+  color: @pine;
+}
+
+#pulseaudio {
+  color: @surface;
+  background-color: @rose;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#backlight {
+  color: @surface;
+  background-color: @rose;
+}
+
+#battery {
+  color: @rose;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#language {
+  color: @rose;
+}
+
+#network {
+  color: @rose;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+#clock {
+  color: @gold;
+}
+
+#custom-exit {
+  color: @love;
+}
+
+tooltip {
+  background: @base;
+  border: 2px solid @overlay;
+}
+
+tooltip label {
+  color: @text;
+}

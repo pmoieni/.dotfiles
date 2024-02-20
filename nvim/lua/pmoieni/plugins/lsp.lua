@@ -87,7 +87,10 @@ return {
             lspconfig.eslint.setup({})
             lspconfig.jsonls.setup({})
             lspconfig.html.setup({})
-            lspconfig.elixirls.setup({})
+            lspconfig.tailwindcss.setup({})
+            lspconfig.elixirls.setup({
+                cmd = { "/home/pmoieni/.nix-profile/bin/elixir-ls" }
+            })
 
             vim.diagnostic.config({
                 underline = true,
