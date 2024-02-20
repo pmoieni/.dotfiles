@@ -1,10 +1,9 @@
-import { type Notification } from "types/service/notifications"
-import GLib from "gi://GLib"
-import icons from "lib/icons"
+import { type Notification } from "types/service/notifications";
+import GLib from "gi://GLib";
+import icons from "lib/icons";
 
-const time = (time: number, format = "%H:%M") => GLib.DateTime
-    .new_from_unix_local(time)
-    .format(format)
+const time = (time: number, format = "%H:%M") =>
+    GLib.DateTime.new_from_unix_local(time).format(format);
 
 const NotificationIcon = ({ app_entry, app_icon, image }: Notification) => {
     if (image) {
@@ -20,15 +19,13 @@ const NotificationIcon = ({ app_entry, app_icon, image }: Notification) => {
                 min-width: 78px;
                 min-height: 78px;
             `,
-        })
+        });
     }
 
-    let icon = icons.fallback.notification
-    if (Utils.lookUpIcon(app_icon))
-        icon = app_icon
+    let icon = icons.fallback.notification;
+    if (Utils.lookUpIcon(app_icon)) icon = app_icon;
 
-    if (Utils.lookUpIcon(app_entry || ""))
-        icon = app_entry || ""
+    if (Utils.lookUpIcon(app_entry || "")) icon = app_entry || "";
 
     return Widget.Box({
         vpack: "start",
@@ -41,11 +38,13 @@ const NotificationIcon = ({ app_entry, app_icon, image }: Notification) => {
         child: Widget.Icon({
             icon,
             size: 58,
-            hpack: "center", hexpand: true,
-            vpack: "center", vexpand: true,
+            hpack: "center",
+            hexpand: true,
+            vpack: "center",
+            vexpand: true,
         }),
-    })
-}
+    });
+};
 
 export default (notification: Notification) => {
     const content = Widget.Box({
@@ -95,44 +94,48 @@ export default (notification: Notification) => {
                 ],
             }),
         ],
-    })
+    });
 
-    const actionsbox = notification.actions.length > 0 ? Widget.Revealer({
-        transition: "slide_down",
-        child: Widget.EventBox({
-            child: Widget.Box({
-                class_name: "actions horizontal",
-                children: notification.actions.map(action => Widget.Button({
-                    class_name: "action-button",
-                    on_clicked: () => notification.invoke(action.id),
-                    hexpand: true,
-                    child: Widget.Label(action.label),
-                })),
-            }),
-        }),
-    }) : null
+    const actionsbox =
+        notification.actions.length > 0
+            ? Widget.Revealer({
+                  transition: "slide_down",
+                  child: Widget.EventBox({
+                      child: Widget.Box({
+                          class_name: "actions horizontal",
+                          children: notification.actions.map((action) =>
+                              Widget.Button({
+                                  class_name: "action-button",
+                                  on_clicked: () =>
+                                      notification.invoke(action.id),
+                                  hexpand: true,
+                                  child: Widget.Label(action.label),
+                              })
+                          ),
+                      }),
+                  }),
+              })
+            : null;
 
     const eventbox = Widget.EventBox({
         vexpand: false,
         on_primary_click: notification.dismiss,
         on_hover() {
-            if (actionsbox)
-                actionsbox.reveal_child = true
+            if (actionsbox) actionsbox.reveal_child = true;
         },
         on_hover_lost() {
-            if (actionsbox)
-                actionsbox.reveal_child = true
+            if (actionsbox) actionsbox.reveal_child = true;
 
-            notification.dismiss()
+            notification.dismiss();
         },
         child: Widget.Box({
             vertical: true,
             children: actionsbox ? [content, actionsbox] : [content],
         }),
-    })
+    });
 
     return Widget.Box({
         class_name: `notification ${notification.urgency}`,
         child: eventbox,
-    })
-}
+    });
+};

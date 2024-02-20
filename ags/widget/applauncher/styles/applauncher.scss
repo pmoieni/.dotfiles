@@ -38,7 +38,7 @@ window#applauncher .applauncher {
     button.app-item {
         @include button($flat: true, $reactive: false);
 
-        >box {
+        > box {
             @include spacing(0.5);
         }
 
@@ -68,8 +68,7 @@ window#applauncher .applauncher {
             }
 
             .description {
-
-                color: transparentize($primary-bg, .4);
+                color: transparentize($primary-bg, 0.4);
             }
 
             image {

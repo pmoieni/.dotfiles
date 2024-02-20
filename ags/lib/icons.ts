@@ -1,7 +1,7 @@
 export const substitutes = {
     "transmission-gtk": "transmission",
     "blueberry.py": "blueberry",
-    "Caprine": "facebook-messenger",
+    Caprine: "facebook-messenger",
     "com.raggesilver.BlackBox-symbolic": "terminal-symbolic",
     "audio-headset-bluetooth": "audio-headphones-symbolic",
     "audio-card-analog-usb": "audio-speakers-symbolic",
@@ -9,7 +9,7 @@ export const substitutes = {
     "preferences-system": "emblem-system-symbolic",
     "com.github.Aylur.ags-symbolic": "controls-symbolic",
     "com.github.Aylur.ags": "controls-symbolic",
-}
+};
 
 export default {
     fallback: {
@@ -128,4 +128,4 @@ export default {
         dark: "dark-mode-symbolic",
         light: "light-mode-symbolic",
     },
-}
+};

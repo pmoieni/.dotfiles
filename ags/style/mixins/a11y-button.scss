@@ -1,33 +1,29 @@
-@import './button';
+@import "./button";
 
 @mixin accs-button($flat: false, $reactive: true) {
     @include unset;
     color: $fg;
 
-    >* {
+    > * {
         border-radius: $radius;
         transition: $transition;
 
         @if $flat {
             background-color: transparent;
             box-shadow: none;
-        }
-
-        @else {
+        } @else {
             background-color: $widget-bg;
             box-shadow: inset 0 0 0 $border-width $border-color;
         }
     }
 
-
     @if $reactive {
-
-        &:focus>*,
-        &.focused>* {
+        &:focus > *,
+        &.focused > * {
             @include button-focus;
         }
 
-        &:hover>* {
+        &:hover > * {
             @include button-hover;
         }
 
@@ -35,12 +31,13 @@
         &.active,
         &.on,
         &:checked {
-            >* {
+            > * {
                 @include button-active;
             }
 
-            &:hover>* {
-                box-shadow: inset 0 0 0 $border-width $border-color,
+            &:hover > * {
+                box-shadow:
+                    inset 0 0 0 $border-width $border-color,
                     inset 0 0 0 99px $hover-bg;
             }
         }

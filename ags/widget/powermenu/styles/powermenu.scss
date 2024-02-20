@@ -1,7 +1,7 @@
 window#powermenu,
 window#verification {
     // the fraction has to be more than hyprland ignorealpha
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 window#verification .verification {
@@ -46,7 +46,7 @@ window#powermenu .powermenu {
         }
 
         label {
-            margin-bottom: $spacing * -.5;
+            margin-bottom: $spacing * -0.5;
         }
     }
 
@@ -79,7 +79,7 @@ window#powermenu .powermenu {
         }
 
         label {
-            margin-top: $spacing * .3;
+            margin-top: $spacing * 0.3;
         }
 
         &:hover {

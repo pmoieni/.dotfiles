@@ -2,23 +2,23 @@ window#quicksettings .quicksettings {
     @include floating-widget;
     @include spacing;
 
-    padding: $popover-padding * 1.4;
+    padding: $popover-padding * 1;
 
     .avatar {
         @include widget;
-        border-radius: $radius * 3;
+        border-radius: $radius * 5;
     }
 
     .header {
-        @include spacing(.5);
-        color: transparentize($fg, .15);
+        @include spacing(0.5);
+        color: transparentize($fg, 0.15);
 
         button {
             @include button;
             padding: $padding;
 
             image {
-                font-size: 1.4em;
+                font-size: 2rem;
             }
         }
     }
@@ -29,21 +29,21 @@ window#quicksettings .quicksettings {
 
         button {
             @include button($flat: true);
-            padding: $padding * .5;
+            padding: $padding * 1;
         }
 
         .volume button.arrow:last-child {
-            margin-left: $spacing * .4;
+            margin-left: $spacing * 0.4;
         }
 
         .volume,
         .brightness {
-            padding: $padding * .5;
+            padding: $padding * 0.5;
         }
 
         scale {
             @include slider;
-            margin: 0 ($spacing * .5);
+            margin: 0 ($spacing * 0.5);
         }
     }
 
@@ -58,8 +58,8 @@ window#quicksettings .quicksettings {
         margin-top: $spacing;
 
         .icon {
-            margin: 0 ($spacing * .5);
-            margin-left: $spacing * .2;
+            margin: 0 ($spacing * 0.5);
+            margin-left: $spacing * 0.2;
         }
 
         .title {
@@ -67,21 +67,21 @@ window#quicksettings .quicksettings {
         }
 
         separator {
-            margin: ($radius * .5);
+            margin: ($radius * 0.5);
             background-color: $border-color;
         }
 
         button {
             @include button($flat: true);
-            padding: ($padding * .5);
+            padding: ($padding * 1);
 
             image:first-child {
-                margin-right: $spacing * .5;
+                margin-right: $spacing * 0.5;
             }
         }
 
         .bluetooth-devices {
-            @include spacing(.5);
+            @include spacing(0.5);
         }
 
         switch {
@@ -90,16 +90,16 @@ window#quicksettings .quicksettings {
     }
 
     .sliders-box .menu {
-        margin: ($spacing * .5) 0;
+        margin: ($spacing * 0.5) 0;
 
         &.app-mixer {
             .mixer-item {
-                padding: $padding * .5;
+                padding: $padding * 0.5;
                 padding-left: 0;
                 padding-right: $padding * 2;
 
                 scale {
-                    @include slider($width: .5em);
+                    @include slider($width: 0.5em);
                 }
 
                 image {
@@ -119,20 +119,20 @@ window#quicksettings .quicksettings {
         }
 
         label {
-            margin-left: $spacing * .3;
+            margin-left: $spacing * 0.3;
         }
 
         button {
             @include button($flat: true);
 
             &:first-child {
-                padding: $padding * 1.2;
+                padding: $padding * 2 $padding * 1.5;
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
 
             &:last-child {
-                padding: $padding * .5;
+                padding: $padding * 2 $padding * 1.5;
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
@@ -151,10 +151,10 @@ window#quicksettings .quicksettings {
     .simple-toggle {
         @include button;
         font-weight: bold;
-        padding: $padding * 1.2;
+        padding: $padding * 2 $padding * 1.5;
 
         label {
-            margin-left: $spacing * .3;
+            margin-left: $spacing * 0.3;
         }
 
         image {

@@ -26,4 +26,4 @@
                 :hexpand true
                 :halign "fill"
                 :button-class "powermenu-exit-button"
-                :L "eww close powermenu; swaymsg exit"))))
+                :L "eww close powermenu; ./powermenu/scripts/exit.sh"))))

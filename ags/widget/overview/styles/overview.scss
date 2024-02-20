@@ -3,11 +3,11 @@ window#overview .overview {
     @include spacing;
 
     .workspace {
-        &.active>widget {
-            border-color: $primary-bg
+        &.active > widget {
+            border-color: $primary-bg;
         }
 
-        >widget {
+        > widget {
             @include widget;
             border-radius: if($radius ==0, 0, $radius + $padding);
 

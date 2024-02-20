@@ -6,16 +6,16 @@
         box-shadow: 2px 2px 2px 0 $shadow-color;
         background-size: cover;
         background-position: center;
-        border-radius: $radius*0.8;
+        border-radius: $radius * 0.8;
         margin-right: $spacing;
     }
 
     button {
         @include button($flat: true);
-        padding: $padding * .5;
+        padding: $padding * 0.5;
 
         &.play-pause {
-            margin: 0 ($spacing * .5);
+            margin: 0 ($spacing * 0.5);
         }
 
         image {
@@ -24,13 +24,17 @@
     }
 
     .artist {
-        color: transparentize($fg, .2);
-        font-size: .9em;
+        color: transparentize($fg, 0.2);
+        font-size: 0.9em;
     }
 
     scale {
-        @include slider($width: .5em, $slider: false, $gradient: linear-gradient($fg, $fg));
-        margin-bottom: $padding * .5;
+        @include slider(
+            $width: 0.5em,
+            $slider: false,
+            $gradient: linear-gradient($fg, $fg)
+        );
+        margin-bottom: $padding * 0.5;
 
         trough {
             border: none;

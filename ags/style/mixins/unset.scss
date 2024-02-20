@@ -3,7 +3,7 @@
 
     @if $rec {
         * {
-            all: unset
+            all: unset;
         }
     }
 }

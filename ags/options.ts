@@ -1,5 +1,5 @@
-import { type BarWidget } from "widget/bar/Bar"
-import { opt, mkOptions } from "lib/option"
+import { type BarWidget } from "widget/bar/Bar";
+import { opt, mkOptions } from "lib/option";
 
 const options = mkOptions(OPTIONS, {
     autotheme: opt(false),
@@ -9,51 +9,51 @@ const options = mkOptions(OPTIONS, {
     theme: {
         dark: {
             primary: {
-                bg: opt("#51a4e7"),
-                fg: opt("#141414"),
+                bg: opt("#c4a7e7"),
+                fg: opt("#191724"),
             },
             error: {
-                bg: opt("#e55f86"),
-                fg: opt("#141414"),
+                bg: opt("#eb6f92"),
+                fg: opt("#191724"),
             },
-            bg: opt("#171717"),
-            fg: opt("#eeeeee"),
-            widget: opt("#eeeeee"),
-            border: opt("#eeeeee"),
+            bg: opt("#191724"),
+            fg: opt("#e0def4"),
+            widget: opt("#e0def4"),
+            border: opt("#e0def4"),
         },
         light: {
             primary: {
-                bg: opt("#426ede"),
-                fg: opt("#eeeeee"),
+                bg: opt("#907aa9"),
+                fg: opt("#faf4ed"),
             },
             error: {
-                bg: opt("#b13558"),
-                fg: opt("#eeeeee"),
+                bg: opt("#b4637a"),
+                fg: opt("#faf4ed"),
             },
-            bg: opt("#fffffa"),
-            fg: opt("#080808"),
-            widget: opt("#080808"),
-            border: opt("#080808"),
+            bg: opt("#faf4ed"),
+            fg: opt("#575279"),
+            widget: opt("#575279"),
+            border: opt("#575279"),
         },
 
         scheme: opt<"dark" | "light">("dark"),
         widget: { opacity: opt(94) },
         border: {
-            width: opt(1),
+            width: opt(2),
             opacity: opt(96),
         },
 
-        shadows: opt(true),
-        padding: opt(7),
-        spacing: opt(12),
-        radius: opt(11),
+        shadows: opt(false),
+        padding: opt(8),
+        spacing: opt(8),
+        radius: opt(8),
     },
 
     transition: opt(200),
 
     font: {
-        size: opt(13),
-        name: opt("Ubuntu Nerd Font"),
+        size: opt(12),
+        name: opt("FiraCode Nerd Font"),
     },
 
     bar: {
@@ -64,13 +64,10 @@ const options = mkOptions(OPTIONS, {
             start: opt<BarWidget[]>([
                 "launcher",
                 "workspaces",
-                "taskbar",
                 "expander",
                 "messages",
             ]),
-            center: opt<BarWidget[]>([
-                "date",
-            ]),
+            center: opt<BarWidget[]>(["date"]),
             end: opt<BarWidget[]>([
                 "media",
                 "expander",
@@ -116,10 +113,7 @@ const options = mkOptions(OPTIONS, {
             action: opt(() => App.toggleWindow("datemenu")),
         },
         systray: {
-            ignore: opt([
-                "KDE Connect Indicator",
-                "spotify-client",
-            ]),
+            ignore: opt(["KDE Connect Indicator", "spotify-client"]),
         },
         media: {
             monochrome: opt(true),
@@ -141,15 +135,17 @@ const options = mkOptions(OPTIONS, {
         favorites: opt([
             "org.gnome.Nautilus",
             "org.gnome.Calendar",
-            "obsidian",
-            "discord",
-            "spotify",
+            /*
+      "obsidian",
+      "discord",
+      "spotify",
+            */
         ]),
     },
 
     overview: {
-        scale: opt(9),
-        workspaces: opt(7),
+        scale: opt(12),
+        workspaces: opt(5),
         monochromeIcon: opt(true),
     },
 
@@ -197,21 +193,21 @@ const options = mkOptions(OPTIONS, {
     },
 
     notifications: {
-        position: opt<Array<"top" | "bottom" | "left" | "right">>(["top", "right"]),
+        position: opt<Array<"top" | "bottom" | "left" | "right">>([
+            "top",
+            "right",
+        ]),
         blacklist: opt(["Spotify"]),
         width: opt(440),
     },
 
     hyprland: {
-        blur: opt<"*" | Array<string>>([
-            "powermenu",
-            "verification",
-        ]),
-        alpha: opt(.3),
+        blur: opt<"*" | Array<string>>(["powermenu", "verification"]),
+        alpha: opt(0.3),
         gaps: opt(2.4),
         inactiveBorder: opt("333333ff"),
     },
-})
+});
 
-globalThis["options"] = options
-export default options
+globalThis["options"] = options;
+export default options;
