@@ -23,7 +23,7 @@ function OnScreenProgress(vertical: boolean) {
     });
 
     const revealer = Widget.Revealer({
-        transition: "slide_left",
+        transition: "slide_up",
         child: progress,
     });
 

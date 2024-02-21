@@ -2,7 +2,7 @@ window.indicator {
     .progress {
         @include floating-widget;
         padding: $padding * 0.5;
-        border-radius: if($radius >0, calc($radius + $padding * 0.5), 0);
+        border-radius: $radius;
         @debug $radius;
 
         .fill {
@@ -20,7 +20,7 @@ window.indicator {
         @include floating-widget;
         margin: $spacing * 2;
         padding: $popover-padding * 2;
-        font-size: 58px;
+        font-size: 2rem;
         color: transparentize($fg, 0.1);
     }
 }
