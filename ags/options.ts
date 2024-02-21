@@ -129,12 +129,12 @@ const options = mkOptions(OPTIONS, {
         maxItem: opt(6),
         favorites: opt([
             "org.gnome.Nautilus",
-            "org.gnome.Calendar",
-            /*
-      "obsidian",
-      "discord",
-      "spotify",
-            */
+            "Firefox",
+            "Microsoft Edge",
+            "Telegram Desktop",
+            "Visual Studio Code",
+            "Obs studio",
+            "GNU Image Manipulation Program",
         ]),
     },
 
@@ -147,17 +147,13 @@ const options = mkOptions(OPTIONS, {
     powermenu: {
         sleep: opt("systemctl suspend"),
         reboot: opt("systemctl reboot"),
-        logout: opt("pkill Hyprland"),
+        logout: opt("killhypr"),
         shutdown: opt("shutdown now"),
         layout: opt<"line" | "box">("line"),
         labels: opt(true),
     },
 
     quicksettings: {
-        avatar: {
-            image: opt(`/var/lib/AccountsService/icons/${Utils.USER}`),
-            size: opt(70),
-        },
         width: opt(380),
         position: opt<"left" | "center" | "right">("right"),
         networkSettings: opt("gtk-launch gnome-control-center"),

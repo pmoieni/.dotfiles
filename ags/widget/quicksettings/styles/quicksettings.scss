@@ -3,12 +3,6 @@ window#quicksettings .quicksettings {
     @include spacing;
 
     padding: $popover-padding * 1;
-
-    .avatar {
-        @include widget;
-        border-radius: $radius * 5;
-    }
-
     .header {
         @include spacing;
         color: transparentize($fg, 0.15);

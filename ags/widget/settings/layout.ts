@@ -179,8 +179,6 @@ export default [
         ),
         Group(
             "Quicksettings",
-            Row({ opt: qs.avatar.image, title: "Avatar", type: "img" }),
-            Row({ opt: qs.avatar.size, title: "Avatar Size" }),
             Row({
                 opt: qs.media.monochromeIcon,
                 title: "Media Monochrome Icons",

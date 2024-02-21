@@ -48,6 +48,19 @@ let
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
       '';
   };
+
+  killhypr = pkgs.writeTextFile {
+    name = "killhypr";
+    destination = "/bin/killhypr";
+    executable = true;
+    text = ''
+      hyprctl dispatch exit 0
+      sleep 2
+      if pgrep -x Hyprland >/dev/null; then
+          killall -9 Hyprland
+      fi
+    '';
+  };
 in
 {
   imports = [
@@ -263,7 +276,9 @@ in
       hitori # sudoku game
       atomix # puzzle game
     ]);
-    systemPackages = with pkgs; [
+    systemPackages = ([
+      killhypr
+    ]) ++ (with pkgs; [
       # base
       vim
       htop
@@ -330,7 +345,7 @@ in
       swww
       wf-recorder
       swappy
-    ];
+    ]);
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
 
