@@ -113,7 +113,7 @@ const options = mkOptions(OPTIONS, {
         media: {
             monochrome: opt(true),
             preferred: opt("spotify"),
-            direction: opt<"left" | "right">("right"),
+            direction: opt<"left" | "right">("left"),
             length: opt(40),
         },
         powermenu: {
@@ -172,7 +172,7 @@ const options = mkOptions(OPTIONS, {
 
     osd: {
         progress: {
-            vertical: opt(false),
+            vertical: opt(true),
             pack: {
                 h: opt<"start" | "center" | "end">("center"),
                 v: opt<"start" | "center" | "end">("end"),

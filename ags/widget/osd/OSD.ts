@@ -95,7 +95,7 @@ function MicrophoneMute() {
     );
 }
 
-export default (monitor: number) =>
+export default (monitor: number = 0) =>
     Widget.Window({
         monitor,
         name: `indicator${monitor}`,
@@ -107,6 +107,7 @@ export default (monitor: number) =>
             css: "padding: 2px;",
             expand: true,
             child: Widget.Overlay<Gtk.Widget>(
+                { child: Widget.Box({ expand: true }) },
                 Widget.Box({
                     hpack: progress.pack.h.bind(),
                     vpack: progress.pack.v.bind(),
