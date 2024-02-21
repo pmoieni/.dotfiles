@@ -344,7 +344,7 @@ in
       rose-pine-gtk-theme
       wpgtk
       swww
-      wf-recorder
+      wl-screenrec
       swappy
     ]);
     sessionVariables.NIXOS_OZONE_WL = "1";

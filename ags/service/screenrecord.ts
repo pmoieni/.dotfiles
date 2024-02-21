@@ -25,7 +25,7 @@ class Recorder extends Service {
     timer = 0;
 
     async start() {
-        if (!dependencies("slurp", "wf-recorder")) return;
+        if (!dependencies("slurp", "wl-screenrec")) return;
 
         if (this.recording) return;
 
@@ -33,7 +33,7 @@ class Recorder extends Service {
         // const area = await sh("slurp");
         Utils.ensureDirectory(this.#recordings);
         this.#file = `${this.#recordings}/${now()}.mp4`;
-        sh(`wf-recorder -f ${this.#file}`);
+        sh(`wl-screenrec -f ${this.#file}`);
 
         this.recording = true;
         this.changed("recording");
@@ -48,7 +48,7 @@ class Recorder extends Service {
     async stop() {
         if (!this.recording) return;
 
-        bash("killall -INT wf-recorder");
+        bash("killall -INT wl-screenrec");
         this.recording = false;
         this.changed("recording");
         GLib.source_remove(this.#interval);
