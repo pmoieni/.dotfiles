@@ -80,7 +80,10 @@ export default () => {
             player.playPause();
         };
         btn.on_secondary_click = () => {
-            player.playPause();
+            player.next();
+        };
+        btn.on_middle_click = () => {
+            player.previous();
         };
         btn.on_scroll_up = () => {
             player.next();
