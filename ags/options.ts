@@ -61,11 +61,11 @@ const options = mkOptions(OPTIONS, {
                 "launcher",
                 "workspaces",
                 "expander",
+                "media",
                 "messages",
             ]),
             center: opt<BarWidget[]>(["date"]),
             end: opt<BarWidget[]>([
-                "media",
                 "expander",
                 "systray",
                 "screenrecord",
@@ -98,7 +98,7 @@ const options = mkOptions(OPTIONS, {
             low: opt(30),
         },
         workspaces: {
-            workspaces: opt(7),
+            workspaces: opt(5),
         },
         taskbar: {
             monochrome: opt(true),

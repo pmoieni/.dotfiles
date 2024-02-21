@@ -81,10 +81,6 @@ const variables = () => [
         `transparentize(${t(dark.border, light.border)}, ${Math.max((border.opacity.value - 1) / 100, 0)})`
     ),
     $("popover-padding", `$padding * ${popoverPaddingMultiplier}`),
-    $(
-        "popover-radius",
-        radius.value === 0 ? "0" : "$radius + $popover-padding"
-    ),
 
     $("font-size", `${options.font.size}pt`),
     $("font-name", options.font.name),

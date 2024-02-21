@@ -15,7 +15,7 @@ export const ScreenRecordToggle = () =>
                   })()
                 : (() => {
                       screenrecord.start();
-                      App.toggleWindow("quicksettings");
+                      App.closeWindow("quicksettings");
                   })(),
         connection: [screenrecord, () => !screenrecord.recording],
     });

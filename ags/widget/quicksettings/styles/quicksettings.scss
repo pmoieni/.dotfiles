@@ -10,8 +10,21 @@ window#quicksettings .quicksettings {
     }
 
     .header {
-        @include spacing(0.5);
+        @include spacing;
         color: transparentize($fg, 0.15);
+
+        .user-label {
+            background-color: $primary-bg;
+            color: $primary-fg;
+            font-weight: bold;
+            padding: $padding;
+            border-radius: $radius;
+        }
+
+        separator {
+            margin: ($radius * 0.5);
+            background-color: $border-color;
+        }
 
         button {
             @include button;

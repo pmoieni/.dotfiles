@@ -6,7 +6,7 @@ window#verification {
 
 window#verification .verification {
     @include floating-widget;
-    padding: $popover-padding * 1.5;
+    padding: $popover-padding;
     min-width: 300px;
     min-height: 100px;
 
@@ -39,7 +39,7 @@ window#powermenu .powermenu {
     @include floating-widget;
 
     &.line {
-        padding: $popover-padding * 1.5;
+        padding: $popover-padding;
 
         button {
             padding: $popover-padding;
@@ -51,10 +51,10 @@ window#powermenu .powermenu {
     }
 
     &.box {
-        padding: $popover-padding * 2;
+        padding: $popover-padding;
 
         button {
-            padding: $popover-padding * 1.5;
+            padding: $popover-padding;
         }
 
         label {
@@ -67,7 +67,7 @@ window#powermenu .powermenu {
 
         image {
             @include button;
-            border-radius: $radius + ($popover-padding * 1.4);
+            border-radius: $radius;
             min-width: 1.7em;
             min-height: 1.7em;
             font-size: 4em;

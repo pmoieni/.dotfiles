@@ -3,13 +3,13 @@ window#overview .overview {
     @include spacing;
 
     .workspace {
-        &.active > widget {
+        &.active>widget {
             border-color: $primary-bg;
         }
 
-        > widget {
+        >widget {
             @include widget;
-            border-radius: if($radius ==0, 0, $radius + $padding);
+            border-radius: $radius;
 
             &:hover {
                 background-color: $hover-bg;
