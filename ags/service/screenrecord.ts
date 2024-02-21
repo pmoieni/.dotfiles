@@ -29,10 +29,11 @@ class Recorder extends Service {
 
         if (this.recording) return;
 
-        const area = await sh("slurp");
+        // TODO: fix area recording
+        // const area = await sh("slurp");
         Utils.ensureDirectory(this.#recordings);
         this.#file = `${this.#recordings}/${now()}.mp4`;
-        sh(`wf-recorder -g ${area} -f ${this.#file} --pixel-format yuv420p`);
+        sh(`wf-recorder -f ${this.#file}`);
 
         this.recording = true;
         this.changed("recording");

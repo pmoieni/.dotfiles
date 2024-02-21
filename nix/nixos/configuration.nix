@@ -328,6 +328,7 @@ in
       pamixer
       dart-sass
       imagemagick
+      ffmpeg-full
 
       # desktop
       swaylock
