@@ -17,7 +17,7 @@ export const Brightness = () =>
             Widget.Button({
                 vpack: "center",
                 child: Widget.Icon(icons.brightness.indicator),
-                on_clicked: () => (brightness.screen = 0),
+                on_clicked: () => (brightness.screen = 0.3),
                 tooltip_text: brightness
                     .bind("screen")
                     .as((v) => `Screen Brightness: ${Math.floor(v * 100)}%`),
