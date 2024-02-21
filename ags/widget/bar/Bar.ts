@@ -29,11 +29,11 @@ const widget = {
     expander: () => Widget.Box({ expand: true }),
 };
 
-export default (monitor: number) =>
+export default (monitor: number = 0) =>
     Widget.Window({
         monitor,
         class_name: "bar",
-        name: `bar${monitor}`,
+        name: "bar",
         exclusivity: "exclusive",
         anchor: pos.as((pos) => [pos, "right", "left"]),
         child: Widget.CenterBox({

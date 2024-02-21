@@ -28,7 +28,7 @@ export default config({
         datemenu: options.transition.value,
     },
     windows: [
-        ...forMonitors(Bar),
+        Bar(),
         ...forMonitors(NotificationPopups),
         ...forMonitors(ScreenCorners),
         ...forMonitors(OSD),
