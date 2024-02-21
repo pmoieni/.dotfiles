@@ -115,6 +115,6 @@ const Applauncher = () => {
 export default () =>
     PopupWindow({
         name: "applauncher",
-        layout: "top",
+        layout: "top-center",
         child: Applauncher(),
     });

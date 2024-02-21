@@ -2,10 +2,6 @@ import { type BarWidget } from "widget/bar/Bar";
 import { opt, mkOptions } from "lib/option";
 
 const options = mkOptions(OPTIONS, {
-    autotheme: opt(false),
-
-    wallpaper: opt(`/home/${USER}/.config/background`),
-
     theme: {
         dark: {
             primary: {
@@ -72,7 +68,6 @@ const options = mkOptions(OPTIONS, {
                 "media",
                 "expander",
                 "systray",
-                "colorpicker",
                 "screenrecord",
                 "system",
                 "battery",
@@ -170,6 +165,9 @@ const options = mkOptions(OPTIONS, {
             monochromeIcon: opt(true),
             coverSize: opt(100),
         },
+        screenrecorder: {
+            action: opt(() => App.toggleWindow("quicksettings")),
+        },
     },
 
     datemenu: {
@@ -204,7 +202,7 @@ const options = mkOptions(OPTIONS, {
     hyprland: {
         blur: opt<"*" | Array<string>>(["powermenu", "verification"]),
         alpha: opt(0.3),
-        gaps: opt(2.4),
+        gaps: opt(2),
         inactiveBorder: opt("333333ff"),
     },
 });

@@ -25,7 +25,6 @@
       fish
       tmux
       zellij
-      dart-sass
       sassc
 
       # dev tools

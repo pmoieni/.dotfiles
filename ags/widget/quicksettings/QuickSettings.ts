@@ -1,5 +1,4 @@
 import type Gtk from "gi://Gtk?version=3.0";
-import { ProfileSelector, ProfileToggle } from "./widgets/AsusProfile";
 import { Header } from "./widgets/Header";
 import { Volume, Microhone, SinkSelector, AppMixer } from "./widgets/Volume";
 import { Brightness } from "./widgets/Brightness";
@@ -11,6 +10,7 @@ import { MicMute } from "./widgets/MicMute";
 import { Media } from "./widgets/Media";
 import PopupWindow from "widget/PopupWindow";
 import options from "options";
+import { ScreenRecordToggle } from "./widgets/ScreenRecord";
 
 const { bar, quicksettings } = options;
 const media = (await Service.import("mpris")).bind("players");
@@ -55,7 +55,7 @@ const Settings = () =>
                 [NetworkToggle, BluetoothToggle],
                 [WifiSelection, BluetoothDevices]
             ),
-            Row([ProfileToggle, DarkModeToggle], [ProfileSelector]),
+            Row([ScreenRecordToggle, DarkModeToggle]),
             Row([MicMute, DND]),
             Widget.Box({
                 visible: media.as((l) => l.length > 0),

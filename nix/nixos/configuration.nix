@@ -264,6 +264,7 @@ in
       atomix # puzzle game
     ]);
     systemPackages = with pkgs; [
+      # base
       vim
       htop
       wget
@@ -298,29 +299,37 @@ in
       cmake
       ninja
       fd
+      jq
       fzf
+
+      # utilities
       tokei
       yt-dlp
       ripgrep
       hyperfine
       neovim
       ncdu
-      jq
       alsa-utils
       pamixer
+      dart-sass
       imagemagick
+
+      # desktop
       swaylock
       swayidle
       swaybg
       swaynotificationcenter
       waybar
-      eww-wayland
       wofi
       grim
       slurp
       kanshi
       libsForQt5.qt5ct
       rose-pine-gtk-theme
+      wpgtk
+      swww
+      wf-recorder
+      swappy
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
   };

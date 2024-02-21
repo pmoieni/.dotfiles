@@ -16,7 +16,7 @@ class Recorder extends Service {
         );
     }
 
-    #recordings = Utils.HOME + "/Videos/Screencasting";
+    #recordings = Utils.HOME + "/Videos/Screenrecords";
     #screenshots = Utils.HOME + "/Pictures/Screenshots";
     #file = "";
     #interval = 0;
@@ -64,12 +64,12 @@ class Recorder extends Service {
     }
 
     async screenshot(full = false) {
-        if (!dependencies("slurp", "wayshot")) return;
+        if (!dependencies("slurp", "grim", "swappy")) return;
 
         const file = `${this.#screenshots}/${now()}.png`;
         Utils.ensureDirectory(this.#screenshots);
 
-        const wayshot = `wayshot -f ${file} ${full ? "" : `-s "${await sh("slurp")}"`}`;
+        const wayshot = `grim ${file} ${full ? "" : `-g "${await sh("slurp")}"`}`;
         await sh(wayshot);
         bash(`wl-copy < ${file}`);
 
