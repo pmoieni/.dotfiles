@@ -342,6 +342,7 @@ in
       kanshi
       libsForQt5.qt5ct
       rose-pine-gtk-theme
+      gtk3.dev
       wpgtk
       swww
       wl-screenrec
