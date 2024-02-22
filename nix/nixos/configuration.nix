@@ -295,6 +295,7 @@ in
       wpgtk
       wl-screenrec
       swappy
+      swaybg # variety doesn't work without it
     ]);
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
