@@ -24,14 +24,16 @@ class Recorder extends Service {
     recording = false;
     timer = 0;
 
-    async start() {
+    async start(full = true) {
         if (!dependencies("slurp", "wl-screenrec")) return;
 
         if (this.recording) return;
 
         Utils.ensureDirectory(this.#recordings);
         this.#file = `${this.#recordings}/${now()}.mp4`;
-        sh(`wl-screenrec -g ${await sh("slurp")} -f ${this.#file}`);
+        sh(
+            `wl-screenrec  ${full ? "" : `-g "${await sh("slurp")}"`} -f ${this.#file}`
+        );
 
         this.recording = true;
         this.changed("recording");
@@ -62,7 +64,7 @@ class Recorder extends Service {
         });
     }
 
-    async screenshot(full = false) {
+    async screenshot(full = true) {
         if (!dependencies("slurp", "grim", "swappy")) return;
 
         const file = `${this.#screenshots}/${now()}.png`;
