@@ -39,6 +39,7 @@ const options = mkOptions(OPTIONS, {
             opacity: opt(96),
         },
 
+        blur: opt(0.2),
         shadows: opt(false),
         padding: opt(8),
         spacing: opt(8),
@@ -93,8 +94,8 @@ const options = mkOptions(OPTIONS, {
             bar: opt<"hidden" | "regular" | "whole">("regular"),
             charging: opt("#00D787"),
             percentage: opt(true),
-            blocks: opt(10),
-            width: opt(70),
+            blocks: opt(7),
+            width: opt(50),
             low: opt(30),
         },
         workspaces: {
@@ -196,8 +197,6 @@ const options = mkOptions(OPTIONS, {
     },
 
     hyprland: {
-        blur: opt<"*" | Array<string>>(["powermenu", "verification"]),
-        alpha: opt(0.3),
         gaps: opt(2),
         inactiveBorder: opt("333333ff"),
     },

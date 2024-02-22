@@ -46,7 +46,7 @@ window#datemenu .datemenu {
             margin-bottom: $spacing;
             margin-right: $spacing;
 
-            > label {
+            >label {
                 margin-left: $radius * 0.5;
             }
 
@@ -84,7 +84,6 @@ window#datemenu .datemenu {
 
     separator {
         background-color: $popover-border-color;
-        min-width: 2px;
         border-radius: $radius;
         margin-right: $spacing;
     }

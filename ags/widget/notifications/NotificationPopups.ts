@@ -3,7 +3,7 @@ import options from "options";
 
 const notifications = await Service.import("notifications");
 const { transition } = options;
-const { position, blacklist } = options.notifications;
+const { position } = options.notifications;
 const { timeout, idle } = Utils;
 
 function Animated(id: number) {
@@ -68,13 +68,6 @@ function PopupList() {
             (_, id: number) => {
                 if (id !== undefined) {
                     if (map.has(id)) remove(null, id);
-
-                    if (
-                        blacklist.value.includes(
-                            notifications.getNotification(id)!.app_name
-                        )
-                    )
-                        return;
 
                     if (notifications.dnd) return;
 

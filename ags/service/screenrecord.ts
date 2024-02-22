@@ -29,11 +29,9 @@ class Recorder extends Service {
 
         if (this.recording) return;
 
-        // TODO: fix area recording
-        // const area = await sh("slurp");
         Utils.ensureDirectory(this.#recordings);
         this.#file = `${this.#recordings}/${now()}.mp4`;
-        sh(`wl-screenrec -f ${this.#file}`);
+        sh(`wl-screenrec -g ${await sh("slurp")} -f ${this.#file}`);
 
         this.recording = true;
         this.changed("recording");
@@ -48,7 +46,7 @@ class Recorder extends Service {
     async stop() {
         if (!this.recording) return;
 
-        bash("killall -INT wl-screenrec");
+        await bash("killall -INT wl-screenrec");
         this.recording = false;
         this.changed("recording");
         GLib.source_remove(this.#interval);
@@ -82,7 +80,7 @@ class Recorder extends Service {
                 "Show in Files": () => sh(`xdg-open ${this.#screenshots}`),
                 View: () => sh(`xdg-open ${file}`),
                 Edit: () => {
-                    if (!dependencies("swappy")) sh(`swappy, -f ${file}`);
+                    if (dependencies("swappy")) sh(`swappy, -f ${file}`);
                 },
             },
         });

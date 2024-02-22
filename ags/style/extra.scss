@@ -5,8 +5,18 @@
     font-family: $font-name;
 }
 
+separator {
+    &.horizontal {
+        min-height: $border-width;
+    }
+
+    &.vertical {
+        min-width: $border-width;
+    }
+}
+
 window.popup {
-    > * {
+    >* {
         border: none;
         box-shadow: none;
     }
@@ -45,7 +55,7 @@ tooltip {
     background-color: transparent;
     border: none;
 
-    > * > * {
+    >*>* {
         background-color: $bg;
         border-radius: $radius;
         border: $border-width solid $popover-border-color;

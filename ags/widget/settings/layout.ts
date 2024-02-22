@@ -23,6 +23,7 @@ const {
     padding,
     spacing,
     radius,
+    blur,
     shadows,
     widget,
     border,
@@ -39,7 +40,8 @@ export default [
                 title: "Color Scheme",
                 type: "enum",
                 enums: ["dark", "light"],
-            })
+            }),
+            Row({ opt: blur, title: "Blur", note: "0 to disable", max: 70 })
         ),
         Group(
             "Dark Colors",

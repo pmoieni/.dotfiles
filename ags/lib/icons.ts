@@ -4,6 +4,7 @@ export const substitutes = {
     Caprine: "facebook-messenger",
     "com.raggesilver.BlackBox-symbolic": "terminal-symbolic",
     "audio-headset-bluetooth": "audio-headphones-symbolic",
+    "org.wezfurlong.wezterm-symbolic": "terminal-symbolic",
     "audio-card-analog-usb": "audio-speakers-symbolic",
     "audio-card-analog-pci": "audio-card-symbolic",
     "preferences-system": "emblem-system-symbolic",

@@ -84,6 +84,7 @@ export default () =>
         on_clicked: () => {
             percentage.value = !percentage.value;
         },
+        visible: battery.bind("available"),
         child: Widget.Box({
             expand: true,
             visible: battery.bind("available"),
