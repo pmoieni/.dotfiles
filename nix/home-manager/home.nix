@@ -24,8 +24,6 @@
       # shell / terminal
       fish
       tmux
-      zellij
-      sassc
 
       # dev tools
       gh
@@ -70,9 +68,6 @@
       slack
       element-desktop
       spotify
-
-      # other
-      # hplipWithPlugin
     ];
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;
