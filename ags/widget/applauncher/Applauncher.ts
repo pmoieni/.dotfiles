@@ -116,5 +116,10 @@ export default () =>
     PopupWindow({
         name: "applauncher",
         layout: "top-center",
+        setup: (w) =>
+            w.keybind(["SUPER"], "A", () => {
+                App.toggleWindow("applauncher");
+            }),
+        keymode: "on-demand",
         child: Applauncher(),
     });

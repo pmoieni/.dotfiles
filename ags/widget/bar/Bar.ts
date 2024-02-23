@@ -34,6 +34,11 @@ export default (monitor: number = 0) =>
         monitor,
         class_name: "bar",
         name: "bar",
+        setup: (w) =>
+            w.keybind(["SUPER"], "W", () => {
+                App.toggleWindow("bar");
+            }),
+        keymode: "on-demand",
         exclusivity: "exclusive",
         anchor: pos.as((pos) => [pos, "right", "left"]),
         child: Widget.CenterBox({

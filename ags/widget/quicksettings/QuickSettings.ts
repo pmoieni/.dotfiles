@@ -67,6 +67,11 @@ const Settings = () =>
 const QuickSettings = () =>
     PopupWindow({
         name: "quicksettings",
+        setup: (w) =>
+            w.keybind(["SUPER"], "Q", () => {
+                App.toggleWindow("quicksettings");
+            }),
+        keymode: "on-demand",
         exclusivity: "exclusive",
         transition: bar.position
             .bind()

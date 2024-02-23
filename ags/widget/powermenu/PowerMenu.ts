@@ -26,6 +26,11 @@ export default () =>
     PopupWindow({
         name: "powermenu",
         transition: "crossfade",
+        setup: (w) =>
+            w.keybind(["SUPER", "SHIFT"], "E", () => {
+                App.toggleWindow("powermenu");
+            }),
+        keymode: "on-demand",
         child: Widget.Box<Gtk.Widget>({
             class_name: "powermenu horizontal",
             setup: (self) =>

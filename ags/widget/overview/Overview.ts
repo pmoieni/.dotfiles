@@ -46,6 +46,11 @@ const Overview = (ws: number) =>
 export default () =>
     PopupWindow({
         name: "overview",
+        setup: (w) =>
+            w.keybind(["SUPER"], "D", () => {
+                App.toggleWindow("overview");
+            }),
+        keymode: "on-demand",
         layout: "center",
         child: options.overview.workspaces.bind().as(Overview),
     });
