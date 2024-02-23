@@ -1,17 +1,8 @@
 import { type BluetoothDevice } from "types/service/bluetooth";
 import { Menu, ArrowToggleButton } from "../ToggleButton";
 import icons from "lib/icons";
-import { watch } from "lib/experiments";
 
 const bluetooth = await Service.import("bluetooth");
-const title = watch("Disabled", bluetooth, () => {
-    if (!bluetooth.enabled) return "Disabled";
-
-    if (bluetooth.connected_devices.length === 1)
-        return bluetooth.connected_devices[0].alias;
-
-    return `${bluetooth.connected_devices.length} Connected`;
-});
 
 export const BluetoothToggle = () =>
     ArrowToggleButton({
@@ -19,7 +10,14 @@ export const BluetoothToggle = () =>
         icon: bluetooth
             .bind("enabled")
             .as((p) => icons.bluetooth[p ? "enabled" : "disabled"]),
-        label: title,
+        label: Utils.watch("Disabled", bluetooth, () => {
+            if (!bluetooth.enabled) return "Disabled";
+
+            if (bluetooth.connected_devices.length === 1)
+                return bluetooth.connected_devices[0].alias;
+
+            return `${bluetooth.connected_devices.length} Connected`;
+        }),
         connection: [bluetooth, () => bluetooth.enabled],
         deactivate: () => (bluetooth.enabled = false),
         activate: () => (bluetooth.enabled = true),

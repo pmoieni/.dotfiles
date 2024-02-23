@@ -39,7 +39,7 @@ const options = mkOptions(OPTIONS, {
             opacity: opt(96),
         },
 
-        blur: opt(0.2),
+        blur: opt(30),
         shadows: opt(false),
         padding: opt(8),
         spacing: opt(8),
@@ -129,13 +129,18 @@ const options = mkOptions(OPTIONS, {
         margin: opt(80),
         maxItem: opt(6),
         favorites: opt([
-            "org.gnome.Nautilus",
-            "Firefox",
-            "Microsoft Edge",
-            "Telegram Desktop",
-            "Visual Studio Code",
-            "Obs studio",
-            "GNU Image Manipulation Program",
+            [
+                "org.gnome.Nautilus",
+                "Firefox",
+                "Microsoft Edge",
+                "Telegram Desktop",
+            ],
+            [
+                "Visual Studio Code",
+                "wezterm",
+                "Obs studio",
+                "GNU Image Manipulation Program",
+            ],
         ]),
     },
 

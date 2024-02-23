@@ -64,18 +64,18 @@ const Applauncher = () => {
         visible: favorites.bind().as((f) => f.length > 0),
         child: Widget.Box({
             vertical: true,
-            children: [
-                Widget.Separator(),
-                Widget.Box({
-                    class_name: "quicklaunch horizontal",
-                    children: favorites.bind().as((f) =>
-                        f
+            children: favorites.bind().as((favs) =>
+                favs.flatMap((fs) => [
+                    Widget.Separator(),
+                    Widget.Box({
+                        class_name: "quicklaunch horizontal",
+                        children: fs
                             .map((f) => query(f)?.[0])
                             .filter((f) => f)
-                            .map(QuickButton)
-                    ),
-                }),
-            ],
+                            .map(QuickButton),
+                    }),
+                ])
+            ),
         }),
     });
 

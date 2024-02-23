@@ -7,7 +7,7 @@ import options from "options";
 type Transition = RevealerProps["transition"];
 type Child = WindowProps["child"];
 
-type PopupWindowProps = WindowProps & {
+type PopupWindowProps = Omit<WindowProps, "name"> & {
     name: string;
     layout?: keyof ReturnType<typeof Layout>;
     transition?: Transition;
@@ -160,10 +160,10 @@ export default ({
     exclusivity = "ignore",
     ...props
 }: PopupWindowProps) =>
-    Widget.Window({
+    Widget.Window<Gtk.Widget>({
         name,
         class_names: [name, "popup-window"],
-        popup: true,
+        setup: (w) => w.keybind("Escape", () => App.closeWindow(name)),
         visible: false,
         keymode: "on-demand",
         exclusivity,
