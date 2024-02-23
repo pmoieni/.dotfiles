@@ -33,7 +33,7 @@ window.popup {
 
         menuitem {
             @include button;
-            padding: $spacing * 0.5;
+            padding: $padding;
             margin: ($spacing * 0.5) 0;
 
             &:first-child {
