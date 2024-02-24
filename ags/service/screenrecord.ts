@@ -16,7 +16,7 @@ class Recorder extends Service {
         );
     }
 
-    #recordings = Utils.HOME + "/Videos/Screenrecords";
+    #recordings = Utils.HOME + "/Videos/Recordings";
     #screenshots = Utils.HOME + "/Pictures/Screenshots";
     #file = "";
     #interval = 0;
@@ -82,7 +82,7 @@ class Recorder extends Service {
                 "Show in Files": () => sh(`xdg-open ${this.#screenshots}`),
                 View: () => sh(`xdg-open ${file}`),
                 Edit: () => {
-                    if (dependencies("swappy")) sh(`swappy, -f ${file}`);
+                    if (dependencies("swappy")) sh(`swappy -f ${file}`);
                 },
             },
         });
