@@ -56,7 +56,7 @@ const options = mkOptions(OPTIONS, {
     bar: {
         flatButtons: opt(true),
         position: opt<"top" | "bottom">("top"),
-        corners: opt(true),
+        corners: opt(false),
         layout: {
             start: opt<BarWidget[]>([
                 "launcher",
