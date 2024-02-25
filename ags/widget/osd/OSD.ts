@@ -2,7 +2,6 @@ import { icon } from "lib/utils";
 import icons from "lib/icons";
 import Progress from "./Progress";
 import brightness from "service/brightness";
-import type Gtk from "gi://Gtk?version=3.0";
 import options from "options";
 
 const audio = await Service.import("audio");

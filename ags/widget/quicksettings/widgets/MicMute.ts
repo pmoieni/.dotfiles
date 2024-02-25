@@ -2,6 +2,7 @@ import { SimpleToggleButton } from "../ToggleButton";
 import icons from "lib/icons";
 const { microphone } = await Service.import("audio");
 
+// TODO: audio[type].icon_name is broken, temporary solution
 const icon = () =>
     microphone.is_muted || microphone.stream?.is_muted
         ? icons.audio.mic.muted

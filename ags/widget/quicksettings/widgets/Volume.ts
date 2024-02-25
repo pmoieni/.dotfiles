@@ -1,20 +1,25 @@
 import type Gtk from "gi://Gtk?version=3.0";
 import { type Stream } from "types/service/audio";
 import { Arrow, Menu } from "../ToggleButton";
-import { dependencies, icon, sh } from "lib/utils";
+import { dependencies, sh } from "lib/utils";
 import icons from "lib/icons.js";
 const audio = await Service.import("audio");
 
 type Type = "microphone" | "speaker";
+
+const icon = (type: Type = "speaker") => {
+    const muted = audio[type].is_muted || audio[type].stream?.is_muted;
+    const iconType = type === "speaker" ? "volume" : "mic";
+
+    return muted ? icons.audio[iconType].muted : icons.audio[iconType].high;
+};
 
 const VolumeIndicator = (type: Type = "speaker") =>
     Widget.Button({
         vpack: "center",
         on_clicked: () => (audio[type].is_muted = !audio[type].is_muted),
         child: Widget.Icon({
-            icon: audio[type]
-                .bind("icon_name")
-                .as((i) => icon(i || "", icons.audio.mic.high)),
+            icon: Utils.watch(icon(type), audio[type], () => icon(type)),
             tooltipText: audio[type]
                 .bind("volume")
                 .as((vol) => `Volume: ${Math.floor(vol * 100)}%`),
