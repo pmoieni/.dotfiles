@@ -2,7 +2,8 @@ window#quicksettings .quicksettings {
     @include floating-widget;
     @include spacing;
 
-    padding: $popover-padding * 1;
+    padding: $popover-padding;
+
     .header {
         @include spacing;
         color: transparentize($fg, 0.15);
@@ -16,7 +17,7 @@ window#quicksettings .quicksettings {
         }
 
         separator {
-            margin: ($radius * 0.5);
+            margin: $spacing;
             background-color: $border-color;
         }
 
@@ -32,25 +33,25 @@ window#quicksettings .quicksettings {
 
     .sliders-box {
         @include widget;
-        padding: $padding;
+        padding: $padding * 0.5 0;
 
         button {
             @include button($flat: true);
-            padding: $padding * 1;
+            padding: $padding;
         }
 
         .volume button.arrow:last-child {
-            margin-left: $spacing * 0.4;
+            margin-left: $spacing;
         }
 
         .volume,
         .brightness {
-            padding: $padding * 0.5;
+            padding: $padding * 0.5 $padding;
         }
 
         scale {
             @include slider;
-            margin: 0 ($spacing * 0.5);
+            margin: 0 $spacing;
         }
     }
 
@@ -65,8 +66,7 @@ window#quicksettings .quicksettings {
         margin-top: $spacing;
 
         .icon {
-            margin: 0 ($spacing * 0.5);
-            margin-left: $spacing * 0.2;
+            margin: 0 $spacing;
         }
 
         .title {
@@ -74,16 +74,16 @@ window#quicksettings .quicksettings {
         }
 
         separator {
-            margin: ($radius * 0.5);
+            margin: $spacing;
             background-color: $border-color;
         }
 
         button {
             @include button($flat: true);
-            padding: ($padding * 1);
+            padding: $padding;
 
             image:first-child {
-                margin-right: $spacing * 0.5;
+                margin-right: $spacing;
             }
         }
 
@@ -97,20 +97,18 @@ window#quicksettings .quicksettings {
     }
 
     .sliders-box .menu {
-        margin: ($spacing * 0.5) 0;
+        margin: $spacing;
 
         &.app-mixer {
             .mixer-item {
-                padding: $padding * 0.5;
-                padding-left: 0;
-                padding-right: $padding * 2;
+                padding: $padding;
 
                 scale {
-                    @include slider($width: 0.5em);
+                    @include slider;
                 }
 
                 image {
-                    font-size: 1.2em;
+                    font-size: 1em;
                     margin: 0 $padding;
                 }
             }
@@ -126,20 +124,20 @@ window#quicksettings .quicksettings {
         }
 
         label {
-            margin-left: $spacing * 0.3;
+            margin-left: $spacing;
         }
 
         button {
             @include button($flat: true);
 
             &:first-child {
-                padding: $padding * 2 $padding * 1.5;
+                padding: $padding * 2.5 $padding * 1.5;
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
 
             &:last-child {
-                padding: $padding * 2 $padding * 1.5;
+                padding: $padding * 2.5 $padding * 1.5;
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
@@ -158,10 +156,10 @@ window#quicksettings .quicksettings {
     .simple-toggle {
         @include button;
         font-weight: bold;
-        padding: $padding * 2 $padding * 1.5;
+        padding: $padding * 2.5 $padding * 1.5;
 
         label {
-            margin-left: $spacing * 0.3;
+            margin-left: $spacing;
         }
 
         image {

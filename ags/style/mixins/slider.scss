@@ -1,13 +1,11 @@
 @import "./unset";
 
-@mixin slider(
-    $width: 0.7em,
+@mixin slider($width: 0.8em,
     $slider-width: 0.5em,
     $gradient: $active-gradient,
     $slider: true,
     $focusable: true,
-    $radius: $radius
-) {
+    $radius: $radius) {
     @include unset($rec: true);
 
     trough {
@@ -56,6 +54,7 @@
     }
 
     &:disabled {
+
         highlight,
         progress {
             background-color: transparentize($fg, 0.4);

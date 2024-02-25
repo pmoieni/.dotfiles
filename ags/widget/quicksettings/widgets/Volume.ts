@@ -80,7 +80,7 @@ const MicrophoneIndicator = () =>
 
 export const Microphone = () =>
     Widget.Box({
-        class_name: "slider horizontal",
+        class_name: "volume",
         // TODO: why recorders is null ?
         // visible: audio.bind("recorders").as((a) => a.length > 0),
         visible: !!audio.bind("microphone"),
