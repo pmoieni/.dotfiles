@@ -110,7 +110,7 @@ const options = mkOptions(OPTIONS, {
         media: {
             monochrome: opt(true),
             preferred: opt("spotify"),
-            direction: opt<"left" | "right">("left"),
+            direction: opt<"left" | "right">("right"),
             length: opt(40),
         },
         powermenu: {
