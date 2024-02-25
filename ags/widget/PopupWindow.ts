@@ -164,9 +164,6 @@ export default ({
     Widget.Window<Gtk.Widget>({
         name,
         class_names: [name, "popup-window"],
-        // TODO: replace with keybind
-        // setup: (w) => w.keybind("Escape", () => App.closeWindow(name)),
-        popup: true,
         visible: false,
         keymode: "on-demand",
         exclusivity,
@@ -174,4 +171,4 @@ export default ({
         anchor: ["top", "bottom", "right", "left"],
         child: Layout(name, child, transition)[layout](),
         ...props,
-    });
+    }).keybind("Escape", () => App.closeWindow(name));
