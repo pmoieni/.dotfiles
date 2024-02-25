@@ -70,7 +70,7 @@ class Recorder extends Service {
         const file = `${this.#screenshots}/${now()}.png`;
         Utils.ensureDirectory(this.#screenshots);
 
-        const wayshot = `grim ${file} ${full ? "" : `-g "${await sh("slurp")}"`}`;
+        const wayshot = `grim ${full ? "" : `-g "${await sh("slurp")}"`} ${file}`;
         await sh(wayshot);
         bash(`wl-copy < ${file}`);
 
