@@ -6,7 +6,7 @@ $button-radius: $radius;
 @mixin panel-button($flat: true, $reactive: true) {
     @include accs-button($flat, $reactive);
 
-    > * {
+    >* {
         border-radius: $button-radius;
         margin: $bar-spacing;
     }
@@ -16,7 +16,7 @@ $button-radius: $radius;
         font-weight: bold;
     }
 
-    > * {
+    >* {
         padding: $padding * 0.4 $padding * 0.8;
     }
 }
@@ -107,10 +107,12 @@ $button-radius: $radius;
         }
     }
 
-    .quicksettings > box > box {
-        @include spacing(
-            $spacing: if($bar-spacing==0, $padding / 2, $bar-spacing)
-        );
+    .indicators>* {
+        margin: 0 $spacing * 0.5;
+    }
+
+    .quicksettings>box>box {
+        @include spacing($spacing: if($bar-spacing==0, $padding / 2, $bar-spacing));
     }
 
     .quicksettings:not(.active):not(:active) {
@@ -126,11 +128,11 @@ $button-radius: $radius;
     }
 
     .battery-bar {
-        > * {
+        >* {
             padding: 0;
         }
 
-        &.bar-hidden > box {
+        &.bar-hidden>box {
             padding: 0 $spacing * 0.5;
 
             image {

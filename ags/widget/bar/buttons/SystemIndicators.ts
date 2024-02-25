@@ -7,9 +7,7 @@ const audio = await Service.import("audio");
 const network = await Service.import("network");
 
 const MicrophoneIndicator = () =>
-    Widget.Icon({
-        css: "image {margin: 0 0.5rem;}",
-    })
+    Widget.Icon()
         .hook(
             audio,
             (self) =>
@@ -34,7 +32,6 @@ const MicrophoneIndicator = () =>
 
 const DNDIndicator = () =>
     Widget.Icon({
-        css: "image {margin: 0 0.5rem;}",
         visible: notifications.bind("dnd"),
         icon: icons.notifications.silent,
     });
@@ -44,7 +41,6 @@ const BluetoothIndicator = () =>
         class_name: "bluetooth",
         passThrough: true,
         child: Widget.Icon({
-            css: "image {margin: 0 0.5rem;}",
             icon: icons.bluetooth.enabled,
             visible: bluetooth.bind("enabled"),
         }),
@@ -59,9 +55,7 @@ const BluetoothIndicator = () =>
     });
 
 const NetworkIndicator = () =>
-    Widget.Icon({
-        css: "image {margin: 0 0.5rem;}",
-    }).hook(network, (self) => {
+    Widget.Icon().hook(network, (self) => {
         const icon = network[network.primary || "wifi"]?.icon_name;
         self.icon = icon || "";
         self.visible = !!icon;
@@ -69,7 +63,6 @@ const NetworkIndicator = () =>
 
 const AudioIndicator = () =>
     Widget.Icon({
-        css: "image {margin: 0 0.5rem;}",
         icon: audio.speaker.bind("volume").as((vol) => {
             const { muted, low, medium, high, overamplified } =
                 icons.audio.volume;
@@ -91,11 +84,14 @@ export default () =>
         on_clicked: () => App.toggleWindow("quicksettings"),
         on_scroll_up: () => (audio.speaker.volume += 0.02),
         on_scroll_down: () => (audio.speaker.volume -= 0.02),
-        child: Widget.Box([
-            DNDIndicator(),
-            BluetoothIndicator(),
-            NetworkIndicator(),
-            AudioIndicator(),
-            MicrophoneIndicator(),
-        ]),
+        child: Widget.Box({
+            class_name: "indicators",
+            children: [
+                DNDIndicator(),
+                BluetoothIndicator(),
+                NetworkIndicator(),
+                AudioIndicator(),
+                MicrophoneIndicator(),
+            ],
+        }),
     });
