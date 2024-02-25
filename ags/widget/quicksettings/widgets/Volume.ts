@@ -1,32 +1,10 @@
-import type Gtk from "gi://Gtk?version=3.0";
 import { type Stream } from "types/service/audio";
 import { Arrow, Menu } from "../ToggleButton";
-import { dependencies, sh } from "lib/utils";
+import { dependencies, icon, sh } from "lib/utils";
 import icons from "lib/icons.js";
 const audio = await Service.import("audio");
 
-type Type = "microphone" | "speaker";
-
-const icon = (type: Type = "speaker") => {
-    const muted = audio[type].is_muted || audio[type].stream?.is_muted;
-    const iconType = type === "speaker" ? "volume" : "mic";
-
-    return muted ? icons.audio[iconType].muted : icons.audio[iconType].high;
-};
-
-const VolumeIndicator = (type: Type = "speaker") =>
-    Widget.Button({
-        vpack: "center",
-        on_clicked: () => (audio[type].is_muted = !audio[type].is_muted),
-        child: Widget.Icon({
-            icon: Utils.watch(icon(type), audio[type], () => icon(type)),
-            tooltipText: audio[type]
-                .bind("volume")
-                .as((vol) => `Volume: ${Math.floor(vol * 100)}%`),
-        }),
-    });
-
-const VolumeSlider = (type: Type = "speaker") =>
+const VolumeSlider = (type: "speaker" | "microphone" = "speaker") =>
     Widget.Slider({
         hexpand: true,
         draw_value: false,
@@ -35,11 +13,35 @@ const VolumeSlider = (type: Type = "speaker") =>
         value: audio[type].bind("volume"),
     });
 
-export const Volume = () =>
+const AudioIndicator = () =>
+    Widget.Button({
+        vpack: "center",
+        on_clicked: () => (audio.speaker.is_muted = !audio.speaker.is_muted),
+        child: Widget.Icon({
+            icon: audio.speaker.bind("volume").as((vol) => {
+                const { muted, low, medium, high, overamplified } =
+                    icons.audio.volume;
+                const cons = [
+                    [101, overamplified],
+                    [67, high],
+                    [34, medium],
+                    [1, low],
+                    [0, muted],
+                ] as const;
+                const icon = cons.find(([n]) => n <= vol * 100)?.[1] || "";
+                return audio.speaker.is_muted ? muted : icon;
+            }),
+        }),
+        tooltipText: audio.speaker
+            .bind("volume")
+            .as((vol) => `Volume: ${Math.floor(vol * 100)}%`),
+    });
+
+export const Audio = () =>
     Widget.Box({
         class_name: "volume",
         children: [
-            VolumeIndicator("speaker"),
+            AudioIndicator(),
             VolumeSlider("speaker"),
             Widget.Box({
                 vpack: "center",
@@ -53,13 +55,36 @@ export const Volume = () =>
         ],
     });
 
-export const Microhone = () =>
+const MicrophoneIndicator = () =>
+    Widget.Button({
+        vpack: "center",
+        on_clicked: () =>
+            (audio.microphone.is_muted = !audio.microphone.is_muted),
+        child: Widget.Icon({
+            icon: audio.microphone.bind("volume").as((vol) => {
+                const { muted, low, medium, high } = icons.audio.mic;
+                const cons = [
+                    [67, high],
+                    [34, medium],
+                    [1, low],
+                    [0, muted],
+                ] as const;
+                const icon = cons.find(([n]) => n <= vol * 100)?.[1] || "";
+                return audio.microphone.is_muted ? muted : icon;
+            }),
+        }),
+        tooltipText: audio.microphone
+            .bind("volume")
+            .as((vol) => `Volume: ${Math.floor(vol * 100)}%`),
+    });
+
+export const Microphone = () =>
     Widget.Box({
         class_name: "slider horizontal",
         // TODO: why recorders is null ?
         // visible: audio.bind("recorders").as((a) => a.length > 0),
         visible: !!audio.bind("microphone"),
-        children: [VolumeIndicator("microphone"), VolumeSlider("microphone")],
+        children: [MicrophoneIndicator(), VolumeSlider("microphone")],
     });
 
 const MixerItem = (stream: Stream) =>
@@ -76,7 +101,7 @@ const MixerItem = (stream: Stream) =>
                     : icons.fallback.audio;
             }),
         }),
-        Widget.Box<Gtk.Widget>(
+        Widget.Box(
             { vertical: true },
             Widget.Label({
                 xalign: 0,

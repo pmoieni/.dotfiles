@@ -1,4 +1,3 @@
-import type Gtk from "gi://Gtk?version=3.0";
 import icons from "lib/icons";
 import { uptime } from "lib/variables";
 import powermenu, { Action } from "service/powermenu";

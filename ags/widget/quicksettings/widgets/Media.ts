@@ -1,6 +1,5 @@
 import { type MprisPlayer } from "types/service/mpris";
 import icons from "lib/icons";
-import type Gtk from "gi://Gtk?version=3.0";
 import options from "options";
 import { icon } from "lib/utils";
 
