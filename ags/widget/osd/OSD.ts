@@ -106,7 +106,7 @@ export default (monitor: number = 0) =>
         child: Widget.Box({
             css: "padding: 2px;",
             expand: true,
-            child: Widget.Overlay<Gtk.Widget>(
+            child: Widget.Overlay(
                 { child: Widget.Box({ expand: true }) },
                 Widget.Box({
                     hpack: progress.pack.h.bind(),

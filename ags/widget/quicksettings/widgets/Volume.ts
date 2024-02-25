@@ -51,12 +51,14 @@ export const Volume = () =>
 export const Microhone = () =>
     Widget.Box({
         class_name: "slider horizontal",
-        visible: audio.bind("recorders").as((a) => a.length > 0),
+        // TODO: why recorders is null ?
+        // visible: audio.bind("recorders").as((a) => a.length > 0),
+        visible: !!audio.bind("microphone"),
         children: [VolumeIndicator("microphone"), VolumeSlider("microphone")],
     });
 
 const MixerItem = (stream: Stream) =>
-    Widget.Box<Gtk.Widget>(
+    Widget.Box(
         {
             hexpand: true,
             class_name: "mixer-item horizontal",

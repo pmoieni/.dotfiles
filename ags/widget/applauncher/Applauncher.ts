@@ -12,11 +12,7 @@ const { width, margin, maxItem, favorites } = options.applauncher;
 const SeparatedAppItem = (app: Parameters<typeof AppItem>[0]) =>
     Widget.Revealer(
         { attribute: { app } },
-        Widget.Box<Gtk.Widget>(
-            { vertical: true },
-            Widget.Separator(),
-            AppItem(app)
-        )
+        Widget.Box({ vertical: true }, Widget.Separator(), AppItem(app))
     );
 
 const Applauncher = () => {
@@ -102,7 +98,7 @@ const Applauncher = () => {
         children: [entry, quicklaunch, list],
     });
 
-    return Widget.Box<Gtk.Widget>(
+    return Widget.Box(
         { vertical: true, css: "padding: 1px" },
         Padding("applauncher", {
             css: margin.bind().as((v) => `min-height: ${v}pt;`),

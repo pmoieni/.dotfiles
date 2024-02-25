@@ -20,11 +20,18 @@ const Player = (player: MprisPlayer) => {
         class_name: "cover",
         vpack: "start",
         css: Utils.merge(
-            [player.bind("cover_path"), media.coverSize.bind()],
-            (path, size) => `
+            [
+                player.bind("cover_path"),
+                player.bind("track_cover_url"),
+                media.coverSize.bind(),
+            ],
+            (path, url, size) => `
+            min-width: ${size}px;
             min-width: ${size}px;
             min-height: ${size}px;
+            min-height: ${size}px;
             background-image: url('${path}');
+            background-image: url('${path || url}');
         `
         ),
     });
@@ -128,7 +135,7 @@ const Player = (player: MprisPlayer) => {
     return Widget.Box(
         { class_name: "player", vexpand: false },
         cover,
-        Widget.Box<Gtk.Widget>(
+        Widget.Box(
             { vertical: true },
             Widget.Box([title, playericon]),
             artist,

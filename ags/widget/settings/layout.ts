@@ -110,11 +110,6 @@ export default [
                 note: "0 to make it dynamic",
             })
         ),
-        Group(
-            "Taskbar",
-            Row({ opt: b.taskbar.monochrome, title: "Monochrome" }),
-            Row({ opt: b.taskbar.exclusive, title: "Exclusive to workspaces" })
-        ),
         Group("Date", Row({ opt: b.date.format, title: "Date Format" })),
         Group(
             "Media",

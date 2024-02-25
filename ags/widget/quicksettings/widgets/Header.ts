@@ -19,7 +19,7 @@ const SysButton = (action: Action) =>
     });
 
 export const Header = () =>
-    Widget.Box<Gtk.Widget>(
+    Widget.Box(
         { class_name: "header horizontal" },
         Widget.Box({
             vpack: "center",

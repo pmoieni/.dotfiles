@@ -101,10 +101,6 @@ const options = mkOptions(OPTIONS, {
         workspaces: {
             workspaces: opt(5),
         },
-        taskbar: {
-            monochrome: opt(true),
-            exclusive: opt(false),
-        },
         messages: {
             action: opt(() => App.toggleWindow("datemenu")),
         },

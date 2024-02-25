@@ -1,10 +1,16 @@
+import options from "options";
 import icons from "../lib/icons";
 
 export default async function init() {
     const bat = await Service.import("battery");
+    const { battery } = options.bar;
     bat.connect("notify::percent", ({ percent, charging }) => {
-        const low = 30;
-        if (percent !== low || percent !== low / 2 || !charging) return;
+        if (
+            percent !== battery.low.value ||
+            percent !== battery.low.value / 2 ||
+            !charging
+        )
+            return;
 
         Utils.notify({
             summary: `${percent}% Battery Percentage`,
