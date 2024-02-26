@@ -279,7 +279,6 @@ in
       libsForQt5.qt5ct
       rose-pine-gtk-theme
       gtk3.dev
-      inputs.matugen.packages.${system}.default
       wl-screenrec
       swappy
       swaybg # variety doesn't work without it

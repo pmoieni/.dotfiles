@@ -8,7 +8,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     ags.url = "github:Aylur/ags";
-    matugen.url = "github:/InioX/Matugen";
 
     # neovim overlay
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
