@@ -20,7 +20,7 @@ const Overview = (ws: number) =>
 
             w.hook(
                 hyprland,
-                (w, id?: number) => {
+                (w, id?: string) => {
                     if (id === undefined) return;
 
                     w.children = w.children.filter(
@@ -31,7 +31,7 @@ const Overview = (ws: number) =>
             );
             w.hook(
                 hyprland,
-                (w, id?: number) => {
+                (w, id?: string) => {
                     if (id === undefined) return;
 
                     w.children = [...w.children, Workspace(Number(id))].sort(

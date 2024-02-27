@@ -29,6 +29,7 @@
       gh
       nodePackages.eslint_d
       nodePackages.prettier
+      prettierd
       go
       golangci-lint
       elixir

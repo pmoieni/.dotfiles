@@ -1,5 +1,8 @@
 import { type BarWidget } from "widget/bar/Bar";
 import { opt, mkOptions } from "lib/option";
+import icons from "lib/icons";
+import { distro } from "lib/variables";
+import { icon } from "lib/utils";
 
 const options = mkOptions(OPTIONS, {
     theme: {
@@ -39,7 +42,7 @@ const options = mkOptions(OPTIONS, {
             opacity: opt(96),
         },
 
-        blur: opt(20),
+        blur: opt(25),
         shadows: opt(true),
         padding: opt(8),
         spacing: opt(8),
@@ -78,7 +81,7 @@ const options = mkOptions(OPTIONS, {
         launcher: {
             icon: {
                 colored: opt(true),
-                icon: opt("system-search-symbolic"),
+                icon: opt(icon(distro, icons.ui.search)),
             },
             label: {
                 colored: opt(false),
@@ -129,12 +132,14 @@ const options = mkOptions(OPTIONS, {
                 "org.gnome.Nautilus",
                 "Firefox",
                 "Microsoft Edge",
+                "Tor Browser",
                 "Telegram Desktop",
             ],
             [
                 "Visual Studio Code",
                 "wezterm",
                 "Obs studio",
+                "Spotify",
                 "GNU Image Manipulation Program",
             ],
         ]),
@@ -156,7 +161,7 @@ const options = mkOptions(OPTIONS, {
     },
 
     quicksettings: {
-        width: opt(380),
+        width: opt(350),
         position: opt<"left" | "center" | "right">("right"),
         networkSettings: opt("nmtui"),
         media: {

@@ -131,13 +131,13 @@ window#quicksettings .quicksettings {
             @include button($flat: true);
 
             &:first-child {
-                padding: $padding * 2.5 $padding * 1.5;
+                padding: $padding * 2 $padding * 1.5;
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
 
             &:last-child {
-                padding: $padding * 2.5 $padding * 1.5;
+                padding: $padding * 2 $padding * 1.5;
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
@@ -156,7 +156,7 @@ window#quicksettings .quicksettings {
     .simple-toggle {
         @include button;
         font-weight: bold;
-        padding: $padding * 2.5 $padding * 1.5;
+        padding: $padding * 2 $padding * 1.5;
 
         label {
             margin-left: $spacing;
