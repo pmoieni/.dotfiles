@@ -24,6 +24,7 @@ export default (id: number) =>
         tooltipText: `${id}`,
         class_name: "workspace",
         vpack: "center",
+        can_focus: false,
         css: `
         min-width: ${scale(size(id).w)}px;
         min-height: ${scale(size(id).h)}px;

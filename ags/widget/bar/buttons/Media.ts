@@ -34,7 +34,9 @@ const Content = (player: MprisPlayer) => {
                 .bind("track_title")
                 .as(
                     () =>
-                        `${player.track_artists.join(", ")} - ${player.track_title}`
+                        `${player.track_artists.join(", ")} - ${
+                            player.track_title
+                        }`
                 ),
         }),
     });
