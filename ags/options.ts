@@ -46,7 +46,7 @@ const options = mkOptions(OPTIONS, {
         shadows: opt(false),
         padding: opt(8),
         spacing: opt(8),
-        radius: opt(16),
+        radius: opt(24),
     },
 
     transition: opt(200),

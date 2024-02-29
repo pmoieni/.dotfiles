@@ -59,7 +59,7 @@ async function setupHyprland() {
         `general:gaps_in ${Math.floor(wm_gaps / 4)}`,
         `general:col.active_border rgba(${activeBorder()}ff)`,
         `general:col.inactive_border rgba(${hyprland.inactiveBorder.value})`,
-        `decoration:rounding ${radius.value}`,
+        `decoration:rounding ${Math.floor(radius.value / 2)}`,
         `decoration:drop_shadow ${shadows.value ? "yes" : "no"}`,
     ]);
 
@@ -70,7 +70,9 @@ async function setupHyprland() {
             App.windows.flatMap(({ name }) => [
                 `layerrule unset, ${name}`,
                 `layerrule blur, ${name}`,
-                `layerrule ignorealpha ${/* based on shadow color */ 0.29}, ${name}`,
+                `layerrule ignorealpha ${
+                    /* based on shadow color */ 0.29
+                }, ${name}`,
             ])
         );
     }

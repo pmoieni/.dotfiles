@@ -4,6 +4,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +33,7 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs outputs system; };
           modules = [
             ./nixos/configuration.nix
           ];
