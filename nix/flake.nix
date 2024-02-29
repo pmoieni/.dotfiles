@@ -1,7 +1,8 @@
 {
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -29,6 +30,7 @@
     {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./nixos/configuration.nix

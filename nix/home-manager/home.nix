@@ -9,7 +9,17 @@
   ];
 
   nixpkgs = {
-    overlays = [ ];
+    overlays = [
+      (final: prev: {
+        unstable = import inputs.unstable {
+          system = final.system;
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = _: true;
+          };
+        };
+      })
+    ];
     config = {
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
@@ -24,34 +34,35 @@
       # shell / terminal
       fish
       tmux
+      unstable.neovim
 
       # dev tools
-      gh
-      nodePackages.eslint_d
-      nodePackages.prettier
-      prettierd
-      go
-      golangci-lint
-      elixir
-      jdk21
-      rustup
-      nodejs
-      yarn
-      bun
-      clang_17
-      clang-tools_17
+      unstable.gh
+      unstable.nodePackages.eslint_d
+      unstable.nodePackages.prettier
+      unstable.prettierd
+      unstable.go
+      unstable.golangci-lint
+      unstable.elixir
+      unstable.jdk21
+      unstable.rustup
+      unstable.nodejs
+      unstable.yarn
+      unstable.bun
+      unstable.clang_17
+      unstable.clang-tools_17
 
       # LSP
-      lua-language-server
-      gopls
-      elixir-ls
-      jdt-language-server
-      rnix-lsp
-      nodePackages.svelte-language-server
-      nodePackages.typescript-language-server
-      nodePackages.bash-language-server
-      vscode-langservers-extracted
-      tailwindcss-language-server
+      unstable.lua-language-server
+      unstable.gopls
+      unstable.elixir-ls
+      unstable.jdt-language-server
+      unstable.rnix-lsp
+      unstable.nodePackages.svelte-language-server
+      unstable.nodePackages.typescript-language-server
+      unstable.nodePackages.bash-language-server
+      unstable.vscode-langservers-extracted
+      unstable.tailwindcss-language-server
 
       # apps
       gparted
@@ -60,15 +71,25 @@
       gimp
       obs-studio
       variety
-      wezterm
-      alacritty
-      telegram-desktop
-      microsoft-edge
-      tor-browser
-      vscode
-      slack
-      element-desktop
-      spotify
+      unstable.wezterm
+      unstable.alacritty
+      unstable.telegram-desktop
+      unstable.microsoft-edge
+      unstable.tor-browser
+      unstable.vscode
+      unstable.slack
+      unstable.element-desktop
+      unstable.spotify
+
+      # other
+      unstable.swaylock
+      unstable.swayidle
+      unstable.grim
+      unstable.slurp
+      unstable.wl-screenrec
+      unstable.swappy
+      unstable.swaybg # variety doesn't work without it
+      unstable.dart-sass
     ];
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;

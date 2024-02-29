@@ -24,7 +24,13 @@ in
   ];
 
   nixpkgs = {
-    overlays = [ ];
+    overlays = [
+      (final: prev: {
+        unstable = import inputs.unstable {
+          config = config.nixpkgs.config;
+        };
+      })
+    ];
     config = {
       allowAliases = false;
       allowUnfree = true;
@@ -86,9 +92,9 @@ in
       enableUserService = true;
     };
     thermald.enable = true;
-    power-profiles-daemon.enable = false; # conflicts with tlp
+    power-profiles-daemon.enable = true; # conflicts with tlp
     tlp = {
-      enable = true;
+      enable = false;
       settings = {
         START_CHARGE_THRESH_BAT0 = 0; # dummy value
         STOP_CHARGE_THRESH_BAT0 = 80;
@@ -237,10 +243,10 @@ in
       procps
       pciutils
       nettools
-      firefox-bin
       dconf
       gnome.gnome-tweaks
       gnome.adwaita-icon-theme
+      rose-pine-gtk-theme
       xdg-utils
       glib
       wl-clipboard
@@ -253,6 +259,7 @@ in
       fd
       jq
       fzf
+      firefox-bin
 
       # utilities
       pavucontrol
@@ -263,25 +270,15 @@ in
       yt-dlp
       ripgrep
       hyperfine
-      neovim
       ncdu
       alsa-utils
       pamixer
-      dart-sass
       imagemagick
       ffmpeg-full
 
-      # desktop
-      swaylock
-      swayidle
-      grim
-      slurp
+      # desktop 
       libsForQt5.qt5ct
-      rose-pine-gtk-theme
       gtk3.dev
-      wl-screenrec
-      swappy
-      swaybg # variety doesn't work without it
     ]);
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
@@ -303,7 +300,18 @@ in
   };
 
   programs = {
-    hyprland.enable = true;
+    hyprland =
+      let
+        pkgs-unstable = import inputs.unstable {
+          inherit (config.nixpkgs) config;
+          inherit (pkgs.stdenv.hostPlatform) system;
+        };
+      in
+      {
+        enable = true;
+        package = pkgs-unstable.hyprland;
+        portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
+      };
   };
 
   # change to fonts.fonts for 23.05 or older, else font.packages
@@ -312,5 +320,6 @@ in
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  # answer: only when reinstalling Nix with the latest ISO
   system.stateVersion = "23.05";
 }
