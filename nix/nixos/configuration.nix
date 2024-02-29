@@ -2,7 +2,6 @@
 , lib
 , config
 , pkgs
-, system
 , ...
 }:
 let
@@ -348,18 +347,19 @@ in
 
   programs = {
     hyprland =
-      # let
-      # pkgs-unstable = import inputs.unstable {
-      #   inherit (config.nixpkgs) config;
-      #   inherit (pkgs.stdenv.hostPlatform) system;
-      # };
-      #in
+      let
+        pkgs-unstable = import inputs.unstable {
+          inherit (config.nixpkgs) config;
+          inherit (pkgs.stdenv.hostPlatform) system;
+        };
+      in
       {
         enable = true;
-        package = inputs.hyprland.packages.${system}.hyprland;
+        package = pkgs-unstable.hyprland;
+        portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
       };
     sway = {
-      enable = true;
+      enable = false;
       wrapperFeatures.gtk = true;
       extraOptions = [ "--unsupported-gpu" ];
       extraPackages = [
