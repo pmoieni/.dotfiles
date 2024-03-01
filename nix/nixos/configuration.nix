@@ -2,6 +2,7 @@
 , lib
 , config
 , pkgs
+, pkgs-unstable
 , ...
 }:
 let
@@ -259,6 +260,8 @@ in
     ]);
     systemPackages = ([
       killhypr
+    ]) ++ (with pkgs-unstable; [
+      hyprlock
     ]) ++ (with pkgs; [
       # base
       vim
@@ -332,18 +335,11 @@ in
   };
 
   programs = {
-    hyprland =
-      let
-        pkgs-unstable = import inputs.nixpkgs-unstable {
-          inherit (config.nixpkgs) config;
-          inherit (pkgs.stdenv.hostPlatform) system;
-        };
-      in
-      {
-        enable = true;
-        package = pkgs-unstable.hyprland;
-        portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
-      };
+    hyprland = {
+      enable = true;
+      package = pkgs-unstable.hyprland;
+      portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
+    };
     sway = {
       enable = false;
       wrapperFeatures.gtk = true;
