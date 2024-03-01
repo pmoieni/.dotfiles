@@ -67,20 +67,6 @@ in
     ./hardware-configuration.nix
   ];
 
-  nixpkgs = {
-    overlays = [
-      (final: prev: {
-        unstable = import inputs.unstable {
-          config = config.nixpkgs.config;
-        };
-      })
-    ];
-    config = {
-      allowAliases = false;
-      allowUnfree = true;
-    };
-  };
-
   nix = {
     settings = {
       experimental-features = "nix-command flakes";
@@ -348,7 +334,7 @@ in
   programs = {
     hyprland =
       let
-        pkgs-unstable = import inputs.unstable {
+        pkgs-unstable = import inputs.nixpkgs-unstable {
           inherit (config.nixpkgs) config;
           inherit (pkgs.stdenv.hostPlatform) system;
         };
