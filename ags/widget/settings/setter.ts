@@ -1,7 +1,7 @@
 import { type RowProps } from "./Row";
 import { Opt } from "lib/option";
 import icons from "lib/icons";
-import Gdk from "gi://Gdk";
+import Gdk from "gi://Gdk?version=3.0";
 
 function EnumSetter(opt: Opt<string>, values: string[]) {
     const lbl = Widget.Label({ label: opt.bind().as((v) => `${v}`) });
@@ -13,8 +13,8 @@ function EnumSetter(opt: Opt<string>, values: string[]) {
                     ? values[0]
                     : values[i + dir]
                 : i + dir < 0
-                  ? values[values.length - 1]
-                  : values[i + dir]
+                ? values[values.length - 1]
+                : values[i + dir]
         );
     };
     const next = Widget.Button({
@@ -112,8 +112,9 @@ export default function Setter<T>({
                                 const c = Math.floor(255 * n).toString(16);
                                 return c.length === 1 ? `0${c}` : c;
                             };
-                            opt.value =
-                                `#${hex(red)}${hex(green)}${hex(blue)}` as T;
+                            opt.value = `#${hex(red)}${hex(green)}${hex(
+                                blue
+                            )}` as T;
                         }),
             });
         default:

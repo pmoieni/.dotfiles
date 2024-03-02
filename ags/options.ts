@@ -36,17 +36,17 @@ const options = mkOptions(OPTIONS, {
         },
 
         scheme: opt<"dark" | "light">("dark"),
-        widget: { opacity: opt(94) },
+        widget: { opacity: opt(95) },
         border: {
             width: opt(2),
-            opacity: opt(96),
+            opacity: opt(95),
         },
 
-        blur: opt(25),
-        shadows: opt(false),
+        blur: opt(24),
+        shadows: opt(true),
         padding: opt(8),
         spacing: opt(8),
-        radius: opt(24),
+        radius: opt(16),
     },
 
     transition: opt(200),
@@ -123,7 +123,7 @@ const options = mkOptions(OPTIONS, {
     },
 
     applauncher: {
-        iconSize: opt(62),
+        iconSize: opt(50),
         width: opt(0),
         margin: opt(80),
         maxItem: opt(6),
@@ -161,7 +161,7 @@ const options = mkOptions(OPTIONS, {
     },
 
     quicksettings: {
-        width: opt(350),
+        width: opt(400),
         position: opt<"left" | "center" | "right">("right"),
         networkSettings: opt("nmtui"),
         media: {

@@ -13,7 +13,6 @@ import { config, forMonitors } from "lib/utils";
 import { setupQuickSettings } from "widget/quicksettings/QuickSettings";
 import { setupDateMenu } from "widget/datemenu/DateMenu";
 import { init } from "service/index";
-import Gdk from "gi://Gdk";
 
 export default config({
     onConfigParsed: () => {

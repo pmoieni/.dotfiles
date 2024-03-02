@@ -262,6 +262,15 @@ in
       killhypr
     ]) ++ (with pkgs-unstable; [
       hyprlock
+      hypridle
+      swaylock
+      swayidle
+      grim
+      slurp
+      wl-screenrec
+      swappy
+      swaybg # variety doesn't work without it
+      dart-sass
     ]) ++ (with pkgs; [
       # base
       vim

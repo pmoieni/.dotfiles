@@ -1,6 +1,5 @@
 import { Opt } from "lib/option";
 import Setter from "./setter";
-import type Gtk from "gi://Gtk?version=3.0";
 import icons from "lib/icons";
 
 export type RowProps<T> = {

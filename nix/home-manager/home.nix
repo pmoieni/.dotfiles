@@ -66,16 +66,6 @@
       slack
       element-desktop
       spotify
-
-      # other
-      swaylock
-      swayidle
-      grim
-      slurp
-      wl-screenrec
-      swappy
-      swaybg # variety doesn't work without it
-      dart-sass
     ]);
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;

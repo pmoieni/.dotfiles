@@ -2,8 +2,6 @@ import icons from "lib/icons";
 import { uptime } from "lib/variables";
 import powermenu, { Action } from "service/powermenu";
 
-const battery = await Service.import("battery");
-
 function up(up: number) {
     const h = Math.floor(up / 60);
     const m = Math.floor(up % 60);

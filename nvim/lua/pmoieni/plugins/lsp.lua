@@ -68,7 +68,17 @@ return {
             -- setup servers
             lspconfig.lua_ls.setup({})
             lspconfig.gopls.setup({})
-            lspconfig.rust_analyzer.setup({})
+            lspconfig.rust_analyzer.setup({
+                settings = {
+                    ["rust-analyzer"] = {
+                        check = {
+                            command = "clippy",
+                            extraArgs = { "--tests" },
+                            features = "all",
+                        },
+                    },
+                },
+            })
             lspconfig.clangd.setup({})
             lspconfig.jdtls.setup({
                 cmd = {
