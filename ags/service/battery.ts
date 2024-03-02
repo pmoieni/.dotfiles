@@ -5,17 +5,15 @@ export default async function init() {
     const bat = await Service.import("battery");
     const { battery } = options.bar;
     bat.connect("notify::percent", ({ percent, charging }) => {
-        if (
-            percent !== battery.low.value ||
-            percent !== battery.low.value / 2 ||
-            !charging
-        )
-            return;
+        const low = battery.low.value;
 
-        Utils.notify({
-            summary: `${percent}% Battery Percentage`,
-            iconName: icons.battery.warning,
-            urgency: "critical",
-        });
+        if (percent === low || percent === Math.floor(low / 2) || !charging) {
+            Utils.notify({
+                summary: "Battery is running low!",
+                body: "plug in your PC",
+                iconName: icons.battery.warning,
+                urgency: "critical",
+            });
+        }
     });
 }
