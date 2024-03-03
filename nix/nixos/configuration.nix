@@ -260,11 +260,9 @@ in
     ]);
     systemPackages = ([
       killhypr
+      inputs.hypridle.packages.${pkgs.stdenv.hostPlatform.system}.hypridle
+      inputs.hyprlock.packages.${pkgs.stdenv.hostPlatform.system}.hyprlock
     ]) ++ (with pkgs-unstable; [
-      hyprlock
-      hypridle
-      swaylock
-      swayidle
       grim
       slurp
       wl-screenrec
@@ -344,11 +342,15 @@ in
   };
 
   programs = {
-    hyprland = {
-      enable = true;
-      package = pkgs-unstable.hyprland;
-      portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
-    };
+    hyprland =
+      let
+        hypr-pkgs = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+      in
+      {
+        enable = true;
+        package = hypr-pkgs.hyprland;
+        portalPackage = hypr-pkgs.xdg-desktop-portal-hyprland;
+      };
     sway = {
       enable = false;
       wrapperFeatures.gtk = true;

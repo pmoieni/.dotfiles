@@ -5,6 +5,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hypridle.url = "github:hyprwm/hypridle";
+    hyprlock.url = "github:hyprwm/hyprlock";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
