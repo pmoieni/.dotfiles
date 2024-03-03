@@ -49,7 +49,7 @@ const options = mkOptions(OPTIONS, {
         radius: opt(16),
     },
 
-    transition: opt(200),
+    transition: opt(150),
 
     font: {
         size: opt(12),
