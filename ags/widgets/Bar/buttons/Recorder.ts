@@ -3,7 +3,7 @@ import icons from "lib/icons";
 
 export default () =>
     Widget.Button({
-        className: "recorder",
+        className: "bar-recorder",
         onClicked: () => screenrecord.stop(),
         visible: screenrecord.bind("recording"),
         child: Widget.Box({

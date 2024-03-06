@@ -1,0 +1,29 @@
+window#recorder {
+    // the fraction has to be more than hyprland ignorealpha
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+window#recorder .recorder {
+    @include floating-widget();
+    @include spacing();
+
+    .options {
+        @include spacing();
+        padding: $padding;
+
+        .option {
+            @include spacing();
+
+            switch {
+                @include switch();
+            }
+        }
+    }
+
+    button {
+        @include button();
+        padding: $padding (
+            $padding * 2
+        );
+}
+}

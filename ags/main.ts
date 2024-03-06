@@ -7,6 +7,7 @@ import Verification from "widgets/PowerMenu/Verification";
 import QuickMenu from "widgets/QuickMenu/QuickMenu";
 import Workspaces from "widgets/Workspaces/Workspaces";
 import Launcher from "widgets/Launcher/Launcher";
+import Recorder from "widgets/Recorder/Recorder";
 
 declare global {
     const OPTIONS: string;
@@ -28,5 +29,6 @@ App.config({
         QuickMenu(),
         Workspaces(),
         Launcher(),
+        Recorder(),
     ],
 });

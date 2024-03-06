@@ -7,7 +7,7 @@ export const ScreenRecordToggle = () =>
         icon: icons.recorder.recording,
         label: screenrecord
             .bind("recording")
-            .as((r) => (r ? "recording" : "record")),
+            .as((r) => (r ? "Stop" : "Record")),
         toggle: () =>
             screenrecord.recording
                 ? (() => {

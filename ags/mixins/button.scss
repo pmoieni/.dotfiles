@@ -48,7 +48,10 @@
         @include button-hover();
     }
 
-    &:active {
+    &:active,
+    &.on,
+    &.active,
+    &:checked {
         @include button-active();
     }
 
