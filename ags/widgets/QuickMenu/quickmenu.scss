@@ -65,6 +65,11 @@ window#quickmenu .quickmenu {
         padding: $padding;
         margin-top: $spacing;
 
+        separator {
+            margin: $spacing;
+            background-color: $border-color;
+        }
+
         .icon {
             margin: 0 $spacing;
         }
@@ -73,13 +78,10 @@ window#quickmenu .quickmenu {
             font-weight: bold;
         }
 
-        separator {
-            margin: $spacing;
-        }
-
         button {
             @include button(true);
             padding: $padding;
+            margin: ($spacing * 0.3) 0;
 
             image:first-child {
                 margin-right: $spacing;
@@ -106,6 +108,11 @@ window#quickmenu .quickmenu {
 
     .sliders-box .menu {
         margin: $spacing;
+
+        separator {
+            margin: $spacing;
+            background-color: $border-color;
+        }
 
         &.app-mixer {
             .mixer-item {
@@ -210,8 +217,7 @@ window#quickmenu .quickmenu {
             }
 
             scale {
-                @include slider($width: 0.5rem,
-                    $slider: false);
+                @include slider();
                 margin-bottom: $padding * 0.5;
 
                 trough {

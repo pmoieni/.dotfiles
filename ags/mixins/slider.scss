@@ -1,5 +1,5 @@
-@mixin slider($width: 0.8em,
-    $slider-width: 0.5em,
+@mixin slider($width: 0.5rem,
+    $slider-width: 0.8rem,
     $slider: true,
     $focusable: true,
     $radius: $radius) {

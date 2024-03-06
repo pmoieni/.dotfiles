@@ -120,10 +120,6 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
-    asusd = {
-      enable = true;
-      enableUserService = true;
-    };
     thermald.enable = true;
     power-profiles-daemon.enable = true; # conflicts with tlp
     tlp = {

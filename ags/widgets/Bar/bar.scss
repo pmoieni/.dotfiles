@@ -16,14 +16,12 @@
     &.focused,
     &:focus,
     &:hover {
-        @include border(true);
         background-color: $hover-bg;
         color: $hover-fg;
     }
 
     &.active,
     &:active {
-        @include border(true);
         background-color: $primary-bg;
         color: $primary-fg;
     }
