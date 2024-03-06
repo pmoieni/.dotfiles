@@ -12,7 +12,7 @@ const SysButton = (action: Action) =>
     Widget.Button({
         vpack: "center",
         child: Widget.Icon(icons.powermenu[action]),
-        on_clicked: () => powermenu.action(action),
+        onClicked: () => powermenu.action(action),
     });
 
 export const Header = () =>
@@ -35,6 +35,7 @@ export const Header = () =>
             ],
         }),
         Widget.Box({ hexpand: true }),
+        SysButton("shutdown"),
         SysButton("logout"),
-        SysButton("shutdown")
+        SysButton("lock")
     );

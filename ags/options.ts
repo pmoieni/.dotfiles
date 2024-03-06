@@ -92,6 +92,7 @@ const options = mkOptions(OPTIONS, {
             count: opt(5),
         },
         powermenu: {
+            lock: opt("hyprlock"),
             sleep: opt("systemctl suspend"),
             reboot: opt("systemctl reboot"),
             logout: opt("killhypr"),

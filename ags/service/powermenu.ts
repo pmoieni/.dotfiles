@@ -1,8 +1,8 @@
 import options from "options";
 
-const { sleep, reboot, logout, shutdown } = options.widgets.powermenu;
+const { lock, sleep, reboot, logout, shutdown } = options.widgets.powermenu;
 
-export type Action = "sleep" | "reboot" | "logout" | "shutdown";
+export type Action = "lock" | "sleep" | "reboot" | "logout" | "shutdown";
 
 class PowerMenu extends Service {
     static {
@@ -28,6 +28,7 @@ class PowerMenu extends Service {
 
     action(action: Action) {
         [this.#cmd, this.#title] = {
+            lock: [lock.value, "Lock"],
             sleep: [sleep.value, "Sleep"],
             reboot: [reboot.value, "Reboot"],
             logout: [logout.value, "Log Out"],
