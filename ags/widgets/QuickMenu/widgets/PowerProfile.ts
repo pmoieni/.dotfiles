@@ -13,7 +13,7 @@ const pretty = (str: string) =>
 
 export const ProfileToggle = () =>
     ArrowToggleButton({
-        name: "asusctl-profile",
+        name: "profile",
         icon: profile.as((p) => icons.powerprofile[p]),
         label: profile.as(pretty),
         connection: [pp, () => pp.active_profile !== profiles[1]],
@@ -24,7 +24,7 @@ export const ProfileToggle = () =>
 
 export const ProfileSelector = () =>
     Menu({
-        name: "asusctl-profile",
+        name: "profile",
         icon: profile.as((p) => icons.powerprofile[p]),
         title: "Profile Selector",
         content: [
