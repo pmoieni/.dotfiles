@@ -1,4 +1,55 @@
+@import "./button.scss";
+
 * {
     font-size: $font-size;
     font-family: $font-name;
+}
+
+window.popup {
+    >* {
+        border: none;
+    }
+
+    menu {
+        border-radius: $radius;
+        background-color: $bg;
+        padding: $padding;
+        border: $border;
+
+        separator {
+            background-color: $border-color;
+        }
+
+        menuitem {
+            @include button();
+            padding: $padding $padding * 0.5;
+            margin: ($spacing * 0.5) 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+tooltip {
+    * {
+        all: unset;
+    }
+
+    background-color: transparent;
+    border: none;
+
+    >*>* {
+        background-color: $bg;
+        border-radius: $radius;
+        border: $border;
+        color: $fg;
+        padding: 8px;
+        margin: 4px;
+    }
 }
