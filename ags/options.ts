@@ -1,8 +1,4 @@
-import { type BarWidget } from "widget/bar/Bar";
 import { opt, mkOptions } from "lib/option";
-import icons from "lib/icons";
-import { distro } from "lib/variables";
-import { icon } from "lib/utils";
 
 const options = mkOptions(OPTIONS, {
     theme: {
@@ -34,177 +30,96 @@ const options = mkOptions(OPTIONS, {
             widget: opt("#575279"),
             border: opt("#575279"),
         },
-
         scheme: opt<"dark" | "light">("dark"),
-        widget: { opacity: opt(95) },
-        border: {
-            width: opt(2),
-            opacity: opt(95),
-        },
-
-        blur: opt(24),
-        shadows: opt(true),
-        padding: opt(8),
-        spacing: opt(8),
-        radius: opt(16),
     },
-
-    transition: opt(150),
-
+    widget: { opacity: opt(90) },
+    border: {
+        width: opt(2),
+        opacity: opt(95),
+    },
+    blur: opt(24),
+    shadows: opt(true),
+    padding: opt(8),
+    spacing: opt(8),
+    radius: opt(16),
+    transition: opt(200),
     font: {
         size: opt(12),
-        name: opt("FiraCode Nerd Font"),
+        name: opt("Ubuntu Nerd Font"),
     },
-
-    bar: {
-        flatButtons: opt(true),
-        position: opt<"top" | "bottom">("top"),
-        corners: opt(false),
-        layout: {
-            start: opt<BarWidget[]>([
-                "launcher",
-                "workspaces",
-                "expander",
-                "media",
-                "messages",
-            ]),
-            center: opt<BarWidget[]>(["date"]),
-            end: opt<BarWidget[]>([
-                "expander",
-                "systray",
-                "screenrecord",
-                "system",
-                "battery",
-                "powermenu",
-            ]),
+    widgets: {
+        bar: {
+            position: opt<"top" | "bottom">("top"),
+            battery: {
+                low: opt(30),
+            },
+            workspaces: {
+                workspaces: opt(5),
+            },
+            systray: {
+                ignore: opt(["spotify-client"]),
+            },
+            media: {
+                preferred: opt("spotify"),
+                direction: opt<"left" | "right">("right"),
+                length: opt(40),
+            },
         },
         launcher: {
-            icon: {
-                colored: opt(true),
-                icon: opt(icon(distro, icons.ui.search)),
-            },
-            label: {
-                colored: opt(false),
-                label: opt(" Applications"),
-            },
-            action: opt(() => App.toggleWindow("applauncher")),
-        },
-        date: {
-            format: opt("%H:%M - %A %e."),
-            action: opt(() => App.toggleWindow("datemenu")),
-        },
-        battery: {
-            bar: opt<"hidden" | "regular" | "whole">("regular"),
-            charging: opt("#00D787"),
-            percentage: opt(true),
-            blocks: opt(7),
-            width: opt(50),
-            low: opt(30),
+            width: opt(0),
+            iconSize: opt(55),
+            maxItem: opt(6),
+            margin: opt(80),
+            favorites: opt([
+                [
+                    "org.gnome.Nautilus",
+                    "Firefox",
+                    "Microsoft Edge",
+                    "Tor Browser",
+                    "Telegram Desktop",
+                ],
+                [
+                    "Visual Studio Code",
+                    "wezterm",
+                    "Obs studio",
+                    "Spotify",
+                    "GNU Image Manipulation Program",
+                ],
+            ]),
         },
         workspaces: {
-            workspaces: opt(5),
-        },
-        messages: {
-            action: opt(() => App.toggleWindow("datemenu")),
-        },
-        systray: {
-            ignore: opt(["KDE Connect Indicator", "spotify-client"]),
-        },
-        media: {
-            monochrome: opt(true),
-            preferred: opt("spotify"),
-            direction: opt<"left" | "right">("right"),
-            length: opt(40),
+            scale: opt(12),
+            count: opt(5),
         },
         powermenu: {
-            monochrome: opt(false),
-            action: opt(() => App.toggleWindow("powermenu")),
+            sleep: opt("systemctl suspend"),
+            reboot: opt("systemctl reboot"),
+            logout: opt("killhypr"),
+            shutdown: opt("shutdown now"),
+            labels: opt(true),
         },
-    },
-
-    applauncher: {
-        iconSize: opt(50),
-        width: opt(0),
-        margin: opt(80),
-        maxItem: opt(6),
-        favorites: opt([
-            [
-                "org.gnome.Nautilus",
-                "Firefox",
-                "Microsoft Edge",
-                "Tor Browser",
-                "Telegram Desktop",
-            ],
-            [
-                "Visual Studio Code",
-                "wezterm",
-                "Obs studio",
-                "Spotify",
-                "GNU Image Manipulation Program",
-            ],
-        ]),
-    },
-
-    overview: {
-        scale: opt(12),
-        workspaces: opt(5),
-        monochromeIcon: opt(true),
-    },
-
-    powermenu: {
-        sleep: opt("systemctl suspend"),
-        reboot: opt("systemctl reboot"),
-        logout: opt("killhypr"),
-        shutdown: opt("shutdown now"),
-        layout: opt<"line" | "box">("line"),
-        labels: opt(true),
-    },
-
-    quicksettings: {
-        width: opt(400),
-        position: opt<"left" | "center" | "right">("right"),
-        networkSettings: opt("nmtui"),
-        media: {
-            monochromeIcon: opt(true),
-            coverSize: opt(100),
-        },
-        screenrecorder: {
-            action: opt(() => App.toggleWindow("quicksettings")),
-        },
-    },
-
-    datemenu: {
-        position: opt<"left" | "center" | "right">("center"),
-    },
-
-    osd: {
-        progress: {
-            vertical: opt(false),
-            pack: {
-                h: opt<"start" | "center" | "end">("center"),
-                v: opt<"start" | "center" | "end">("end"),
+        quickmenu: {
+            width: opt(400),
+            position: opt<"left" | "center" | "right">("right"),
+            media: {
+                coverSize: opt(100),
             },
+            networkSettings: opt("alacritty -e nmtui"),
         },
-        microphone: {
-            pack: {
-                h: opt<"start" | "center" | "end">("center"),
-                v: opt<"start" | "center" | "end">("end"),
-            },
+        datemenu: {
+            position: opt<"left" | "center" | "right">("center"),
+        },
+        notifications: {
+            width: opt(440),
+            position: opt<Array<"top" | "bottom" | "left" | "right">>([
+                "top",
+                "right",
+            ]),
+            blacklist: opt(["Spotify"]),
         },
     },
-
-    notifications: {
-        position: opt<Array<"top" | "bottom" | "left" | "right">>([
-            "top",
-            "right",
-        ]),
-        blacklist: opt(["Spotify"]),
-        width: opt(440),
-    },
-
     hyprland: {
         gaps: opt(2),
-        inactiveBorder: opt("6e6a86ff"),
     },
 });
 

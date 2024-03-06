@@ -24,7 +24,7 @@ class Recorder extends Service {
     recording = false;
     timer = 0;
 
-    async start(full = true) {
+    async start(requireSize = false, recordAudio = false) {
         if (!dependencies("slurp", "wl-screenrec")) return;
 
         if (this.recording) return;
@@ -32,7 +32,9 @@ class Recorder extends Service {
         Utils.ensureDirectory(this.#recordings);
         this.#file = `${this.#recordings}/${now()}.mp4`;
         sh(
-            `wl-screenrec  ${full ? "" : `-g "${await sh("slurp")}"`} -f ${this.#file}`
+            `wl-screenrec ${recordAudio ? "--audio" : ""} ${
+                requireSize ? `-g "${await sh("slurp")}"` : ""
+            } -f ${this.#file}`
         );
 
         this.recording = true;
@@ -70,7 +72,9 @@ class Recorder extends Service {
         const file = `${this.#screenshots}/${now()}.png`;
         Utils.ensureDirectory(this.#screenshots);
 
-        const wayshot = `grim ${full ? "" : `-g "${await sh("slurp")}"`} ${file}`;
+        const wayshot = `grim ${
+            full ? "" : `-g "${await sh("slurp")}"`
+        } ${file}`;
         await sh(wayshot);
         bash(`wl-copy < ${file}`);
 

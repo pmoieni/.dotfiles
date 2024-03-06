@@ -1,0 +1,70 @@
+@import "../Notifications/notifications.scss";
+
+window#datemenu .datemenu {
+    all: unset;
+    @include floating-widget();
+
+    font-size: 1.2rem;
+
+    .notifications {
+        .header {
+            margin-bottom: $spacing;
+            margin-right: $spacing;
+
+            >label {
+                margin-left: $radius * 0.5;
+            }
+
+            button {
+                @include button;
+                padding: $padding * 0.7 $padding;
+            }
+        }
+
+        .notification-scrollable {
+            @include scrollable(20rem);
+        }
+
+        .notification-list {
+            margin-right: $spacing;
+        }
+
+        .notification {
+            @include notification();
+            @include widget();
+            padding: $padding;
+            margin-bottom: $spacing;
+        }
+
+        .placeholder {
+            image {
+                font-size: 7em;
+            }
+
+            label {
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    separator {
+        border-radius: $radius;
+        margin-right: $spacing;
+    }
+
+    .datemenu {
+        @include spacing;
+    }
+
+    .clock-box {
+        padding: $padding;
+
+        .clock {
+            font-size: 5em;
+        }
+
+        .uptime {
+            color: transparentize($fg, 0.2);
+        }
+    }
+}

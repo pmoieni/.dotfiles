@@ -1,0 +1,58 @@
+@mixin button-focus() {
+    background-color: $hover-bg;
+    color: $hover-fg;
+}
+
+@mixin button-hover() {
+    background-color: $hover-bg;
+    color: $hover-fg;
+}
+
+@mixin button-active() {
+    background-color: $primary-bg;
+    color: $primary-fg;
+}
+
+@mixin button-disabled() {
+    background-color: transparent;
+    color: transparentize($fg, 0.6);
+}
+
+@mixin button($flat: false, $bordered: false) {
+    all: unset;
+    color: $fg;
+    border-radius: $radius;
+    transition: $transition;
+    background-color: $widget-bg;
+    padding: $padding * 0.5 $padding;
+    border: none;
+
+    @if $bordered {
+        border: $border;
+    }
+
+    @if $flat {
+        background-color: transparent;
+    }
+
+    label,
+    image {
+        font-weight: bold;
+    }
+
+    &:focus {
+        @include button-focus();
+    }
+
+    &:hover {
+        @include button-hover();
+    }
+
+    &:active {
+        @include button-active();
+    }
+
+    &:disabled {
+        @include button-disabled();
+    }
+}

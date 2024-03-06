@@ -1,0 +1,90 @@
+window#powermenu,
+window#verification {
+    // the fraction has to be more than hyprland ignorealpha
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+window#verification .verification {
+    @include floating-widget;
+    padding: $padding * 2;
+    min-width: 300px;
+    min-height: 100px;
+
+    .text-box {
+        margin-bottom: $spacing;
+
+        .title {
+            font-size: 2rem;
+        }
+
+        .desc {
+            color: transparentize($fg, 0.1);
+            margin-top: $spacing;
+            font-size: 1.2rem;
+        }
+    }
+
+    .buttons {
+        @include spacing();
+        margin-top: $spacing;
+
+        button {
+            @include button(false);
+            font-size: 1.6rem;
+            padding: $padding;
+        }
+    }
+}
+
+window#powermenu .powermenu {
+    @include floating-widget();
+    @include spacing();
+    padding: $padding * 2;
+
+    button {
+        all: unset;
+
+        image {
+            @include button();
+            @include border();
+            border-radius: $radius;
+            min-width: 8rem;
+            min-height: 8rem;
+            font-size: 4em;
+        }
+
+        label,
+        image {
+            color: transparentize($fg, 0.1);
+        }
+
+        label {
+            margin-top: $spacing * 0.5;
+        }
+
+        &:hover {
+            image {
+                border-color: $primary-bg;
+            }
+
+            label {
+                color: $primary-bg;
+            }
+        }
+
+        &:focus image {
+            border-color: $primary-bg;
+        }
+
+        &:active image {
+            @include button-active;
+        }
+
+        &:focus,
+        &:active {
+            label {
+                color: $primary-bg;
+            }
+        }
+    }
+}

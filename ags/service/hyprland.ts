@@ -3,11 +3,6 @@ const { messageAsync } = await Service.import("hyprland");
 
 const { hyprland } = options;
 const {
-    spacing,
-    radius,
-    border: { width },
-    blur,
-    shadows,
     dark: {
         primary: { bg: darkActive },
     },
@@ -16,6 +11,13 @@ const {
     },
     scheme,
 } = options.theme;
+const {
+    spacing,
+    radius,
+    border: { width },
+    blur,
+    shadows,
+} = options;
 
 const deps = [
     "hyprland",
@@ -58,7 +60,6 @@ async function setupHyprland() {
         `general:gaps_out ${Math.floor(wm_gaps / 2)}`,
         `general:gaps_in ${Math.floor(wm_gaps / 4)}`,
         `general:col.active_border rgba(${activeBorder()}ff)`,
-        `general:col.inactive_border rgba(${hyprland.inactiveBorder.value})`,
         `decoration:rounding ${Math.floor(radius.value / 2)}`,
         `decoration:drop_shadow ${shadows.value ? "yes" : "no"}`,
     ]);

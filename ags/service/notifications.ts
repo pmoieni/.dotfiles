@@ -1,7 +1,7 @@
 import options from "options";
 const notifs = await Service.import("notifications");
 
-const { blacklist } = options.notifications;
+const { blacklist } = options.widgets.notifications;
 
 export default function init() {
     const notify = notifs.constructor.prototype.Notify.bind(notifs);

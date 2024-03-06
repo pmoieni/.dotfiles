@@ -1,0 +1,140 @@
+@mixin panel-button() {
+    all: unset;
+    color: $fg;
+    border-radius: $radius;
+    transition: $transition;
+    background-color: transparent;
+    box-shadow: none;
+    margin: 0.3rem;
+    padding: $padding * 0.5 $padding;
+
+    label,
+    image {
+        font-weight: bold;
+    }
+
+    &.focused,
+    &:focus,
+    &:hover {
+        @include border(true);
+        background-color: $hover-bg;
+        color: $hover-fg;
+    }
+
+    &.active,
+    &:active {
+        @include border(true);
+        background-color: $primary-bg;
+        color: $primary-fg;
+    }
+}
+
+.bar {
+    background-color: $bg;
+    font-size: 1.2rem;
+
+    .bar-workspaces {
+        @include panel-button();
+
+        label {
+            font-size: 0;
+            min-width: 0.6rem;
+            min-height: 0.6rem;
+            border-radius: $radius;
+            margin: 0 ($padding * 0.5);
+            transition: $transition * 0.5;
+            background-color: transparentize($fg, 0.8);
+
+            &.occupied {
+                background-color: transparentize($fg, 0.2);
+                min-width: 0.8rem;
+                min-height: 0.8rem;
+            }
+
+            &.active {
+                background-color: $primary-bg;
+                min-width: 2rem;
+                min-height: 1.2rem;
+            }
+        }
+
+        &.active,
+        &:active {
+            label {
+                background-color: transparentize($primary-fg, 0.3);
+
+                &.occupied {
+                    background-color: transparentize($primary-fg, 0.15);
+                }
+
+                &.active {
+                    background-color: $primary-fg;
+                }
+            }
+        }
+    }
+
+    .bar-media {
+        @include panel-button();
+
+        label {
+
+            margin: 0 ($spacing * 0.5);
+        }
+    }
+
+    .bar-notifications {
+        @include panel-button();
+    }
+
+    .bar-date {
+        @include panel-button();
+    }
+
+    .bar-tray {
+        .bar-tray-item {
+            @include panel-button();
+        }
+    }
+
+    .bar-quickmenu {
+        @include panel-button();
+
+        .indicators {
+            @include spacing();
+        }
+    }
+
+    .bar-battery {
+        @include panel-button();
+
+        &.low image {
+            color: $error-bg;
+        }
+
+        &.charging image {
+            color: #00D787;
+        }
+
+        &:active image {
+            color: $primary-fg;
+        }
+    }
+
+    .bar-powermenu,
+    .bar-recorder {
+        @include panel-button();
+
+        image {
+            color: transparentize($error-bg, 0.3);
+        }
+
+        &:hover image {
+            color: transparentize($error-bg, 0.15);
+        }
+
+        &:active image {
+            color: $primary-fg;
+        }
+    }
+}

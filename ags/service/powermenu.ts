@@ -1,6 +1,6 @@
 import options from "options";
 
-const { sleep, reboot, logout, shutdown } = options.powermenu;
+const { sleep, reboot, logout, shutdown } = options.widgets.powermenu;
 
 export type Action = "sleep" | "reboot" | "logout" | "shutdown";
 

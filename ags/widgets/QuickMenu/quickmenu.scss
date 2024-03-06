@@ -1,0 +1,223 @@
+window#quickmenu .quickmenu {
+    @include floating-widget();
+    @include spacing();
+
+    padding: $padding;
+
+    .header {
+        @include spacing();
+        color: $fg;
+
+        .user-label {
+            background-color: $primary-bg;
+            color: $primary-fg;
+            font-weight: bold;
+            padding: $padding;
+            border-radius: $radius;
+        }
+
+        separator {
+            margin: $spacing;
+            background-color: $border-color;
+        }
+
+        button {
+            @include button();
+            padding: $padding;
+
+            image {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .sliders-box {
+        @include widget();
+        padding: $padding * 0.5 0;
+
+        button {
+            @include button(true);
+            padding: $padding;
+        }
+
+        .volume button.arrow:last-child {
+            margin-left: $spacing;
+        }
+
+        .volume,
+        .brightness {
+            padding: $padding * 0.5 $padding;
+        }
+
+        scale {
+            @include slider();
+            margin: 0 $spacing;
+        }
+    }
+
+    .row {
+        @include spacing();
+    }
+
+    .menu {
+        all: unset;
+        @include widget();
+        padding: $padding;
+        margin-top: $spacing;
+
+        .icon {
+            margin: 0 $spacing;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        separator {
+            margin: $spacing;
+        }
+
+        button {
+            @include button(true);
+            padding: $padding;
+
+            image:first-child {
+                margin-right: $spacing;
+            }
+        }
+
+        .bluetooth-devices {
+            @include spacing(0.5);
+        }
+
+        switch {
+            @include button();
+
+            slider {
+                background-color: $primary-fg;
+                border-radius: $radius;
+            }
+
+            image {
+                color: transparent;
+            }
+        }
+    }
+
+    .sliders-box .menu {
+        margin: $spacing;
+
+        &.app-mixer {
+            .mixer-item {
+                padding: $padding;
+
+                scale {
+                    @include slider();
+                }
+
+                image {
+                    font-size: 1em;
+                    margin: 0 $padding;
+                }
+            }
+        }
+    }
+
+    .toggle-button {
+        border-radius: $radius;
+
+        image {
+            font-size: 2rem;
+        }
+
+        label {
+            margin-left: $spacing;
+            font-size: 1.2rem;
+        }
+
+        button {
+            @include button();
+
+            &:first-child {
+                padding: ($padding * 1.5) $padding;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            &:last-child {
+                padding: ($padding * 1.5) $padding;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+        &.active {
+            background-color: $primary-bg;
+
+            label,
+            image {
+                color: $primary-fg;
+            }
+        }
+    }
+
+    .simple-toggle {
+        @include button();
+        font-weight: bold;
+        padding: ($padding * 1.5) $padding;
+
+        label {
+            margin-left: $spacing;
+            font-size: 1.2rem;
+        }
+
+        image {
+            font-size: 2rem;
+        }
+    }
+
+    .media {
+        @include spacing();
+
+        .player {
+            @include widget();
+            padding: $padding;
+
+            .cover {
+                @include border();
+                background-size: cover;
+                background-position: center;
+                border-radius: $radius;
+                margin-right: $spacing;
+            }
+
+            button {
+                @include button(true);
+                padding: $padding;
+
+                &.play-pause {
+                    margin: 0 ($spacing * 0.5);
+                }
+
+                image {
+                    font-size: 1.2em;
+                }
+            }
+
+            .artist {
+                color: transparentize($fg, 0.2);
+                font-size: 1rem;
+            }
+
+            scale {
+                @include slider($width: 0.5rem,
+                    $slider: false);
+                margin-bottom: $padding * 0.5;
+
+                trough {
+                    border: none;
+                }
+            }
+        }
+    }
+}

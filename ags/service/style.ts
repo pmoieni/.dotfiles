@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { type Opt } from "lib/option";
 import options from "options";
 import { bash, dependencies, sh } from "lib/utils";
@@ -6,26 +5,12 @@ import { bash, dependencies, sh } from "lib/utils";
 const deps = [
     "font",
     "theme",
-    "bar.flatButtons",
-    "bar.position",
-    "bar.battery.charging",
-    "bar.battery.blocks",
+    "widgets.bar.position",
+    "widgets.bar.battery.charging",
 ];
 
-const {
-    dark,
-    light,
-    scheme,
-    padding,
-    spacing,
-    radius,
-    blur,
-    shadows,
-    widget,
-    border,
-} = options.theme;
-
-const popoverPaddingMultiplier = 1.6;
+const { dark, light, scheme } = options.theme;
+const { padding, spacing, radius, border, blur, widget } = options;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const t = (dark: Opt<any> | string, light: Opt<any> | string) =>
@@ -42,60 +27,39 @@ const variables = () => [
             : t(dark.bg, light.bg)
     ),
     $("fg", t(dark.fg, light.fg)),
-
     $("primary-bg", t(dark.primary.bg, light.primary.bg)),
     $("primary-fg", t(dark.primary.fg, light.primary.fg)),
-
     $("error-bg", t(dark.error.bg, light.error.bg)),
     $("error-fg", t(dark.error.fg, light.error.fg)),
+    $("border-width", `${border.width}px`),
+    $(
+        "widget-bg",
+        `transparentize(${t(dark.widget, light.widget)}, ${
+            widget.opacity.value / 100
+        })`
+    ),
+    $(
+        "border-color",
+        `transparentize(${t(dark.border, light.border)}, ${
+            border.opacity.value / 100
+        })`
+    ),
+    $("border", "$border-width solid $border-color"),
 
     $("scheme", scheme),
     $("padding", `${padding}pt`),
     $("spacing", `${spacing}pt`),
     $("radius", `${radius}px`),
     $("transition", `${options.transition}ms`),
-
-    $("shadows", `${shadows}`),
-
-    $(
-        "widget-bg",
-        `transparentize(${t(dark.widget, light.widget)}, ${widget.opacity.value / 100})`
-    ),
-
     $(
         "hover-bg",
-        `transparentize(${t(dark.widget, light.widget)}, ${(widget.opacity.value * 0.9) / 100})`
+        `transparentize(${t(dark.widget, light.widget)}, ${
+            (widget.opacity.value * 0.9) / 100
+        })`
     ),
     $("hover-fg", `lighten(${t(dark.fg, light.fg)}, 8%)`),
-
-    $("border-width", `${border.width}px`),
-    $(
-        "border-color",
-        `transparentize(${t(dark.border, light.border)}, ${border.opacity.value / 100})`
-    ),
-    $("border", "$border-width solid $border-color"),
-
-    $(
-        "active-gradient",
-        `linear-gradient(to right, ${t(dark.primary.bg, light.primary.bg)}, darken(${t(dark.primary.bg, light.primary.bg)}, 4%))`
-    ),
-    $("shadow-color", t("rgba(0,0,0,.6)", "rgba(0,0,0,.4)")),
-    $("text-shadow", t("2pt 2pt 2pt $shadow-color", "none")),
-
-    $(
-        "popover-border-color",
-        `transparentize(${t(dark.border, light.border)}, ${Math.max((border.opacity.value - 1) / 100, 0)})`
-    ),
-    $("popover-padding", `$padding * ${popoverPaddingMultiplier}`),
-
     $("font-size", `${options.font.size}pt`),
     $("font-name", options.font.name),
-
-    // etc
-    $("charging-bg", options.bar.battery.charging),
-    $("bar-battery-blocks", options.bar.battery.blocks),
-    $("bar-position", options.bar.position),
-    $("hyprland-gaps-multiplier", options.hyprland.gaps),
 ];
 
 async function resetCss() {

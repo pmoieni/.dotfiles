@@ -3,7 +3,7 @@ import icons from "../lib/icons";
 
 export default async function init() {
     const bat = await Service.import("battery");
-    const { battery } = options.bar;
+    const { battery } = options.widgets.bar;
     bat.connect("notify::percent", ({ percent, charging }) => {
         const low = battery.low.value;
 

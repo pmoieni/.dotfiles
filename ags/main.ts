@@ -1,40 +1,32 @@
-import "lib/session";
-import options from "options";
-import Bar from "widget/bar/Bar";
-import Applauncher from "widget/applauncher/Applauncher";
-import Overview from "widget/overview/Overview";
-import PowerMenu from "widget/powermenu/PowerMenu";
-import Verification from "widget/powermenu/Verification";
-import NotificationPopups from "widget/notifications/NotificationPopups";
-import ScreenCorners from "widget/bar/ScreenCorners";
-import OSD from "widget/osd/OSD";
-import SettingsDialog from "widget/settings/SettingsDialog";
-import { config, forMonitors } from "lib/utils";
-import { setupQuickSettings } from "widget/quicksettings/QuickSettings";
-import { setupDateMenu } from "widget/datemenu/DateMenu";
 import { init } from "service/index";
+import Bar from "widgets/Bar/Bar";
+import DateMenu from "widgets/DateMenu/DateMenu";
+import Notifications from "widgets/Notifications/Notifications";
+import PowerMenu from "widgets/PowerMenu/PowerMenu";
+import Verification from "widgets/PowerMenu/Verification";
+import QuickMenu from "widgets/QuickMenu/QuickMenu";
+import Workspaces from "widgets/Workspaces/Workspaces";
+import Launcher from "widgets/Launcher/Launcher";
 
-export default config({
+declare global {
+    const OPTIONS: string;
+    const TMP: string;
+    const USER: string;
+}
+
+App.config({
+    icons: "./assets",
     onConfigParsed: () => {
-        setupQuickSettings();
-        setupDateMenu();
         init();
     },
-    closeWindowDelay: {
-        applauncher: options.transition.value,
-        overview: options.transition.value,
-        quicksettings: options.transition.value,
-        datemenu: options.transition.value,
-    },
-    windows: [
+    windows: () => [
         Bar(),
-        ...forMonitors(NotificationPopups),
-        ...forMonitors(ScreenCorners),
-        ...forMonitors(OSD),
-        Applauncher(),
-        Overview(),
+        DateMenu(), // WIP
+        Notifications(), // WIP
         PowerMenu(),
         Verification(),
-        SettingsDialog(),
+        QuickMenu(),
+        Workspaces(),
+        Launcher(),
     ],
 });

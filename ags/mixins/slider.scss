@@ -1,0 +1,70 @@
+@mixin slider($width: 0.8em,
+    $slider-width: 0.5em,
+    $slider: true,
+    $focusable: true,
+    $radius: $radius) {
+    all: unset;
+
+    * {
+        all: unset;
+    }
+
+    trough {
+        transition: $transition;
+        border-radius: $radius;
+        background-color: $bg;
+        min-height: $width;
+        min-width: $width;
+
+        highlight,
+        progress {
+            border-radius: $radius;
+            background-color: $primary-bg;
+            min-height: $width;
+            min-width: $width;
+        }
+    }
+
+    slider {
+        box-shadow: none;
+        background-color: transparent;
+        transition: $transition;
+        border-radius: $radius;
+        min-height: $width;
+        min-width: $width;
+        margin: -$slider-width;
+    }
+
+    &:hover {
+        trough {
+            background-color: $hover-bg;
+        }
+
+        slider {
+            @if $slider {
+                background-color: $fg;
+            }
+        }
+    }
+
+    &:disabled {
+
+        highlight,
+        progress {
+            background-color: transparentize($fg, 0.4);
+            background-image: none;
+        }
+    }
+
+    @if $focusable {
+        trough:focus {
+            background-color: $hover-bg;
+
+            slider {
+                @if $slider {
+                    background-color: $fg;
+                }
+            }
+        }
+    }
+}
