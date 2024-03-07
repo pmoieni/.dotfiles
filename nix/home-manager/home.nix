@@ -66,6 +66,7 @@
       slack
       element-desktop
       spotify
+      discord
     ]);
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;
