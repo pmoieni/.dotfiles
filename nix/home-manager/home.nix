@@ -62,11 +62,9 @@
       telegram-desktop
       microsoft-edge
       tor-browser
-      vscode
       slack
       element-desktop
       spotify
-      discord
     ]);
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;
