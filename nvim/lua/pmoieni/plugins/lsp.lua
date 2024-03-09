@@ -94,7 +94,6 @@ return {
             lspconfig.svelte.setup({})
             lspconfig.bashls.setup({})
             lspconfig.cssls.setup({})
-            lspconfig.eslint.setup({})
             lspconfig.jsonls.setup({})
             lspconfig.html.setup({})
             lspconfig.tailwindcss.setup({})
