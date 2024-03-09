@@ -72,15 +72,15 @@ const options = mkOptions(OPTIONS, {
             margin: opt(80),
             favorites: opt([
                 [
-                    "org.gnome.Nautilus",
                     "Firefox",
                     "Microsoft Edge",
                     "Tor Browser",
                     "Telegram Desktop",
+                    "Slack",
                 ],
                 [
-                    "Visual Studio Code",
                     "wezterm",
+                    "org.gnome.Nautilus",
                     "Obs studio",
                     "Spotify",
                     "GNU Image Manipulation Program",
