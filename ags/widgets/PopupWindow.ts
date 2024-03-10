@@ -17,6 +17,7 @@ export const Padding = (
     { css = "", hexpand = true, vexpand = true }: EventBoxProps = {}
 ) =>
     Widget.EventBox({
+        className: "padding",
         hexpand,
         vexpand,
         canFocus: false,

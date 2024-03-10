@@ -5,6 +5,10 @@
     font-family: $font-name;
 }
 
+window.popup-window .padding {
+    all: unset;
+}
+
 window.popup {
     >* {
         border: none;
