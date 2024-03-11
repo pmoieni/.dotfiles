@@ -1,12 +1,9 @@
 @import "./button.scss";
 
 * {
+    all: unset;
     font-size: $font-size;
     font-family: $font-name;
-}
-
-window.popup-window .padding {
-    all: unset;
 }
 
 window.popup {
