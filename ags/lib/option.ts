@@ -26,6 +26,10 @@ export class Opt<T = unknown> extends Variable<T> {
         return `opt:${this.value}`;
     }
 
+    getValue = (): T => {
+        return super.getValue();
+    };
+
     init(cacheFile: string) {
         const cacheV = JSON.parse(Utils.readFile(cacheFile) || "{}")[this.id];
         if (cacheV !== undefined) this.value = cacheV;

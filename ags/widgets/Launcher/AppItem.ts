@@ -3,7 +3,7 @@ import options from "options";
 import { launchApp, icon } from "lib/utils";
 import icons from "lib/icons";
 
-const { iconSize } = options.widgets.launcher;
+const { iconSize } = options.widgets.launcher.apps;
 
 export const QuickButton = (app: Application) =>
     Widget.Button({

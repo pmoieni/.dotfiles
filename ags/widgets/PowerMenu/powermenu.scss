@@ -5,7 +5,7 @@ window#verification {
 }
 
 window#verification .verification {
-    @include floating-widget;
+    @include floating-widget();
     padding: $padding * 2;
     min-width: 300px;
     min-height: 100px;
@@ -29,8 +29,7 @@ window#verification .verification {
         margin-top: $spacing;
 
         button {
-            @include button(false);
-            font-size: 1.6rem;
+            @include button();
             padding: $padding;
         }
     }
@@ -47,6 +46,7 @@ window#powermenu .powermenu {
         image {
             @include button();
             @include border();
+            border-color: transparent;
             border-radius: $radius;
             min-width: 8rem;
             min-height: 8rem;

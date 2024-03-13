@@ -67,25 +67,34 @@ const options = mkOptions(OPTIONS, {
         },
         launcher: {
             width: opt(0),
-            iconSize: opt(55),
-            maxItem: opt(6),
             margin: opt(80),
-            favorites: opt([
-                [
-                    "Firefox",
-                    "Microsoft Edge",
-                    "Tor Browser",
-                    "Telegram Desktop",
-                    "Slack",
-                ],
-                [
-                    "wezterm",
-                    "org.gnome.Nautilus",
-                    "Obs studio",
-                    "Spotify",
-                    "GNU Image Manipulation Program",
-                ],
-            ]),
+            nix: {
+                pkgs: opt("nixpkgs/nixos-23.11"),
+                max: opt(8),
+            },
+            sh: {
+                max: opt(16),
+            },
+            apps: {
+                iconSize: opt(55),
+                max: opt(5),
+                favorites: opt([
+                    [
+                        "Firefox",
+                        "Microsoft Edge",
+                        "Tor Browser",
+                        "Telegram Desktop",
+                        "Slack",
+                    ],
+                    [
+                        "alacritty",
+                        "org.gnome.Nautilus",
+                        "Obs studio",
+                        "Spotify",
+                        "GNU Image Manipulation Program",
+                    ],
+                ]),
+            },
         },
         workspaces: {
             scale: opt(12),
