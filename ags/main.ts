@@ -1,3 +1,4 @@
+import "style/style";
 import { init } from "service/index";
 import Bar from "widgets/Bar/Bar";
 import DateMenu from "widgets/DateMenu/DateMenu";

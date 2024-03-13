@@ -80,8 +80,16 @@ async function resetCss() {
     App.applyCss(file);
 }
 
-export default function init() {
-    Utils.monitorFile(App.configDir, resetCss);
-    options.handler(deps, resetCss);
-    resetCss();
-}
+await sh(`fd "scss" ${App.configDir} -t f`).then(() => {
+    sh(`fd "scss" ${App.configDir} -t f`).then((files) => {
+        files.split(/\s+/).forEach(() => {
+            files.split(/\s+/).forEach((file) => {
+                Utils.monitorFile(file, resetCss);
+                Utils.monitorFile(file, resetCss);
+            });
+        });
+    });
+});
+
+options.handler(deps, resetCss);
+await resetCss();

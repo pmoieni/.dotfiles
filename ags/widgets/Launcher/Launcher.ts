@@ -6,7 +6,8 @@ import PopupWindow, { Padding } from "widgets/PopupWindow";
 
 const apps = await Service.import("applications");
 const { query } = apps;
-const { width, margin, maxItem, favorites } = options.widgets.launcher;
+const { width, margin } = options.widgets.launcher;
+const { max, favorites } = options.widgets.launcher.apps;
 
 const SeparatedAppItem = (app: Parameters<typeof AppItem>[0]) =>
     Widget.Revealer(
@@ -35,7 +36,7 @@ const Applauncher = () => {
         onChange: ({ text }) => {
             first = query(text || "")[0];
             list.children.reduce((i, item) => {
-                if (!text || i >= maxItem.value) {
+                if (!text || i >= max.value) {
                     item.reveal_child = false;
                     return i;
                 }

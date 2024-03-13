@@ -6,6 +6,7 @@ ln -s ~/.dotfiles/eww ~/.config/eww
 ln -s ~/.dotfiles/ags ~/.config/ags
 ln -s ~/.dotfiles/sway ~/.config/sway
 ln -s ~/.dotfiles/alacritty ~/.config/alacritty
+ln -s ~/.dotfiles/contour ~/.config/contour
 ln -s ~/.dotfiles/wezterm ~/.config/wezterm
 ln -s ~/.dotfiles/river ~/.config/river
 ln -s ~/.dotfiles/hypr ~/.config/hypr

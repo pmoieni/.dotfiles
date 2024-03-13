@@ -20,6 +20,12 @@ export default {
         video: "video-x-generic-symbolic",
         audio: "audio-x-generic-symbolic",
     },
+    nix: {
+        nix: "nixos-symbolic",
+    },
+    app: {
+        terminal: "terminal-symbolic",
+    },
     ui: {
         close: "window-close-symbolic",
         colorpicker: "color-select-symbolic",

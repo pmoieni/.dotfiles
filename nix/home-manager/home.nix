@@ -57,7 +57,6 @@
       tailwindcss-language-server
 
       #apps
-      wezterm
       alacritty
       telegram-desktop
       microsoft-edge

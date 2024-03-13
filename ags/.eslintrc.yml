@@ -27,3 +27,28 @@ rules:
           argsIgnorePattern: ^(unused|_)
     "@typescript-eslint/no-empty-interface":
         - "off"
+globals:
+    Widget: readonly
+    Utils: readonly
+    App: readonly
+    Variable: readonly
+    Service: readonly
+    pkg: readonly
+    ARGV: readonly
+    Debugger: readonly
+    GIRepositoryGType: readonly
+    globalThis: readonly
+    imports: readonly
+    Intl: readonly
+    log: readonly
+    logError: readonly
+    print: readonly
+    printerr: readonly
+    window: readonly
+    TextEncoder: readonly
+    TextDecoder: readonly
+    console: readonly
+    setTimeout: readonly
+    setInterval: readonly
+    clearTimeout: readonly
+    clearInterval: readonly
