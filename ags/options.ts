@@ -101,10 +101,10 @@ const options = mkOptions(OPTIONS, {
             count: opt(5),
         },
         powermenu: {
-            lock: opt("hyprlock"),
+            lock: opt("loginctl lock-session"),
             sleep: opt("systemctl suspend"),
             reboot: opt("systemctl reboot"),
-            logout: opt("loginctl lock-session"),
+            logout: opt("hyprctl dispatch exit"),
             shutdown: opt("shutdown now"),
             labels: opt(true),
         },
