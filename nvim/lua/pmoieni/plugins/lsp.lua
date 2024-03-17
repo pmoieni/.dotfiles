@@ -89,7 +89,7 @@ return {
                     "/home/pmoieni/.cache/jdtls/workspace"
                 }
             })
-            lspconfig.rnix.setup({})
+            lspconfig.nil_ls.setup({})
             lspconfig.tsserver.setup({})
             lspconfig.svelte.setup({})
             lspconfig.bashls.setup({})

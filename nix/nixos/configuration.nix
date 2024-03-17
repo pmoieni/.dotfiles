@@ -49,19 +49,6 @@ let
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
       '';
   };
-
-  killhypr = pkgs.writeTextFile {
-    name = "killhypr";
-    destination = "/bin/killhypr";
-    executable = true;
-    text = ''
-      hyprctl dispatch exit 0
-      sleep 2
-      if pgrep -x Hyprland >/dev/null; then
-          killall -9 Hyprland
-      fi
-    '';
-  };
 in
 {
   imports = [
@@ -255,7 +242,6 @@ in
       atomix # puzzle game
     ]);
     systemPackages = ([
-      killhypr
       inputs.hypridle.packages.${pkgs.stdenv.hostPlatform.system}.hypridle
       inputs.hyprlock.packages.${pkgs.stdenv.hostPlatform.system}.hyprlock
     ]) ++ (with pkgs-unstable; [

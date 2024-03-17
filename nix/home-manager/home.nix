@@ -1,6 +1,4 @@
 { inputs
-, lib
-, config
 , pkgs
 , pkgs-unstable
 , ...
@@ -49,7 +47,7 @@
       gopls
       elixir-ls
       jdt-language-server
-      rnix-lsp
+      nil
       nodePackages.svelte-language-server
       nodePackages.typescript-language-server
       nodePackages.bash-language-server
@@ -58,11 +56,10 @@
 
       #apps
       alacritty
+      wezterm
       telegram-desktop
       microsoft-edge
       tor-browser
-      slack
-      element-desktop
       spotify
     ]);
     pointerCursor = {
