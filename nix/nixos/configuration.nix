@@ -354,7 +354,7 @@ in
 
   # change to fonts.fonts for 23.05 or older, else font.packages
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Ubuntu" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Ubuntu" "IBMPlexMono" ]; })
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
