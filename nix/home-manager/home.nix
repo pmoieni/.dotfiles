@@ -61,6 +61,7 @@
       microsoft-edge
       tor-browser
       spotify
+      audacity
     ]);
     pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;
