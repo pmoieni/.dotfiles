@@ -257,6 +257,7 @@ in
       htop
       wget
       curl
+      dig
       zip
       unzip
       gzip

@@ -11,7 +11,7 @@ return {
             typescriptreact = { "eslint_d" },
             svelte = { "eslint_d" },
             cpp = { "clangtidy" },
-            -- go = { "golangci-lint" }
+            go = { "golangcilint" }
         }
 
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
